@@ -16,3 +16,16 @@ class School:
         for student in self.students:
             if student.school_id == student_id:
                 return student
+
+    def add_student(self, data):
+        self.students.append(Student(**data))
+        Student.save_all(self.students)
+
+    def delete_student(self, key, value):
+        valid = False
+        for student in self.students:
+            if getattr(student, key) == value:
+                self.students.remove(student)
+                valid = True
+        if valid: Student.save_all(self.students)
+        return valid

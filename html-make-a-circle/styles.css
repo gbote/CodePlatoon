@@ -1,0 +1,63 @@
+body {
+    font-family: 'Yeseva One', serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #292f36;
+  }
+  
+  main {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box {
+    /* align-self: stretch;
+    justify-self: stretch; */
+    height: 9rem;
+    width: 9rem;
+    border: 2px solid #4ecdc4;
+    line-height: 100px;
+    text-align: center;
+    background-color: #4ecdc4;
+    color: #292f36;
+    border-radius: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* 4n-7 */
+  .box:nth-child(2n-3) {
+    background-color: #ff6b6b;
+    border: #ff6b6b
+  }
+  
+  .box:nth-child(3) {
+    background-color: #ffe66d;
+    border: #ffe66d;
+  }
+  
+  
+  .inner {
+    width: 2rem;
+    height: 2rem;
+    background-color: #f7fff7;
+    border-radius: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    main {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 100vh;
+      column-gap: 10px;
+    }  
+  
+    .box {
+      align-self: center;
+      justify-self: center;
+    }  
+  }
