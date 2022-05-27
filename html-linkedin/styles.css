@@ -1,0 +1,98 @@
+  body {
+    background-color: #cccccc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .center-children-vertically {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-icon-margin {
+    margin: 0px 8px;
+  }
+  
+  #navigation {
+    justify-content: space-between;
+    height: 40px;
+    background-color: #FFFFFF
+  }
+  
+  #main-content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: darkorchid; */
+  }
+  
+  #search-div {
+    height: 36px;
+    /* background-color: chocolate; */
+  }
+  
+  
+  #search-input {
+    margin-left: 8px;
+  }
+  
+  #icons-div {
+    height: 36px;
+    /* background-color: #00CCFF */
+  }
+  
+  
+  .main-gutters {
+    margin: 0px 200px;
+  }
+  
+  
+  .main-boxes {
+    background-color: burlywood;
+    border-radius: 8px;
+    border: 1px solid #888888;
+    margin: 20px 0px;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  #main-div {
+    width: 600px;
+    margin-right: 20px
+  }
+  
+  #side-div {
+    width: 300px
+  }
+  
+  .side-box {
+    height: 50px;
+  }
+  
+  #profile-summary > * {
+    margin: 2px 0px;
+  }
+  
+  #bg-image {
+    overflow: hidden;
+    margin: -20px -20px 0px -20px;
+    height: 160px;
+  }
+  
+  #profile-summary {
+    position: relative;
+  }
+  
+  #profile-pic {
+    position: absolute;
+    top: -60px;
+    border-radius: 100%;
+    border: 4px white solid;
+  }
+  
+  #summary {
+    padding-top: 80px;
+  }
+  
+  #about {
+    background-color: aquamarine;
+  }
