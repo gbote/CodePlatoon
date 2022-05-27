@@ -40,7 +40,7 @@ def to_roman(num):
         #print("in loop, coversion data", conversion_data)
         # figure out how many times our increment goes into our current number
         copies = new_num // conversion_data["increment"]
-        for i in range(copies):
+        for _ in range(copies):
             roman_num += conversion_data["roman"]
         # determine what part is left over
         new_num = new_num % conversion_data["increment"] 

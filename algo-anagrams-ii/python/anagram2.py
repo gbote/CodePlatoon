@@ -5,14 +5,5 @@ def clean_str(str):
     return "".join(str_arr)
 
 def anagrams_for(word, list_of_words):
-    dict_list = []
-    output = []
-    for single_word in list_of_words:
-        dict_list.append({
-            "original": single_word,
-            "comparison": clean_str(single_word)
-        })
-    for entry in dict_list:
-        if entry["comparison"] == clean_str(word):
-            output.append(entry["original"])
-    return output
+    dict_list = [{"original": single_word, "comparison": clean_str(single_word)} for single_word in list_of_words]
+    return [entry["original"] for entry in dict_list if entry["comparison"] == clean_str(word)]

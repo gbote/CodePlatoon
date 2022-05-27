@@ -16,15 +16,9 @@ def first_missing_positive(nums):
             # swap values in the list so that index "v - 1" now holds current value "v"
             # the current index location will now hold the value that was swapped against
             nums[i], nums[v - 1] = nums[v - 1], nums[i]
-            
+
             # break out of while loop if current value and swapped value are the same
             if nums[i] == nums[v - 1]:
                 break
 
-    # search through the list until we find an index where the value doesn't not equal "index + 1" (which is the location of where the missing number should be!)
-    for i, num in enumerate(nums, 1):
-        if num != i:
-            return i
-
-    # if we get through out entire list, that means all positive numbers are includes from 1-length, so the next missing positive number is the length+1
-    return len(nums) + 1
+    return next((i for i, num in enumerate(nums, 1) if num != i), len(nums) + 1)

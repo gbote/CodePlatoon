@@ -6,13 +6,9 @@ def find_armstrong_numbers(numbers):
     for num in numbers:
 
         # convert int number to string to access each digit individually
-        num_str = str(num) 
+        num_str = str(num)
         length = len(num_str)
-        total = 0
-
-        # calculate exponentiation for each digit and add them all up
-        for i in range(length):
-            total += int(num_str[i]) ** length
+        total = sum(int(num_str[i]) ** length for i in range(length))
 
         if (total == int(num_str)):
             armstrong_list.append(total)

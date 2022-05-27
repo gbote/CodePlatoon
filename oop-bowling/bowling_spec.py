@@ -1,7 +1,7 @@
 import unittest
-from classes.game import Game
-from classes.player import Player
-from classes.frame import Frame
+from bowling import Game
+from player import Player
+from frame import Frame
 
 #not really sure how to use this
 

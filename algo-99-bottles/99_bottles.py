@@ -11,8 +11,10 @@ def bottle_song(n):
 		objectsMinusOne = 'bottles'
 
 	if (n > 0):
-		print(str(n) + " " + objects + " of beer on the wall, " + str(n) + " " + objects + " of beer.")
-		print("Take one down and pass it around, " + str(n-1) + " " + objectsMinusOne + " of beer on the wall.")
+		print(f"{str(n)} {objects} of beer on the wall, {str(n)} {objects} of beer.")
+		print(
+		    f"Take one down and pass it around, {str(n-1)} {objectsMinusOne} of beer on the wall."
+		)
 	elif (n == 0):
 		print("No more bottles of beer on the wall, no more bottles of beer.")
 		print("Go to the store and buy some more, 99 bottles of beer on the wall.")

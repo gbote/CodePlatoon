@@ -1,7 +1,3 @@
-def fibonacci(n):
-  pass
-
-
 from pickle import APPEND
 
 def fibonacci(n):
