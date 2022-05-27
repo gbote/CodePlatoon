@@ -33,8 +33,9 @@ def sort_by_age(a,b):
 
 # key is a 1-argument function that describes how to sort the list.
 # in python2, you used cmp, which was a 2-argument function that describes how to sort the list
+# sourcery skip: raise-specific-error
 sorted_people = sorted(people, key=cmp_to_key(sort_by_age))
-# print(sorted_people)
+print(sorted_people)
 
 # if you need to do something that you think might throw an error, put it in a 'try' block
 try:
@@ -46,5 +47,5 @@ try:
 except Exception as e:
     print(e)
 
-print('continueing...')
+print('continuing...')
 
