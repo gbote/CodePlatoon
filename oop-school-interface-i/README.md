@@ -71,10 +71,7 @@ class Staff:
         self.employee_id = employee_id
 ```
 
-IGNORE THIS PORTION (UNTIL WE GO OVER INHERITANCE): 
-~~Uh oh. That's a LOT of repeated code. There's got to be a way to refactor this. Looks like right now students and staff only differ when it comes to how their ids are stored and labeled. As our program develops, we may discover other differences, so it's a good idea to keep these separate classes, but we do want to keep our code as DRY as possible.~~ 
-
-~~Let's create a `Person` class and move any shared attributes there. Then, set up your `Staff` and` School` classes so that they inherit from `Person`. [Read about how inheritance works here.](https://www.python-course.eu/python3_inheritance.php) We'll cover it in more detail tomorrow.~~ 
+There's a lot of repeated code between our `Student` and `Staff` classes. Let's create a `Person` class and move any shared attributes there. Then, set up your `Staff` and `Student` classes so that they inherit from `Person`.
 
 
 ## Release 1: Refactor with dict and **kwargs
@@ -149,17 +146,6 @@ Write a method, `all_students()` that returns an array of student objects that r
 ```Python
 Student.all_students() # => [<__main__.Student object at 0x10c4fa908>, <__main__.Student object at 0x10c4faa58>, <__main__.Student object at 0x10c4faba8>, <__main__.Student object at 0x10c4facf8>, <__main__.Student object at 0x10c4fae48>, <__main__.Student object at 0x10c4faf98>]
 ```
-#### Hint 
-You'll need to import `os.path` and use `os.path.abspath` as well as `os.path.join` to read from the `csv` file. 
-
-```Python
-import os
-my_path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(my_path, "../data/students.csv")
-    
-with open(path) as csvfile:
-
-```
 
 ## Release 3: Loading Staff and Students into School
 Again we are making a design decision here that might need to change as we expand functionality. For now, we want each instance of `School` to load in all the `Students` and `Staff` on its own. 
@@ -186,5 +172,4 @@ print(school.staff)
 
 print(school.students)
 ```
-
 
