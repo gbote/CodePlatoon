@@ -1,59 +1,73 @@
-import itertools
-class ContactList():
+# define a class for a contact list
+# needs a name and a list of contacts (list of dictionaries)
+# contact list needs to remain sorted
+# need to be able to add and remove contacts
+# need to be able to generate a new contact list that contains shared contacts of two other contact listss
 
-    def __init__(self, name, contacts = None):
-        if contacts is None:
-            contacts = []
+alice = {
+    'name': 'alice',
+    'number' : '867-5309'
+}
+bob = {
+    'name': 'bob',
+    'number' : '555-5555'
+}
+carol = {
+    'name': 'carol',
+    'number' : '123-4567'
+}
+dan = {
+    'name': 'dan',
+    'number' : '987-6543'
+}
+eve = {
+    'name': 'eve',
+    'number' : '711-2022'
+}
+
+def get_name(item):
+    return item['name']
+
+class ContactList:
+    def __init__(self, name, contacts):
         self.name = name
         self.contacts = contacts
+        self.contacts.sort(key=get_name)
 
     def add_contact(self, contact):
         self.contacts.append(contact)
-
-    def __str__(self):
-        return (f"{self.name}: {self.contacts}")
+        self.contacts.sort(key=get_name)
 
     def remove_contact(self, name):
-        for index, contact in enumerate(self.contacts):
-            if contact["name"] == name:
-                self.contacts.pop(index)
-                break
+        for contact in self.contacts:
+            if contact['name'] == name:
+                self.contacts.remove(contact)
 
-    def find_shared_contacts(self, common_contact):
-        shared_contacts = []
-        for first, second in itertools.product(range(len(self.contacts)), range(len(common_contact.contacts))):
-            if (self.contacts[first]["name"] == common_contact.contacts[second]["name"]):
-                shared_contacts.append(self.contacts[first])
-            return f"{shared_contacts}"
+    def find_shared_contacts(self, other_contact_list):
+        shared_contacts = ContactList(f'{self.name}/{other_contact_list.name} shared contacts', [])
+        for contact in self.contacts:
+            for other_contact in other_contact_list.contacts:
+                if contact['name'] == other_contact['name'] and contact['number'] == other_contact['number']:
+                    shared_contacts.add_contact(contact)
+        return shared_contacts
+    
+friends_list = ContactList('my friends', [alice, bob, dan, carol])
+print(friends_list.name)
+print(friends_list.contacts)
 
+friends_list.add_contact(eve)
 
-friends = [
-    {'name': 'Alice', 'number': '867-5309'},
-    {'name': 'Bob', 'number': '555-5555'}
-]
+print(friends_list.name)
+print(friends_list.contacts)
 
+friends_list.remove_contact('alice')
 
-work_buddies = [
-    {'name': 'Alice', 'number': '867-5309'},
-    {'name': 'Carlos', 'number': '555-5555'}
-]
+print(friends_list.name)
+print(friends_list.contacts)
 
-my_friends = ContactList("Friends", friends)
-work_friends = ContactList("Coworkers", work_buddies)
+work_friends = ContactList('my coworkers', [alice, bob, dan, eve])
 
-friends_i_work_with = my_friends.find_shared_contacts(work_friends)
-# friends_i_work_with should be: [{'name':'Alice','number':'867-5309'}]
+shared_contacts = work_friends.find_shared_contacts(friends_list)
 
-print(friends_i_work_with)
-
-print(my_friends)
-
-my_friends.add_contact({"name": "Bill", "number": "777-7777"})
-
-print(my_friends)
-
-my_friends.remove_contact("Alice")
-
-print(my_friends)
-
-my_friends.add_contact({"name": "Alice", "number": "867-5309"})
+print(shared_contacts.name)
+print(shared_contacts.contacts)
