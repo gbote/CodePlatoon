@@ -1,36 +1,33 @@
-import itertools
-from dice import Dice
+import random
 
 class BoggleBoard:
-  dice_values = [
-        'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO',
-        'EHRTVW', 'CIMOTU', 'DISTTY', 'EIOSST',
-        'DELRVY', 'ACHOPS', 'HIMNQU', 'EEINSU',
-        'EEGHNW', 'AFFKPS', 'HLNNRZ', 'DEILRX'
+
+  boggle_dice = [
+    "AAEEGN","ELRTTY","AOOTTW","ABBJOO",
+    "EHRTVW","CIMOTU","DISTTY","EIOSST",
+    "DELRVY","ACHOPS","HIMNQU","EEINSU",
+    "EEGHNW","AFFKPS","HLNNRZ","DEILRX"
   ]
 
   def __init__(self):
-    self.board = [[],[],[],[]]
-    for dice_num, (row, _) in enumerate(itertools.product(self.board, range(4))):
-      row.append(Dice(self.dice_values[dice_num]))
-    print(self)
+    self.letters = [
+      ["_","_","_","_"],
+      ["_","_","_","_"],
+      ["_","_","_","_"],
+      ["_","_","_","_"]
+    ]
 
-  def __str__(self):  # sourcery skip: avoid-builtin-shadow
-    # print out the current board in the correct format
-    str = 'Current Board: \n'
-    for index,row in enumerate(self.board):
-      for i in range(4):
-        val = row[i].get_value()
-        tab = "  " # custom tab
-        if val == 'Q':
-          tab = 'u ' #custom tab accounting for the 'u'
-        str += val + tab
-      if index != 3:
-        str += '\n'
-
-    return str
+  def __str__(self):
+    return (f'{" ".join(self.letters[0])}\n{" ".join(self.letters[1])}\n{" ".join(self.letters[2])}\n{" ".join(self.letters[3])}')
 
   def shake(self):
-    for row, i in itertools.product(self.board, range(4)):
-      row[i].roll()
-    print(self)
+    each_boggle_dice = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    for i in range(len(self.letters)):
+      for j in range (len(self.letters[i])):
+        random_dice = random.choice(each_boggle_dice)
+        letter_to_add_to_board = BoggleBoard.boggle_dice[each_boggle_dice.index(random_dice)][random.randint(0,5)]
+        if letter_to_add_to_board == "Q":
+          self.letters[i][j] = "Qu"
+        else:
+          self.letters[i][j] = letter_to_add_to_board
+        each_boggle_dice.remove(random_dice)
