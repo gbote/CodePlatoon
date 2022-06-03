@@ -14,3 +14,7 @@ print(to_roman(3) == 'III')
 print(to_roman(100) == 'C')
 print(to_roman(1254) == 'MCCLIV')
 print(to_roman(2890) == 'MMDCCCXC')
+
+for i in range(1, 4000):
+    print(i)
+    print(to_roman(i))
