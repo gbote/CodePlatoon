@@ -195,7 +195,7 @@ if (age >= 21) {
     console.log('Come back when you are older')
 }
 
-## Sometimes, you can drink if you are in another country if you're 18. Let's account for that.
+// Sometimes, you can drink if you are in another country if you're 18. Let's account for that.
 
 let currentCountry = 'China'
 if (age >= 21) {

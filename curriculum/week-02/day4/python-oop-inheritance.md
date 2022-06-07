@@ -141,38 +141,6 @@ terminator = Cyborg('Arnold', 'terminator', 8)
 terminator.work()
 ```
 
-### Inheritance in Javascript
-> Inheritance in javascript is pretty similar to how it works in Python. Let's recreate one of our previous examples, just so you can see the syntax.
-
-```javascript
-class Animal {
-    constructor(name){
-        this.name = name
-    }
-    eat(food){
-        console.log(`${this.name} eats a ${food}.`)
-    }
-    speak(){
-        console.log("I am an animal!")
-    }
-}
-
-class Dog extends Animal {
-    constructor(name, is_service_animal){
-        super(name)
-        this.is_service_animal = is_service_animal
-    }
-    speak(){
-        if ( this.is_service_animal ) {
-            console.log(`My name is ${this.name}, and I'm here to help!`)
-        }
-    }
-}
-
-const fido = new Dog('fido', true)
-fido.eat('beef')
-fido.speak()
-```
 
 **When to use inheritance**
 > Use inheritance to write less code. If you are writing an object oriented program with many classes, check if there are many similarities between your classes that have caused you to write redundant code. If you have two classes that are related (e.g. Animal, Dog), but they don't actually share any redundant code, you don't need inheritance. Verify that those similarities are due to inherent is-a relationships that are unlikely to change.
@@ -183,8 +151,8 @@ fido.speak()
 - [Method Resolution Order(MRO)](https://www.educative.io/edpresso/what-is-mro-in-python)
 
 ## Assignments
+- [App Users III](https://github.com/romeoplatoon/oop-app-users-iii) in Python
 - [School Interface I](https://github.com/romeoplatoon/oop-school-interface-i)
-- [Word Guess CSV](https://github.com/romeoplatoon/algo-word-guess)
 - [Boggle I](https://github.com/romeoplatoon/oop-boggle-i)
 - Stretch challenge: [Boggle II](https://github.com/romeoplatoon/oop-boggle-ii)
 

@@ -251,7 +251,6 @@ Hints:
 
 ## Assignments
 - [Front End Intro](https://github.com/romeoplatoon/html-front-end-intro)
-- [Make A Circle](https://github.com/romeoplatoon/html-make-a-circle)
 - [Recreate hacker news](https://github.com/romeoplatoon/html-hacker-news)
 - [Top Ten](https://github.com/romeoplatoon/html-top-ten)
 

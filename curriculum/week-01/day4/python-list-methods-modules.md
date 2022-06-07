@@ -3,8 +3,6 @@
 ## Topics Covered / Goals
 - Understand lambda functions
 - Understand list methods map(), filter(), sort(), reduce()
-- Understand ternary statements
-- Understand list comprehensions
 - Understand Try-Except error handling
 
 ## Lesson
@@ -54,34 +52,44 @@ sum = functools.reduce(lambda agg, item : agg + item, my_list)
 print(sum)
 ```
 
-## Ternary Statements
-- inline if-statements
+**sort()**
 ```python
-## if statement
-x = None
-y = 9
-if y > 5:
-    x = "donuts"
-else:
-    x = "bagels"
+from functools import cmp_to_key
 
-print(x)
+people = [
+    {
+        'name': 'alice',
+        'age': 44,
+        'job': 'influencer',
+    },
+    {
+        'name': 'bob',
+        'age': 49,
+        'job': 'dog walker',
+    },
+    {
+        'name': 'carol',
+        'age': 35,
+        'job': 'life coach',
+    },
+]
 
-## ternary statement
-x = "donuts" if y > 5 else "bagels"
-print(x)
-```
+# our sort function will look at list elements 2 at a time
+# return any positive number to indicate that a gets sorted before b
+# return any negative number to indicate that b gets sorted before a
+# return 0 to indicate that you don't care which is first
+def sort_by_age(a,b):
+    # if a['age'] - b['age'] > 0:
+    #     return 1
+    # elif a['age'] - b['age'] < 0:
+    #     return -1
+    # elif a['age'] == b['age']:
+    #     return 0
+    return a['age'] - b['age']
 
-### List Comprehensions
-```python
-full_list = [a for a in range(10)]
-print(full_list)
-
-evens_list = [x for x in range(10) if x % 2 == 0]
-print(my_list)
-
-some_list = ["donuts" if x % 2 == 0 else "bagels" for x in range(10) if x % 3 == 0]
-print(some_list)
+# key is a 1-argument function that describes how to sort the list.
+# in python2, you used cmp, which was a 2-argument function that describes how to sort the list
+sorted_people = sorted(people, key=cmp_to_key(sort_by_age))
 ```
 
 ### Try-Except
