@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #7f1231;  
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  
+  
+  .logo {
+    font-size:40px;
+    font-family: 'Times New Roman', Times, serif;
+    color:white;
+    font-weight: bold;
+  }
+  
+  .card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  a:link {
+    color: black;
+  }
+  
+  a:visited {
+    color: black;
+  }
