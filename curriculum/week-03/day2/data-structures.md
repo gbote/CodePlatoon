@@ -104,7 +104,8 @@ A binary search tree is a binary tree in which each left node is smaller than ea
 a B-Tree is NOT a binary tree. It's similar, but can have more than 2 children per node, depending on the order of the tree (a 4th order tree has at most 4 children per node). These are commonly used in popular databases. 
 
 
-
+## Resources
+- [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
 
 ## Assignments
 - [Bank Accounts](https://github.com/romeoplatoon/oop-bank-accounts)

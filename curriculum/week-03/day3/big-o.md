@@ -7,8 +7,12 @@
 - Take some simple steps to avoid writing inefficient code
 
 ## Lesson
-Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time a algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally are concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving. 
+Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time a algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally  concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving. 
 
+When analyzing the time complexity of an algorithm, we measure how the total number of operations performed increases as the input size becomes very large. 
+- We're only interested in the worst-case scenario
+- It is assumed that all operations take the same amount of time, so this is roughly equal to measuring time.
+- only the largest term matters. 3N^2 + 4N + 1000 would just be N^2. As the input size gets really large, those smaller terms become irrelevant.
 
 ### Time Complexities
 Here are some common complexities that you'll encounter:
@@ -37,7 +41,7 @@ append_to_list(large_list, 77) # just adds on to end, not impacted by size of li
 ```
 
 O(log N): Logarithmic Time
-[Binary Search](https://github.com/quebecplatoon/algo-binary-search)
+[Binary Search](https://github.com/romeoplatoon/algo-binary-search)
 
 O(N): Linear Time
 ```python
@@ -54,6 +58,9 @@ def find_item_greater_exists(my_list, value):
 find_item_greater_exists(small_list, 10) # may take up to 5 iterations
 find_item_greater_exists(large_list, 10) # may take up to 10 iterations
 ```
+
+O(N log N)
+There aren't many simple algorithms that have O(N log N) complexity, but it's important to know that various sorting algorithms exist that can sort an array this fast. If you're working on an algorithm problem, and you're struggling to come up with a solution that is better than O(N^2), try sorting the array first!
 
 O(N^2): Quadratic Time
 ```python
@@ -188,5 +195,4 @@ def example_3(my_list):
 - [Big O Problems 1](https://github.com/romeoplatoon/algo-big-o-i)
 - [Big O Problems 2](https://github.com/romeoplatoon/algo-big-o-ii)
 - [Bubble Sort](https://github.com/romeoplatoon/algo-bubble-sort) in JS/python
-
 
