@@ -47,10 +47,12 @@ Hello World!
 (POP)  first function resolving...    
 ```
 ...because the first function can't resolve fully until the second function is done executing, and the second function can't fully resolve until the third function is done executing.
+A good way to visualize the call stack is by using the debugger. If we step through the above program using our debugger, we can watch the individual function calls as they get pushed and popped from the stack.
+
+What happens if an error occurs while our program is running? If you look in your terminal, you should see the call stack. It will tell you not only which function threw the error from which file, but also what function was calling that function, and so on. This is essential information for debugging!
 
 ### Recursion
 
-- [Recursion](../page-resources/recursion.pdf)
 - Recursion is what happens when a function invokes itself. Like an iterative loop, it'll keep invoking itself until a certain condition is met
   - The finishing condition for a recursive solution is called a "base case", a condition where the function no longer returns itself. Without a base case, a recursive function will run until the Call Stack is completely full. In other words, a Stack Overflow.
 - Let's consider a simple linear search function. An iterative solution would use a for loop, like this:
@@ -98,6 +100,20 @@ def space_x_countdown_recursive(num):
     return space_x_countdown_recursive(num-1)
 ```
 
+Sometimes, it might be hard to know what the base case should be for a recursive algorithm, but your intuition tells you that your algorithm shouldn't need to recurse many times, and you DEFINITELY don't want an infinite loop. In these cases, it can be useful to define a `max_depth` parameter for your recursive algorithm.
+
+```python
+def limited_recursion(calls, max_depth):
+    if calls < max_depth:
+        # do useful stuff here
+        print('again!')
+        limited_recursion(calls + 1, max_depth)
+    }
+}
+
+limited_recursion(0, 10)
+```
+
 ## External Resources
 - [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
   - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.
@@ -106,4 +122,3 @@ def space_x_countdown_recursive(num):
 - [School Interface III](https://github.com/romeoplatoon/oop-school-interface-iii)
 - [Recursion](https://github.com/romeoplatoon/algo-recursion)
 - [Binary Search](https://github.com/romeoplatoon/algo-binary-search) in JS/Python
-

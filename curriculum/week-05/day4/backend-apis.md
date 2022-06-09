@@ -1,4 +1,4 @@
-# Backend APIss
+# Backend APIs
 
 ## Topics Covered / Goals
 - Using APIs from the backend
@@ -71,9 +71,10 @@ pip install python-dotenv
 
 ```python
 from dotenv import load_dotenv
+import os
 
 load_dotenv()  # take environment variables from .env.
-print(os.environ.apikey)
+print(os.environ['apikey'])
 
 ```
 

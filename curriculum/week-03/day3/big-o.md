@@ -189,10 +189,8 @@ def example_3(my_list):
 ## Resources
 **Big O Notation**
 - [Big O Slides](https://docs.google.com/presentation/d/1RNYAhAkNF3-UR9rzlBOaWJ0fyYundS0TAGXEYRv-Ybo/edit#slide=id.g22ef87eb09_0_23)
-- [More Big O Slides](../page-resources/Big_O_Notation.pdf)
 
 ## Assignments
 - [Big O Problems 1](https://github.com/romeoplatoon/algo-big-o-i)
-- [Big O Problems 2](https://github.com/romeoplatoon/algo-big-o-ii)
 - [Bubble Sort](https://github.com/romeoplatoon/algo-bubble-sort) in JS/python
 

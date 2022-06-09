@@ -73,11 +73,15 @@ hash tables allow you to create a list of key-value pairs. after creating a pair
 ```javascript
 class HashTable {
     constructor(){
-        this.table = new Array(64)
+        this.table = new Array(64).fill(0)
+        this.table = this.table.map((el)=>{
+            return []
+        })
     }
 
-    _hash(key) {
-        let hash = 0;
+    // given a key, this function should return a numerical index, which we can use to access the table above
+    _hash(key){
+        let hash = 0
         for ( let i = 0; i < key.length; i++ ) {
             hash += key.charCodeAt(i)
         }
@@ -86,14 +90,29 @@ class HashTable {
 
     set(key, value){
         const index = this._hash(key)
-        this.table[index] = value
+        this.table[index].push([key,value])
     }
 
     get(key){
         const index = this._hash(key)
-        return this.table[index]
+        for ( let data of this.table[index] ) {
+            if ( data[0] == key ) {
+                return data[1]
+            }
+        }
     }
 }
+
+myHash = new HashTable()
+
+myHash.set('name', 'alice')
+myHash.set('age', 34)
+myHash.set('mane', 'luxurious') // this key will cause a hash collision with 'name', because they are anagrams
+
+console.log(myHash.table)
+console.log(myHash.get('name'))
+console.log(myHash.get('age'))
+console.log(myHash.get('mane'))
 ```
 
 ## Other data structures
@@ -110,5 +129,4 @@ a B-Tree is NOT a binary tree. It's similar, but can have more than 2 children p
 ## Assignments
 - [Bank Accounts](https://github.com/romeoplatoon/oop-bank-accounts)
 - [Data Structures](https://github.com/romeoplatoon/algo-data-structures)
-
 
