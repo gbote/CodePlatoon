@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+    <!-- fonts, links for stylesheet. has meta information about the page, but nothing that actually renders on the screen -->
+    <head>
+        <title>You have (3) unread messages!</title>
+
+        <!-- add a favicon with a link tag -->
+        <link rel="icon">
+        <link rel="stylesheet" href="/main.css">
+    </head>
+
+    <!-- content. this is what the user is actually looking at -->
+    <body>
+
+        <!-- an HTML element consists of an opening tag, content, and a closing tag -->
+        <!-- html elements can have attributes. key-value pairs for arbitrary data -->
+        <!-- html attributes are always strings -->
+        <!-- many attributes are predefined, but we can invent our own as well -->
+        <!-- id's and classes are both used to label elements. id's must be unique. classes can be applied to many elements -->
+        <h1 id="welcome-message" class="big-text" foo="bar">Welcome to the internet!</h1>
+
+
+        <style>
+            h2 {
+                color: blue;
+            }
+        </style>
+        <!-- an h2 is not just a smaller h1, it's a subheading -->
+        <!-- we can add multiple classes by separating them by spaces. this also means that we can't use spaces in class names -->
+        <h2 id="green-text" class="big-heading another-class">second-level heading</h2>
+
+        <!-- subsubheading -->
+        <!-- h1-h6 are block level elements. they'll take up the whole line -->
+        <h3 class="some-class another-class">third level heading</h3>
+
+        <!-- horizontal rule is a self-closing tag-->
+        <hr/>
+        
+        <!-- strong is an inline element, it won't take up the whole line, it just neatly wraps around its child -->
+        <marquee><em><strong>not</strong></em> for professional purposes</marquee>
+        <marquee>dont do this</marquee>
+
+        <marquee direction="down" width="250" height="200" behavior="alternate" >
+            <marquee behavior="alternate">
+              This text will bounce
+            </marquee>
+        </marquee>
+    </body>
+</html>
