@@ -1,0 +1,22 @@
+.outer {
+    height: 400px;
+    width: 400px;
+    background-color: black;
+    position: relative;
+    /* we're not using top, left, etc, but this element is technically positioned */
+}
+
+.middle {
+    height: 300px;
+    width: 300px;
+    background-color: green;
+}
+
+.inner {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    position:absolute;
+    right: 5px;
+    bottom: 20px;
+}

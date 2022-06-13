@@ -1,0 +1,30 @@
+.pretendThisIsAnImage {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+}
+
+.floatMeRight {
+    float: right;
+}
+
+.text-block {
+    font-size: 24px;
+}
+
+.text-block:hover {
+    font-size: 36px;
+    font-weight:bold;
+
+}
+
+input:checked {
+    height: 50px; 
+    width: 50px; 
+    font-size: 50px;
+}
+
+input:focus {
+    /* outline: 2px solid red; */
+    outline:none;
+}
