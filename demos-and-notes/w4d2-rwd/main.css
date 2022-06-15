@@ -1,0 +1,62 @@
+html {
+    font-size: 16px;
+    font-family: arial;
+}
+
+.em-size {
+    font-size: 2em;
+}
+.rem-size {
+    font-size: 1.1rem;
+}
+
+.annoying-popup {
+    position: fixed;
+    width: 80vmin;
+    height: 80vmin;
+    background-color: purple;
+    border-radius: 9999px;
+
+}
+
+.box {
+    height: 90px;
+    width: 90px;
+    margin: 15px;
+    padding: 8px;
+    background-color: cyan;
+    border: 2px solid black;
+}
+
+#the-box {
+    flex-grow: 3;
+}
+
+/* .box-container {
+    display: flex;
+    justify-content: center;
+} */
+
+/* order matters. put media queries at the end of the file,  */
+@media (max-width: 1130px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 990px){
+    html {
+        font-size: 13px;
+    }
+    p {
+        display: none;
+    }
+}
+
+div {
+    border: 1px solid green;
+}
+
+.btn-success {
+    background-color: orange;
+}

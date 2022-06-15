@@ -17,7 +17,7 @@
 > There are strict rules about how applications can communicate with each other over the internet, known as a protocol. However, communication on the web is not defined by a single protocol, but by a stack of protocols, known as the OSI model.
 
 ### IP
-> The first protocol you should be aware of is IP, Internet Protocol. IP is concerned with WHERE a server is located on the internet. This location is described with a number called an IP address, which is similar to a physical address. Most of the world currently uses the fourth version of the IP protocol (IPv4), in which an IP address is a series of 4 numbers, separated by periods, like '192.0.2.1'. Whenever you type a domain name into your browser's url bar, your browser has to convert that into an IP address to know where to send the request. This is done using the Domain Name System (DNS), which will be covered more later. 
+> The first protocol you should be aware of is IP, Internet Protocol. IP is concerned with WHERE a server is located on the internet. This location is described with a number called an IP address, which is similar to a physical address. Most of the world currently uses the fourth version of the IP protocol (IPv4), in which an IP address is a series of 4 numbers, separated by periods, like '192.0.2.1'. Whenever you type a domain name into your browser's url bar, your browser has to convert that into an IP address to know where to send the request. This is done using the Domain Name System (DNS).
 
 ### TCP
 > IP is only concerned with WHERE a server is, but not HOW to get there. TCP (transmission control protocol) provides reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating via an IP network. The reliability makes this protocol a little bit slower, since every single TCP connection actually requires multiple requests to initiate, known as a 3-way handshake. TCP was designed alongside IP, so they're often referred to together as TCP/IP. 
@@ -38,7 +38,7 @@
 > Axios is a popular, modern HTTP client for javascript. Let's try using Axios to make some requests to the pokemon API. 
 
 ### Promises from Axios
-> When Axios performs a request, it takes a few hundred milliseconds to complete, but we wouldn't want our application to just do nothing while it waits. Instead, axios immediately returns a `promise` object, which lets us specify what we want to once the request finishes. The promise object has two important methods: `.then()` accepts a callback function to specify what happens if the request succeeded, and the promise is 'resolved'. The promise also has a method called `.catch()`, which accepts a callback function to specify what happens if the request fails, and the promise is 'rejected'. It's also important to understand that `.then()` and `.catch()` also return promises, so these methods can be chained off of each other.
+> When Axios performs a request, it takes a few hundred milliseconds to complete, but we wouldn't want our application to just do nothing while it waits. Instead, axios immediately returns a `promise` object, which lets us specify what we want to do once the request finishes. The promise object has two important methods: `.then()` accepts a callback function to specify what happens if the request succeeded, and the promise is 'resolved'. The promise also has a method called `.catch()`, which accepts a callback function to specify what happens if the request fails, and the promise is 'rejected'. It's also important to understand that `.then()` and `.catch()` also return promises, so these methods can be chained off of each other.
 
 ```javascript
 axios.get('ttps://pokeapi.co/api/v2/pokemon/12/').then((response)=>{
@@ -83,5 +83,4 @@ const myPromise = new Promise((resolve, reject) => {
 ## Assignments
 - [Simple To-do](https://github.com/romeoplatoon/html-simple-to-do)  
 - [Pokemon Theme Team](https://github.com/romeoplatoon/pokemon-theme-team)
-
 

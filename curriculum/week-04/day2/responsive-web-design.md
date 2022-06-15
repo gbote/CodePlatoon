@@ -70,10 +70,36 @@
 
 > Similarly, 1 vmax is equal to 1 vh or 1 vw, whichever is bigger. A vmin is just the opposite. These can be useful for designing a layout that adapts to the device's orientation, either landscape or portrait. For example, you could use vmin to make an element that expands proportionally to the screen size, but always fits entirely in the screen, regardless of orientation. 
 
+```css
+.annoying-popup {
+    position: fixed;
+    width: 80vmin;
+    height: 80vmin;
+    background-color: purple;
+    border-radius: 999px;
+}
+```
+
 ##### ems and rems
-> There are two responsive units that are used for sizing fonts in particular: `em`, and `rem`. `em` lets you set a size for an element relative to that element's parent's font-size. This can be tricky to work with, since the size of an element sized in `em` will change if you move if around the page. Also, nested elements sized with `em` will multiply each other. 
+> There are two responsive units that are used for sizing fonts in particular: `em`, and `rem`. `em` lets you set a size for an element relative to that element's parent's font-size. This can be tricky to work with, since the size of an element sized in `em` will change if you move it around the page. Also, nested elements sized with `em` will multiply each other. 
+
 
 > The other option for responsive font sizing is `rem`, which is a root em. A `rem` lets you size elements as a multiple of the font-size of the `html` element. This makes it easy to have user-adjustable font, or have all of your fonts change size with a media query, as we'll learn about later. If all the text on your site is sized with `rem`, then you only need to change the font-size for the `html` element in order to resize all the text on the site. 
+
+```html
+<div class="rem-size">
+	<p>wow!</p>
+	<div class="rem-size">
+		<p>wow!</p>
+		<div class="rem-size">
+			<p>wow!</p>
+			<div class="rem-size">
+				<p>wow!</p>
+			</div>
+		</div>
+	</div>
+</div>
+```
 
 #### Flexbox
 > Flexbox is useful for solving one-dimensional layout problems, i.e. when you're trying to line items up in a row or column. This is a different use case from CSS grid, which is used for solving two-dimensional layout problems. `flex` is a relatively new display type that changes the document flow in a container, giving you more options for how you want to center or align content. A `flex` container can have other flex properties, such as `justify-content`. Individual items in a flex container can have flex properties set on them, if you want them to flow differently from their siblings. [This article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) has a lot of good visual examples of different flex properties. 
@@ -146,8 +172,10 @@
 - Modal (for prettier alert and confirm boxes)
 - Navbar (responsive navigation with a hamburger menu)
 
+## External Resources
+- [Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
 	
 ## Assignments
 - [Styling with Bootstrap](https://github.com/romeoplatoon/html-bootstrap)
-
 

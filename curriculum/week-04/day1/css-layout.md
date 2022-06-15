@@ -325,9 +325,11 @@ a:hover {
 }
 ```
 
+## External Resources
+- [Learn Layout](https://learnlayout.com/)
+
 > The above code would cause links on the page to change colors only when hovered upon by the cursor.
 
 ## Assignments
 - [LinkedIn](https://github.com/romeoplatoon/html-linkedin.git)
-
 
