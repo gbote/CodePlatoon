@@ -1,1 +1,222 @@
 /* to show your CSS things, you'll likely need to use this file */
+body {
+    --pink: hsl(302, 63%, 79%);
+    --orange: #f7ab69;
+    --red: hsl(356, 79%, 62%);
+    --teal: #00dfe4;
+    --yellow: #ffe85c;
+    --olive-green: #938d5b;
+    --green: #80e4a0;
+    --outline: hsl(302, 34%, 84%);
+    --off-white: hsl(0, 0%, 96%);
+    --darkest-blue: hsl(225, 19%, 20%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 16px;
+    background-color: var(--darkest-blue);
+  }
+  
+  header {
+    font-size: 1.7rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--darkest-blue);
+    -webkit-text-stroke: 2px var(--outline);
+    text-align: center;
+  }
+  
+  .header_h1 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header__img {
+    margin-top: -2rem;
+    padding: 0;
+  }
+  
+  img {
+    border-radius: 5rem;
+    width: 300px;
+    height: auto;
+    border: 2px solid var(--yellow);
+  }
+  
+  .section__header,
+  .section__subhead {
+    text-align: center;
+    text-transform: uppercase;
+  
+  }
+  
+  .section__header {
+    color: var(--darkest-blue);
+    -webkit-text-stroke: 2px var(--teal);
+    font-size:2.3rem;
+    margin: 30px 0 0 0;
+    padding: 0;
+  }
+  
+  .section__subhead {
+    color:hsl(0, 0%, 96%);
+    margin: -5px 0 15px 0;
+  }
+  
+  .definitions {
+    display: grid;
+    grid-gap: 1rem;
+    grid-area: "definition";
+  }
+  
+  .definition {
+    display: grid;
+    background-color: var(--off-white);
+    border-radius: 10px;
+    margin: .5rem .5rem .5rem .5rem;
+    padding: 10px 2rem 20px 2rem;
+  }
+  
+  .definition:nth-child(1) {
+    grid-area: "html1";
+  }
+  
+  .definition:nth-child(2) {
+    grid-area: "html2";
+  }
+  
+  .definition:nth-child(3) {
+    grid-area: "html3";
+  }
+  
+  definition:nth-child(4) {
+    grid-area: "html4";
+  }
+  
+  definition:nth-child(5) {
+    grid-area: "html5";
+  }
+  
+  definition:nth-child(6) {
+    grid-area: "html6";
+  }
+  
+  .definition__header {
+    font-size: 1rem;
+    color: var(--red)
+  }
+  
+  .definition__blurb {
+    font-weight: 400;
+  }
+  
+  .definition__code {
+    padding: 0;
+    margin: .8rem 0 1.5rem 0;
+    padding: 1rem;
+    background-color: var(--teal);
+    border: 1px solid var(--darkest-blue);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    border-radius: 10px;
+  }
+  
+  .code2, .code8 {
+    background-color: var(--pink);
+  }
+  
+  .code3, .code9 {
+    background-color: var(--yellow);
+  }
+  
+  .code4 {
+    background-color: var(--olive-green);
+  }
+  
+  .code5, .code10 {
+    background-color: var(--orange);
+  }
+  
+  .code6 {
+    background: linear-gradient(70deg, #fff810  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
+  }
+  
+  
+  .definition__link {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .definition__link:hover {
+    text-decoration: underline;
+    color: var(--darkest-blue);
+  }
+  
+  .boring-link {
+    margin-bottom: 50px;
+  }
+  
+  .fancy-link {
+    color: var(--darkest-blue);
+    text-decoration: none;
+    background-color: var(--outline);
+    padding: .1rem .3rem;
+    margin-top: 50px;
+    border-left: 10px solid var(--yellow);
+    transition: border-width 0.5s;
+  }
+  
+  .fancy-link:hover {
+    border-width: 20px;
+  }
+  
+  footer {
+    margin-top: 50px;
+  }
+  
+  .footer__p {
+    text-align: center;
+    color: var(--off-white);
+  }
+  
+  .footer__link {
+    color: var(--outline);
+    text-decoration: none;
+  }
+  
+  .footer__link:hover {
+    text-decoration: underline;
+  }
+  
+  summary {
+    cursor: pointer;
+  }
+  
+  
+  @media(min-width: 768px) {
+    .definitions {
+      display: grid;
+      row-gap: 1.5rem;
+      column-gap: .5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas: 
+        "html1 html2"
+        "html3 html4"
+        "html5 html6"
+    }
+  
+    .definition {
+      display: grid;
+      background-color: var(--off-white);
+      border-radius: 10px;
+      margin: .5rem 1rem .5rem 1rem;
+      padding: 10px 2rem 20px 2rem;
+    } 
+  }

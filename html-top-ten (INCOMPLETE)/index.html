@@ -4,39 +4,195 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
+
     <title> My Top Ten Tags & Styles</title>
   </head>
   <body>
     <header title="I'm a Header!">
-      <h1 title="I'm an H1">My Top Ten</h1>
-      <img title="I'm an img" src="http://www.incrediblethings.com/wp-content/uploads/2012/07/cat-votes-for-himself.jpg">
+      <h1 class="header__h1" title="I'm an H1">My Top Ten</h1>
+      <img class="header__img" title="I'm an img" src="http://www.incrediblethings.com/wp-content/uploads/2012/07/cat-votes-for-himself.jpg">
     </header>
+
     <section class="section" title="I'm The HTML Section">
-      <h2 title="I'm an H2">HTML</h2>
-      <p title="I'm a p">Here are a few HTML things I like:</p>
-      <!-- Copy this Definition Div for each HTML thing you choose -->
-      <div class="definition" title="I'm a Definition Div!">
-        <h3>TERM TITLE</h3>
-        <p>Describe this term, and make an example of how its used:</p>
-        <!-- EXAMPLE CODE GOES HERE -->
-      <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
-      <a href="#">resource link</a>
-    </div>
-  </section>
-  <section class="section" title="I'm The CSS Section">
-    <h2 title="I'm an H2">CSS Things</h2>
-    <p title="I'm a p">Here are a few CSS things I like:</p>
-    <!-- Copy this Definition Div for each CSS thing you choose -->
-    <div class="definition" title="I'm a Definition Div!">
-      <h3>TERM TITLE</h3>
-      <p>Describe this term, and make an example of how its used:</p>
-      <!-- EXAMPLE CODE GOES HERE -->
-    <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
-    <a href="#">resource link</a>
-  </div>
-</section>
-<footer>
-  <p>Made with gusto by <a href="#">YOUR NAME HERE</a></p>
-</footer>
+      <h2 class="section__header" title="I'm an H2">HTML</h2>
+      <p class="section__subhead" title="I'm a p">Here are a few HTML things I like:</p>
+      <div class="definitions">
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">HTML5 details and summary tags</h3>
+          <p class="definition__blurb">
+            Details and summary tags allow the user to toggle between hiding and showing content without need for Javascript code. 
+          </p>
+          <p class="definition__blurb">
+            According to <a class="definition__link" href="https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/" target="_blank">CSS Tricks</a>, details and summary tags are "the easiest way ever to make an accordion". Accordions are often used for FAQs because they allow you to display all of the questions to the user while the lengthier answers are hidden from view until the user clicks to open them, one by one.
+          </p>
+          <p class="definition__blurb">
+            The default setting for the summary tag provides little black triangles to click to open and close the details, as shown below. However, you can change the default triangles to different looks to match your site's colors or to just change it up using the list-style property. You can see this at work in this <a class="definition__link" href="https://codepen.io/chriscoyier/pen/OvmKPe" target="_blank">CodePen</a> example where the default triangles are switched out for arrows.
+          </p>
+          <p class="definition__blurb">
+            It should be noted that the default cursor for the summary tag is NOT the pointer like it is for the link <code><a></code> tag. Instead, if you hover over the triangle, by default, you will only see the same arrow that you would see when you hover over non-clickable elements. To clarify the purpose of the summary tag, it may be helpful and more user-friendly to use CSS to change the default cursor to pointer. In the example below, the cursor type was changed to pointer so now clicking on any part of the question opens/closes the answer.
+          </p>
+          <pre class="definition__code" title="i'm a pre tag for code!"><details><summary>How can I reset my password?</summary><p>Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p></details></pre>
+          <a class="definition__link" href="https://katarzyna-kw.github.io/faq-accordion/" target="_blank">Example of an accordion using details and summary tags</a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">semantic tags</h3>
+          <p class="definition__blurb">
+            Using semantic tags that explain the role of specific elements on the page helps your site be more accessible. According to MDN Web Docs, semantic writeup improves SEO and optimizes screen readers' ability to support visually impaired users in navigating the site.
+          </p>
+          <p class="definition__blurb">
+            Examples of semantic tags are <code>main</code> for the main information of a document, <code>nav</code> for navigation, <code>section</code> for a standalone part of the site, <code>footer</code> and <code>header</code>.
+          </p>
+          <p class="definition__blurb">
+            An example of a non-semantic tag is <code>div</code>, as it has no specific role on a page. While divs are great in moderation and can help style the page by chunking elements together, they shouldn't be the only tag on the page since they do not offer any information to people who use screen readers about what the purpose of the given section of the site is.
+          </p>
+          <p class="definition__blurb">
+            Below is an example of how a footer might look in html. Spaces were added in the opening and closing tags so that the html code was made visible. In practice, these spaces would be removed.
+          </p>
+
+          <pre class="definition__code code3" title="i'm a pre tag for code!">< footer>
+  This is the footer so it is placed within the footer tag! 
+< /footer></pre>
+          <a class="definition__link" href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics" target="_blank">MDN Web Docs - Semantics</a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">picture tag</h3>
+          <p class="definition__blurb">The picture tag can be used in place of the img tag. The picture tag accepts more than one image source, allowing you to optimize the image for the user's device resolution.</p>
+          <p class="definition__blurb">The example below is from the article <a class="definition__link" href="https://alligator.io/html/picture-element/" target="_blank">Responsive Images with the HTML Picture Tag</a>. It contains additional spaces in the opening and closing tags so that the html is visible. In practice, these spaces would be removed.</p>
+          <pre class="definition__code code4" title="i'm a pre tag for code!">< picture >
+            < source srcset="small.jpg, small2x.jpg 2x"
+              media="(max-width: 639px)">
+            < source srcset="medium.jpg, medium2x.jpg 2x"
+              media="(min-width: 640px) and (max-width: 1023px)">
+            < source srcset="large.jpg, large2x.jpg 2x"
+              media="(min-width: 1024px)">
+            < img src="my-image.jpg" alt="My image"
+              srcset="my-image2x.jpg 2x">
+          </ picture></pre>
+          <a class="definition__link" href="https://blog.bitsrc.io/why-you-should-use-picture-tag-instead-of-img-tag-b9841e86bf8b" target="_blank">Why You Should Use Picture Tag Instead of Img Tag</a>
+          <br>
+          <a class="definition__link" href="https://katarzyna-kw.github.io/landing-page-preview/" target="_blank">Example -- resize the window to see the image change</a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">img alt attribute</h3>
+          <p class="definition__blurb">
+            The alt attribute is an important part of the img tag. Alt text, as in alternative text, makes sure the content of your images are accessible to people who cannot see them. It also helps your site's SEO (search engine optimization) and gives the user context about the image if it does not load, as shown below.
+          </p>
+          <p class="definition__blurb">
+             For alt attributes, the more descriptive you can make them, the better for both the user and for SEO. For example, "cat" on its own is not very descriptive. "Cat sleeping" is a little better, but the example belows expand on that even more, allowing the user to get a good idea of exactly what the picture would show them.
+          </p>
+          <pre class="definition__code code2" title="i'm a pre tag for code!"> <img src="cutecat.png" alt="orange cat napping on a blue fuzzy pillow with a window in the background showing a sunny sky"></pre>
+          <a class="definition__link" href="https://commonlook.com/alt-text-best-practices-what-is-alt-text-and-why-is-it-important/" target="_blank">What is alt text and why is it important for accessibility?</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" title="I'm The CSS Section">
+      <h2 class="section__header" title="I'm an H2">CSS Things</h2>
+      <p class="section__subhead" title="I'm a p">Here are a few CSS things I like:</p>
+
+      <div class="definitions">
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">link class and :hover</h3>
+          <p class="definition__blurb">
+            Adding :hover to your link class allows you to add styles for how your links look when the user hovers over them. Since the standard blue/purple link with underline  is not too cute looking, adding custom styles to links is a quick, easy way to make your site look better.
+          </p>
+          <pre class="definition__code code5" title="i'm a pre tag for code!"><a class="boring-link" href="https://www.google.com/search?q=css+hover+style&sxsrf=APq-WBunxhOrCzph0b8mefpmz3agF3xpQQ%3A1645460537167&ei=ObwTYrCFCe2jptQPwqWwiAM&ved=0ahUKEwjwhbyWmpH2AhXtkYkEHcISDDEQ4dUDCA4&uact=5&oq=css+hover+style&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoHCAAQRxCwAzoHCAAQsAMQQzoHCAAQsQMQQzoECAAQQzoFCAAQkQI6BggAEAcQHjoECCMQJzoLCAAQsQMQgwEQkQI6CAgAELEDEJECOggIABCABBCxAzoKCAAQgAQQhwIQFEoECEEYAEoECEYYAFD4EFj9M2DzNmgEcAF4AIABZYgBkgmSAQQxMy4xmAEAoAEByAEKwAEB&sclient=gws-wiz" target="_blank">Average link</a>
+<a class="fancy-link" href="https://www.google.com/search?q=css+hover+style&sxsrf=APq-WBunxhOrCzph0b8mefpmz3agF3xpQQ%3A1645460537167&ei=ObwTYrCFCe2jptQPwqWwiAM&ved=0ahUKEwjwhbyWmpH2AhXtkYkEHcISDDEQ4dUDCA4&uact=5&oq=css+hover+style&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoHCAAQRxCwAzoHCAAQsAMQQzoHCAAQsQMQQzoECAAQQzoFCAAQkQI6BggAEAcQHjoECCMQJzoLCAAQsQMQgwEQkQI6CAgAELEDEJECOggIABCABBCxAzoKCAAQgAQQhwIQFEoECEEYAEoECEYYAFD4EFj9M2DzNmgEcAF4AIABZYgBkgmSAQQxMy4xmAEAoAEByAEKwAEB&sclient=gws-wiz" target="_blank">Not your average link</a></pre>
+          <a class="definition__link" href="https://italicizedcreative.com/style-links/" target="_blank">8 Ways to Style Links So They Stand Out
+          </a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">multi-color backgrounds</h3>
+          <p class="definition__blurb">
+            I love sites with two or even three backgrounds. I used this technique on my portfolio site and am really happy with how it turned out. 
+          </p>
+          <pre class="definition__code code6" title="i'm a pre tag for code!">Here's an example of a multi-color bg!</pre>
+          <a class="definition__link" href="https://blog.prototypr.io/css-only-multi-color-backgrounds-4d96a5569a20/" target="_blank">CSS-Only Multi-Color Backgrounds
+          </a>
+          <br>
+          <a class="definition__link" href="https://katarzyna-kw.github.io/portfolio-website/" target="_blank">My Portfolio with Multi-Color Bg
+          </a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">CSS custom properties/variables</h3>
+          <p class="definition__blurb">
+          CSS variables can be set in one css file and reused throughout all of your css files. You can set one color as "--link-color" and reference it as "var(--link-color)". If you ever decide to change up the styles, you'll only have to change it in one place!
+          </p>
+          <pre class="definition__code code7" title="i'm a pre tag for code!">
+            :root {
+            --link-color: #hotpink
+            }
+
+            .body__link {
+              color: var(--link-color);
+            }
+          </pre>
+          <a class="definition__link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties" target="_blank">MDN Docs: Using CSS Custom Properties
+          </a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">all the CSS background properties</h3>
+          <p class="definition__blurb">
+          There are so many options for what you can do with the background. CSS has 9 properties for bgs alone. You probably don't use all 9 at a time often, if ever, but the fact that they exist result in endless possibilities. Bg properties enable styling backgrounds so they are responsive to user's devices and therefore enhance the user experience.  
+          </p>
+          <pre class="definition__code code8" title="i'm a pre tag for code!">
+          .container {
+              background-image : url("img1.png");
+              height: 100vh;
+              // set size & stop image repetition 
+              background-repeat : no-repeat;
+              background-size : contain;
+            }
+          </pre>
+          <a class="definition__link" href="https://www.freecodecamp.org/news/learn-css-background-properties/" target="_blank">Every CSS Background Property Illustrated and Explained with Code Examples 🎖️
+          </a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">text-stroke</h3>
+          <p class="definition__blurb">
+          text-stroke is not part of CSS3 but is supported by major browsers if you add the prefix <code>-webkit-</code> in front of it. text-stroke is the text effect used for the header of this page. 
+          </p>
+          <pre class="definition__code code9" title="i'm a pre tag for code!">
+            h1 {
+              -webkit-text-stroke: 5px orchid;
+              color: white;
+           }          </pre>
+          <a class="definition__link" href="https://codepen.io/tutsplus/pen/PozwLBB" target="_blank">CodePen of text-stroke and text-shadow examples
+          </a>
+        </div>
+
+        <div class="definition" title="I'm a Definition Div!">
+          <h3 class="definition__header">transitions</h3>
+          <p class="definition__blurb">
+          CSS3 allows application of animations to elements without needing to use Javascript. This technique was used above with link and :hover. The article <a class="definition__link" href="https://code.tutsplus.com/tutorials/10-css3-properties-you-need-to-be-familiar-with--net-16417" target="_blank">10 CSS3 Properties You Need to Be Familiar With</a> has great examples of transitions as well as other CSS properties! The CSS example below is from the article:
+          </p>
+          <pre class="definition__code code10" title="i'm a pre tag for code!">
+            ul a {
+              border-left: 10px orange solid;
+              transition: border-width 0.4s;
+           }
+
+          a:hover {
+            border-width: 20px;
+          }          </pre>
+          <a class="definition__link" href="https://codepen.io/tutsplus/pen/abZzMam" target="_blank">CodePen with example 
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <footer>
+    <p class="footer__p">Made with gusto by <a class="footer__link" href="#">Gerardo Rafael Bote</a></p>
+  </footer>
 </body>
 </html>
