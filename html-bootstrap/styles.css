@@ -1,29 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+* {
+    font-family: "Montserrat", sans-serif;
+}
 .navbar {
-    background-color: #7f1231;  
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-  }
-  
-  
-  .logo {
-    font-size:40px;
-    font-family: 'Times New Roman', Times, serif;
-    color:white;
+    background-color: black;
+    height: 80px;
+    color: whitesmoke;
     font-weight: bold;
-  }
-  
-  .card {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  a:link {
-    color: black;
-  }
-  
-  a:visited {
-    color: black;
-  }
+}
+#nav-logo {
+    fill: whitesmoke;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.navbar-brand {
+    color: whitesmoke;
+    margin-left: 3px;
+}
+.nav-item {
+    margin: 8px;
+    color: whitesmoke;
+}
+
+.jumbotron-premium {
+    background-color: #1e75de;
+    color: whitesmoke;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.nav-left {
+    margin-left: 150px;
+}
+.nav-right {
+    margin-right: 150px;
+}
+
+.premium-descr {
+    margin-left: 10rem;
+}
+.dual-buttons {
+    margin-left: -2rem;
+}
+.premium-btns {
+    margin-right: 1rem;
+}
+
+.left-btn {
+    background-color: black;
+    border: none;
+    border-radius: 2rem;
+}
+.left-btn:hover {
+    background-color: rgb(61, 61, 61);
+}
+.right-btn {
+    background-color: #1e75de;
+    border: 0.1rem solid white;
+    border-radius: 2rem;
+}
+
+.terms-con {
+    margin-left: 10rem;
+    font-size: x-small;
+}
+.jumbotron-why-premium {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.grey-circle {
+    height: 40vmin;
+    width: 40vmin;
+    background-color: rgb(214, 214, 214);
+    margin: 10px;
+    border-radius: 50%;
+}
+.music-container {
+    justify-content: space-evenly;
+}

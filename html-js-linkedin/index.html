@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>LinkedIn</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Overpass:wght@300;600&family=Roboto:wght@500;600;700;800&family=Ubuntu:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
+    <script src="script.js" async defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header__container">
+        <div class="header__box1">
+          <i class="fa-brands fa-linkedin"></i>
+          <div class="header__search-box hide">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="header__search" placeholder="Search"/>
+          </div>  
+        </div>
+        <div class="header__box2">
+          <div class="mobile-only"><i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <nav class="header__nav">
+            <ul class="header__nav--list">
+              <li class="header__nav--list-items">
+                <i class="fa-solid fa-house"></i>
+                <p class="link-text hide">Home</p>
+              </li>
+              <li class="header__nav--list-items">
+                <i class="fa-solid fa-user-group"></i>
+                <p class="link-text hide">My Network</p>
+              </li>
+              <li class="header__nav--list-items">
+                <i class="fa-solid fa-briefcase"></i>
+                <p class="link-text hide">Jobs</p>
+              </li>
+              <li class="header__nav--list-items">
+                <i class="fa-solid fa-comment-dots"></i>
+                <p class="link-text hide">Messaging</p>
+              </li>
+              <li class="header__nav--list-items">
+                <i class="fa-solid fa-bell"></i>
+                <p class="link-text hide">Notifications</p>
+              </li>
+            </ul>
+          </nav>
+          <button class="header__button--me" id="me-button">
+            <img class="header__button--me-img" src="assets/avatar.jpeg">
+            <p class="header__button--me-text hide">
+              Me
+              <i class="fa-solid fa-caret-down"></i>
+            </p>
+          </button>
+          <div class="mobile-only">
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="header__mobile-hide">
+            <button class="header__button--work">
+              <i class="fa-solid fa-table-cells"></i>
+              <p class="header__button--me-text hide">
+                Work
+                <i class="fa-solid fa-caret-down"></i>
+              </p>
+            </button>
+            <button class="header__button-text">Reactivate<br> Premium</button>
+          </div>
+        </div>
+    </header>
+    <div id="popup" class="popup">
+      <div class="popup__head">
+        <div class="popup__head--top">
+          <img class="card__avatar" src="assets/avatar.jpeg">
+          <div class="popup__head--text">
+            <h4>Gerardo Rafael Bote</h4>
+            <h5>Full Stack Software Engineering TA Intern @ Code Platoon | CS @ UT Austin</h5>  
+          </div>
+        </div>
+        <button class="button button--outline button--blue">View Profile</button>  
+      </div>
+      <div class="popup__body">
+        <h4>Account</h4>
+        <p class="card__text--secondary">
+          Settings & Privacy
+        </p>
+        <p class="card__text--secondary">
+          Help
+        </p>
+        <p class="card__text--secondary">
+          Language
+        </p>
+      </div>
+      <div class="popup__body">
+        <h4>Manage</h4>
+        <p class="card__text--secondary">
+          Posts & Activity
+        </p>
+        <p class="card__text--secondary">
+          Company: Code Platoon
+        </p>
+        <p class="card__text--secondary">
+          Job Posting Account
+        </p>
+      </div>
+    </div>
+    <div class="body__container">
+      <main class="profile">
+        <div class="profile__header">
+          <div class="profile__header--bg"></div>
+          <img class="profile__header--avatar" src="assets/avatar.jpeg"/>
+            <div class="profile__header--body">
+              <div class="profile__header--body-left">
+                <div class="profile__header--body-headline">
+                  <h1>Gerardo Rafael Bote</h1>
+                  <p>(He/Him/His)</p>
+                </div>
+                <h2>Full Stack Software Engineer TA – JavaScript, React, Python, Responsive Design, HTML, CSS, Flexbox, Git, PHP, PostgreSQL</h2>
+                <div class="profile__header-text">
+                  <h3>Greater Houston Area · <span>Contact info</span></h3>
+                </div>
+                <h3 class="contact-link">295 connections</h3>
+                <div class="button__container">
+                  <button class="button__trio button--filled">Open to</button>
+                  <button class="button__trio button--outline button--blue">Add profile section</button>
+                  <button class="button__trio button--outline button--gray hide">More</button>  
+                  <button class="button__trio button--outline button--gray mobile-only">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="profile__header--body-right hide">
+                <img src="assets/codeplatoon.jpeg" alt="Code Platoon logo" />
+                Code Platoon
+            </div>
+          </div>
+          <div class="profile__header--footer">
+            <div class="profile__header--footer-open">
+              <div class="row-group">
+                <h3><span>Open to work</span></h3>
+                <i class="fa-solid fa-pencil"></i>
+              </div>
+              <h3>Software Engineer</h3>
+              <h3 class="contact-link">See all details</h3>
+            </div>
+            <div class="profile__header--footer-find">
+              <h3>
+                <span>Find potential clients</span> by showcasing the services you
+                provide.
+              </h3>
+              <h3 class="contact-link">Get started</h3>
+            </div>  
+          </div>
+        </div>
+
+        <section class="profile__body--section">
+          <h2>Suggested for you</h2>
+          <div class="private">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Private to you</h3>  
+          </div>
+          <article class="suggestion">
+            <icon></icon>
+            <h4>Is your current title at Code Platoon still Full Stack Software Engineering TA?</h4>
+            <icon></icon>
+            <p>
+              It's important to keep your profile current so people can find and
+              connect with you.
+            </p>
+            <button class="button--outline button--gray">Confirm current position</button>
+          </article>
+        </section>
+
+        <section class="profile__body--section">
+          <div class="profile__body--about-header">
+            <h2>About</h2>
+            <icon></icon>
+          </div>
+          <div class="profile__body--text-body">
+            <p>I am committed to helping people by doing meaningful work for companies with solid values. As an aspiring software engineer, I learn new skills, tools, frameworks, and languages quickly by pairing my keen intellect with a strong work ethic. I learn quickly and deliver cutting-edge technology, including front-end tools like HTML/CSS/JS along with frameworks such as React or Node. </p>
+            <p></p>
+            <p class="p--see-more">...see more</p>
+          </div>
+        </section>
+
+        <section class="profile__body--section">
+          <div class="profile__body--experience-header">
+            <h2>Experience</h2>
+            <icon></icon>
+            <icon></icon>
+          </div>
+          <div class="profile__body--experience-body">
+            <div class="profile__body--org-card">
+              <img src="assets/ut.jpg" class="profile__body--org-card-logo" />
+              <div class="profile__body--org-card-text">
+                <h4>Undergraduate Teaching Assistant</h4>
+                <h4 class="card__text--secondary org-secondary">Department of Computer Science, The University of Texas at Austin · Part-time</h4>
+                <h4 class="card__text--secondary org-secondary">Jan 2022 - May 2022 · 5 mos</h4>
+                <h4 class="card__text--secondary org-secondary">Austin, Texas, United States</h4>  
+              </div>
+              <div class="profile__body--text-body">
+                <p class="profile__body--org-description">
+                  Undergraduate TA for Dr. Devangi Parikh’s CS 311 (Discrete Math for Computer Science) course. Responsible for facilitating small group...
+                </p>
+                <p class="p--see-more">...see more</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile__body--section">
+          <div class="profile__body--education-header">
+            <h2>Education</h2>
+            <icon></icon>
+            <icon></icon>
+          </div>
+          <div class="profile__body--experience-body">
+            <div class="profile__body--org-card">
+              <img src="assets/1617385772288.jpg" class="profile__body--org-card-logo" />
+              <div class="profile__body--org-card-text">
+                <h4>The University of Texas at Austin</h4>
+                <h4 class="card__text--secondary org-secondary">2020-2024</h4>
+                <div class="profile__body--text-body">
+                  <p class="profile__body--org-description ed">
+                    Majoring in Computer Science, BS
+                  </p>
+                  <p class="profile__body--org-description ed">
+                    Minoring in Business & CSE                                
+                  </p>
+  
+                  <p class="p--see-more">...see more</p>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile__body--section">
+          <div class="profile__body--certifications-header">
+            <h2>Licenses & certifications</h2>
+            <icon></icon>
+            <icon></icon>
+          </div>
+          <div class="profile__body--org-card">
+            <img src="assets/1519856321426.jpg" class="profile__body--org-card-logo" />
+            <div class="profile__body--org-card-text">
+              <h4>Virtual Experience Program Participant</h4>
+              <h4 class="card__text--secondary org-secondary">JPMorgan Chase & Co.</h4>
+              <h4 class="card__text--secondary org-secondary">Issued Jan 2022 · No Expiration Date</h4>
+            </div>
+          </div>
+      </section>
+
+      </main>
+
+      <!-- sidebar here -->
+      <aside class="sidebar">
+        <section class="sidebar__section sidebar__utilities">
+          <h3>Edit public profile & URL<i class="fa-solid fa-circle-question"></i></h3>
+          <h3>Add profile in another language<i class="fa-solid fa-circle-question"></i></h3>
+        </section>
+
+        <section class="sidebar__section sidebar__ad">
+          <p class="sidebar__ad">Gerardo Rafael, enjoy 50% off 2 months of LinkedIn Premium!</p>
+          <div class="sidebar__ad--imgs">
+            <img src="assets/avatar.jpeg" class="card__avatar"/>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          <h4>Get a boost with this exclusive offer.</h4>
+          <button class="button--gray button--outline">Get 50% off today</button>
+        </section>
+
+        <section class="sidebar__section sidebar__section--footer sidebar__also-viewed">
+          <h3>People Also Viewed</h3>
+          <div class="sidebar__profile-card">
+            <img src="assets/avatar.jpeg" class="card__avatar"/>
+            <div class="sidebar__profile-card--text">
+              <div class="sidebar__profile-card--text--headline">
+                <h4>Gerardo Rafael Bote</h4>
+                <h4 class="card__text--secondary">&nbsp&nbsp-&nbsp</h4>
+                <h4 class="card__text--secondary">1st</h4>
+              </div>
+              <p class="sidebar__profile-card--blurb">Full Stack Software Engineer TA</p>
+              <button class="button--outline button--gray">Message</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="sidebar__footer">
+          <h3>Show more</h3>
+          <i class="fa-solid fa-sort-down"></i>
+        </div>
+
+        <section class="sidebar__section sidebar__section--footer sidebar__may-know">
+          <h3>People you may know</h3>
+          <div class="sidebar__profile-card">
+            <img src="assets/avatar.jpeg" class="card__avatar"/>
+            <div class="sidebar__profile-card--text">
+              <div class="sidebar__profile-card--text--headline">
+                <h4>Gerardo Rafael Bote</h4>
+                <h4 class="card__text--secondary">&nbsp&nbsp-&nbsp</h4>
+                <h4 class="card__text--secondary">1st</h4>
+              </div>
+              <p class="sidebar__profile-card--blurb">Full Stack Software Engineer TA</p>
+              <button class="button--outline button--gray">Connect</button>
+            </div>
+          </div>
+        </section>
+        <div class="sidebar__footer">
+          <h3>Show more</h3>
+          <i class="fa-solid fa-sort-down"></i>
+        </div>
+
+        <section class="sidebar__section sidebar__section--footer sidebar__learning">
+          <h6>            <i class="fa-brands fa-linkedin"></i>
+            Learning</h6>
+          <h4>Add new skills with these courses, free for 24 hours</h4>
+          <div class="sidebar__profile-card">
+            <img src="assets/screenshot.gif" />
+            <div class="sidebar__profile-card--text-learning">
+              <div class="sidebar__profile-card--text--headline">
+                <h4>HTML and CSS: Linking </h4>
+                <p class="sidebar__profile-card--blurb">7,000 views</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="sidebar__footer">
+          <h3>Show more</h3>
+          <i class="fa-solid fa-sort-down"></i>
+        </div>
+
+      </aside>
+    </div>
+    <!-- <aside class="popup__messaging">
+      <div class="popup__messaging--content">
+        <img class="avatar"><icon></icon>
+        <h4>Messaging</h4>  
+      </div>
+      <div class="popup__messaging--utilities">
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+      </div>
+    </aside> -->
+  </body>
+</html>

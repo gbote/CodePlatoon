@@ -1,173 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-      <span class="logo">InfoWorld</span>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              United States
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">United States</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">United Kingdom</a>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Spotify V2</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="nav-left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+            </svg>
+            <a class="navbar-brand" href="#">Spotify</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="nav-right">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Premium<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="#">Support</a>
+                    <a class="nav-item nav-link active" href="#">Download</a>
+                    <p class="nav-item nav-link">|</p>
+                    <a class="nav-item nav-link active" href="#">Sign up</a>
+                    <a class="nav-item nav-link active" href="#">Log in</a>
+                </div>
             </div>
-          </li>              
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+        </div>
+      </nav>
+      <div class="jumbotron-premium">
+        <div class="premium-descr">
+            <h1 class="display-4">Get Premium free for 1 month.</h1>
+            <p class="lead premium-info"> Only $9.99 after. Cancel anytime.</p>
+        </div>
+        <div class="container top-cont"> 
+            <div class="row dual-buttons">
+                <p class="lead premium-btns">
+                    <a class="btn btn-primary btn-lg left-btn" href="#" role="button">GET STARTED</a>
+                </p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg right-btn" href="#" role="button">VIEW PLANS</a>
+                </p>
+            </div>
+        </div>
+            <p class="terms-con">Terms and conditions apply. 1 month free not available for users who have already tried Premium.</p>
+        </div>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+      <div class="jumbotron-why-premium">
+        <h1 class="display-4 text-center">Why go Premium?</h1>
+            <div class="container">
+                <div class="row music-container">
+                    <div class="music-banner download-music">
+                        <div class="grey-circle">
+
+                        </div>
+                    </div>
+                    <div class="music-banner ad-free">
+                        <div class="grey-circle">
+                           
+                        </div>
+
+                    </div>
+                    <div class="music-banner any-song">
+                        <div class="grey-circle">
+
+                        </div>
+                    </div>
+                    <div class="music-banner unlimited-skips">
+                        <div class="grey-circle">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p>
       </div>
-    </nav>
-
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-1">I'm a very giant ad...</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-      </div>
-    </div>
-
-    <div class='container'>
-      <div class='row ml-5 mr-5'>      
-        <div class="card col-sm mb-4 p-0 border-0">
-          <div class="col">
-            <div class="card col-sm pl-0 pr-0">
-              <div class="card-body p-0">
-                <img class="card-img-top" src="images/typescript.jpg">
-                <h5><a class="card-title stretched-link" href="https://www.infoworld.com/article/3650513/typescript-usage-growing-by-leaps-and-bounds-report.html">TypeScript usage growing by leaps and bounds — report</a></h5>
+      <div class="container ">
+          <div class="row">
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
               </div>
+              <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+
+          </div>
+
+      </div>
+      <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section
+          class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+        >
+          <!-- Left -->
+          <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+          </div>
+          <!-- Left -->
+      
+          <!-- Right -->
+          <div>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+      
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-left text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <h3 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3"></i>Spotify
+                </h3>
+              </div>
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  COMPANY
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">About</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Jobs</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">For the Record</a>
+                </p>
+              </div>
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  COMMUNITIES
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">For Artists</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Developers</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Advertising</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Investors</a>
+                </p>
+                <p>
+                  <Vendors href="#!" class="text-reset">Vendors</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  USEFUL LINKS
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Support</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Web Player</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Free Mobile App</a>
+                </p>
+              </div>
+
+    
             </div>
+            <!-- Grid row -->
           </div>
+        </section>
+        <!-- Section: Links  -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2022 Copyright:
+          <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
-        <div class="card col-sm mb-4 p-0" style="width: 18rem;">
-          <div class="card-body p-0">
-            <img class="card-img-top" src="images/pants.jpg">
-            <h5><a class="card-title stretched-link" href="https://www.infoworld.com/article/3650508/a-brief-intro-to-the-pants-build-system.html">A brief intro to the Pants build system</a></h5>
-
-          </div>
-        </div>
-      </div>
-      <div class='row'>      
-        <div class="card col-sm mb-4 text-white bg-primary " style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4 text-white bg-secondary" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4 text-white bg-success" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>          
-        </div>
-      </div>
-      <div class='row'>      
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>          
-        </div>
-      </div>
-      <div class='row'>      
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>
-        </div>
-        <div class="card col-sm mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">I'm a news story</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the I'm a news story and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-
-          </div>          
-        </div>
-      </div>                      
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+        <!-- Copyright -->
+      </footer>
+</body>
 </html>
