@@ -1,0 +1,24 @@
+body {
+    background-color: rgb(235, 228, 211);
+  }
+  
+  h1{
+    text-align: center;
+  }
+  
+  div {
+    width: 20%;
+    margin: 0 auto;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  ul li del {
+    text-decoration: none;
+    }
+  
+  ul li input[type=checkbox]:checked ~ del {
+    text-decoration: line-through;
+    }

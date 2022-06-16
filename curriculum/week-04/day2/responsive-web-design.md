@@ -150,17 +150,58 @@
 		Screen sizes : `xs`, `sm`, `md`, `lg`
 		columns : 1 - 12
 
-> YOU CAN USE MULTIPLE COLUMN CLASSES ON AN ELEMENT.  YOU OFTEN WILL!
+```html
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-8"></div>
+	</div>
+</div>
+```
+
+> You can use multiple column classes on an element. Also, if there are more than 12 columns in a row, they will wrap around and make another row.
+> In the example below, we'll see 3 rows of 4 columns on medium screens, and 4 rows of 3 columns on small screens.
+
+```html
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+		<div class="col-md-3 col-sm-4"></div>
+	</div>
+</div>
+```
+
 > COLLUMNS CAN CONTAIN OTHER ROWS. THE POSSIBILITIES ARE ENDLESS!
 
 ```html
-
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-md-8 col-lg-6"></div>
+		<div class="col-sm-4">
+			left column!
+		</div>
+		<div class="col-sm-4">
+
+			<div class="row">
+				<div class="col-sm-5">
+					left subcolumn
+				</div>
+				<div class="col-sm-7">
+					right subcolumn
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
 ```
 
 #### JS Components
@@ -178,4 +219,5 @@
 	
 ## Assignments
 - [Styling with Bootstrap](https://github.com/romeoplatoon/html-bootstrap)
+
 

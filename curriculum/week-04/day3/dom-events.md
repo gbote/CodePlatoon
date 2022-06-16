@@ -298,7 +298,7 @@ Sometimes, you might have an element with event listeners attached to it, nested
   </div>
 ```
 
-And import thing to notice in the code above is that we are passing an `event` object to our event listener. This is a reserved keyword object, that we have access to in our HTML file. We have to manually pass this value in, since we are calling our event listener ourselves in this case (as opposed to before when our event listener was autmatically called, and automatically passed an event object by the browser).
+An important thing to notice in the code above is that we are passing an `event` object to our event listener. This is a reserved keyword object, that we have access to in our HTML file. We have to manually pass this value in, since we are calling our event listener ourselves in this case (as opposed to before when our event listener was autmatically called, and automatically passed an event object by the browser).
   
 ```javascript
 // scripts.js
@@ -392,7 +392,7 @@ Some things to notice from the code above...
   - We have added `name` attributes for our form fields, so that we can identify the fields within the form (the `id` attribute is not referenced for form data).     - Our button within our form has a `type=submit` attribute, which triggers the submit event for the form. All form should have at least one element with a `submit` type.
   - We are using the aforementioned `preventDefault()` method to avoid the default behavior of a form submit event. Normally, our browser would refresh the page automatically. We don't want this behavior because this will refresh our javascript application.
   
-Forms are generally used to send data to another location on the web (usually an external server for processing). For example, when we entiner in our username and password information on a site login page, the form data is collected and sent to a server to process when we hit the 'login' button. 
+Forms are generally used to send data to another location on the web (usually an external server for processing). For example, when we enter in our username and password information on a site login page, the form data is collected and sent to a server to process when we hit the 'login' button. 
   
   
 ## Assignments
@@ -400,4 +400,11 @@ Forms are generally used to send data to another location on the web (usually an
 - [Guess A Number](https://github.com/romeoplatoon/html-number-guessing-game)
 - Stretch Challenge: [Create a Static Webpage](https://github.com/romeoplatoon/html-static-webpage)
 
+## **Highly Recommended** Reading
+- [MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+
+## Additional Resources
+- [Eloquent Javascript - The DOM]( https://eloquentjavascript.net/14_dom.html)
+- [Excellent guide to DOM Event Bubbling & Capturing, Good Diagrams](https://javascript.info/bubbling-and-capturing)
+- [MDN Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
 

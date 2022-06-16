@@ -174,7 +174,5 @@ Next, we created a record (row) in our database using just Python and verified t
 - [Database Diagramer](https://www.quickdatabasediagrams.com/)
 
 ## Assignments
+- [Assessment #3](https://github.com/quebecplatoon/assessment-3)
 - [Django Queries](https://github.com/romeoplatoon/django-queries)
-
-
-

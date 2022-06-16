@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>My HTML Page!!!</title>
+    <script>
+      console.log("hello");
+    </script>
+  </head>
+  <body>
+    <!--Example of event bubbling & using event.stopPropagation() to stop it-->
+    <div onclick="console.log('PARENT CLICK LISTENER 2')">
+      <div>Hello world!!</div>
+      <form
+        style="background-color: aqua"
+        onsubmit=" handleFormSubmit(event)"
+        onclick="handleClick(event)"
+      >
+        <input id="input-name" placeholder="name" />
+        <input placeholder="FavoriteColor" />
+        <button id="my-button">Submit</button>
+        <div>Just a Div</div>
+      </form>
+    </div>
+
+    <!--Including external JS file as a resource-->
+    <script src="/my_javascript.js"></script>
+  </body>
+</html>

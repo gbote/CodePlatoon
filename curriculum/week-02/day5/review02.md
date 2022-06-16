@@ -1,4 +1,4 @@
-# Friday, February 11, 2022
+# Review Day
 
 ## Topics Covered / Goals
 - Review Object Oriented Programming in Python
