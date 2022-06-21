@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Staff Detail
+{% endblock %}
+
+{% block main-content %}
+<h2>{{ staff.name }}</h2>
+<h3>{{ staff.role }}</h3>
+<h4>ID {{ staff.employee_id }}</h4>
+<p>AGE: {{ staff.age }} </p>
+<p>PASSWORD: {{ staff.password }} </p>
+{% endblock %}

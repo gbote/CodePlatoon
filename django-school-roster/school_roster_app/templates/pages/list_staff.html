@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Staff Directory
+{% endblock %}
+
+{% block main-content %}
+<h2>All Staff</h2>
+<ul>
+  {% for staff in all_staff %}
+  <li><a href="{% url 'staff_detail' employee_id=staff.employee_id %}">{{ staff.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

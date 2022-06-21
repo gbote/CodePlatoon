@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ school_name }} Directory
+{% endblock %}
+
+{% block main-content %}
+<h2>Welcome to {{ school_name }}'s Directory</h2>
+<ul>
+  <li><a href="{% url 'list_staff' %}">All Staff</a></li>
+  <li><a href="{% url 'list_students' %}">All Students</a></li>
+</ul>
+{% endblock %}

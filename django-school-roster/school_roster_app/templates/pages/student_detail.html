@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Student Detail
+{% endblock %}
+
+{% block main-content %}
+<h2>{{ student.name }}</h2>
+<h3>{{ student.role }}</h3>
+<h4>ID {{ student.school_id }}</h4>
+<p>AGE: {{ student.age }} </p>
+<p>PASSWORD: {{ student.password }} </p>
+{% endblock %}

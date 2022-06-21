@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add New Student 
+{% endblock %}
+
+{% block main-content %}
+<h2>Add Student</h2>
+
+<form method="post"> <!-- will send a POST request -->
+  {% csrf_token %} <!-- MUST MUST MUST provide this for DJango's sake -->
+  <label for="name">Name:</label>
+  <input type="text" id="student-name" name="name" placeholder="student name" />
+  <br />
+  <label for="id">Id:</label>
+  <input type="text" id="student-id" name="id" placeholder="#id#" />
+  <br />
+  <label for="age">Age:</label>
+  <input type="text" id="student-age" name="age" placeholder="age" />
+  <br />
+  <label for="password">Password:</label>
+  <input type="text" id="student-password" name="password" placeholder="enter password" />
+  <br />
+  <button type="submit">Add Student</button>
+</form>
+{% endblock %}
