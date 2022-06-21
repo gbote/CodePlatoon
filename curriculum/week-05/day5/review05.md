@@ -53,7 +53,7 @@ def student_new(request):
     if request.method == "POST":
         # extract the fields that we want from that post data
         form_data = {
-          "name": name=request.POST["name"],
+          "name": request.POST["name"],
           "age": request.POST["age"],
           "school_id": request.POST["id"],
           "password": request.POST["password"],
@@ -64,7 +64,7 @@ def student_new(request):
         new_student = Student(**form_data)
         
         # add to internal data collection and write out new data to csv
-        Student.add_student(new_student) 
+        my_school.add_student(new_student) 
         
         # redirect to a new page
         return redirect(reverse('student_detail', args=(new_student.school_id,)))
