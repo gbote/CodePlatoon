@@ -30,8 +30,7 @@ def my_route_handler(request):
 def rootRouteHandler(request):
   print('root route handler')
   print(request.path)
-  response = HttpResponse("<marquee>Welcome to my Django page!</marquee>")
-  return response
+  return HttpResponse("<marquee>Welcome to my Django page!</marquee>")
 
 # Example of route handler function using an URL param
 def user_login(request, username):
@@ -47,15 +46,15 @@ def user_login(request, username):
 
 # Example of using query params in route handler function
 def another_cool_route_handler(request):
-  response = HttpResponse(f"<p>Hello world!</p>")
+  response = HttpResponse("<p>Hello world!</p>")
 
   # Accessing query params
   foo = request.GET.get('foo')
   bar = request.GET.get('bar')
 
   # Printing them to terminal
-  print('foo: ' + foo)
-  print('bar: ' + bar)
+  print(f'foo: {foo}')
+  print(f'bar: {bar}')
 
   return response
 

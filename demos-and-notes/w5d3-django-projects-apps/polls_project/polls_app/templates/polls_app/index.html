@@ -1,0 +1,14 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Polls!</h1>
+        <h2>{{foo}}</h2>
+        <ul>
+            {% for question in latest_question_list %}
+            <li><a href="/polls/{{question.id}}">{{question.question_text}}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
