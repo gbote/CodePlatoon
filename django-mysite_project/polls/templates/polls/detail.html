@@ -10,4 +10,5 @@
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
   {% endfor %}
   <input type="submit" value="Vote">
+  {% include 'polls/subscribe.html' %}
 </form>

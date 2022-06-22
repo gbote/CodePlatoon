@@ -1,6 +1,9 @@
 <!-- polls/templates/polls/index.html -->
 {% block title %}
 <title>Polls</title>
+<head> 
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
 {% endblock %}
 
 {% block content %}
@@ -10,6 +13,7 @@
     {% for question in latest_question_list %}
       <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
     {% endfor %}
+    {% include 'polls/subscribe.html' %}
   </ul>
 {% else %}
   <p>No polls are available.</p>
