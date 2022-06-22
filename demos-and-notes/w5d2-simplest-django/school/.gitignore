@@ -1,0 +1,12 @@
+# We use this .gitignore file so we don't store
+# Django logs, cache stuff, or anything that's not our source code.
+# From: https://github.com/jpadilla/django-project-template/blob/master/.gitignore
+
+### Django ###
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
