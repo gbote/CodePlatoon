@@ -1,0 +1,198 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  --neutral--dark: hsl(189, 66%, 8%);
+  --neutral--middark: hsl(180, 1%, 27%);
+  --neutral--light: hsl(0, 0%, 100%);
+  --neutral--mid: hsl(200, 7%, 83%);
+  --bold--dark: hsl(339, 100%, 56%);
+  --bold--mid: hsl(339, 100%, 73%);
+  --bold--light: hsl(61, 100%, 54%);
+  --midtone: hsl(172, 80%, 59%);
+  --radius: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background: -webkit-linear-gradient(50deg, var(--neutral--middark)  20%, rgba(0,0,0,0) 20%), linear-gradient(50deg, var(--neutral--dark) 80%, var(--neutral--middark) 80%);
+  background: -o-linear-gradient(50deg, var(--neutral--middark)  20%, rgba(0,0,0,0) 20%), linear-gradient(50deg, var(--neutral--dark) 80%, var(--neutral--middark) 80%);
+  background: -moz-linear-gradient(50deg, var(--neutral--middark)  20%, rgba(0,0,0,0) 20%), linear-gradient(50deg, var(--neutral--dark) 80%, var(--neutral--middark) 80%);
+  background: linear-gradient(50deg, var(--neutral--middark)  20%, rgba(0,0,0,0) 20%), linear-gradient(50deg, var(--neutral--dark) 80%, var(--neutral--middark) 80%);
+  font-size: 16px;
+  font-family: 'Paytone One', sans-serif;
+  color: var(--neutral--light);
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  flex: 1 0 auto;
+}
+
+.cards {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--neutral--light);
+  border-radius: var(--radius);
+  padding: .2rem .5rem;
+  margin: 2rem 1rem;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius);
+  background-color: var(--midtone);
+  width: 175px;
+  height: 200px;
+  color: var(--neutral--dark);
+  border: 2px solid var(--bold--dark);
+  margin: 1rem .5rem;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h2 {
+  color: var(--midtone);
+  margin: 2rem 0 0 0;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.button--pink {
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
+  align-items: center;
+  background-color: var(--bold--dark);
+  border: 2px solid var(--neutral--light);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--neutral--light);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.2rem;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button--pink:after {
+  background-color: var(--neutral--light);
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .5s ease-out;
+  z-index: -1;
+}
+
+.button--pink:hover:after {
+  transform: translate(0, 0);
+}
+
+.button--pink:active {
+  background-color: var(--midtone);
+  outline: 0;
+}
+
+.button--pink:hover {
+  outline: 0;
+  background-color: var(--midtone);
+}
+
+footer {
+  text-align: center;
+  color: var(--neutral--middark);
+  flex-shrink: 0;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.loader {
+  border: .5rem solid var(--bold--dark);
+  border-top: .5rem solid var(--bold--light);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hide {
+  display: none;
+}
+
+@media(min-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .button--pink {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

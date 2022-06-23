@@ -1,15 +1,10 @@
-<div class="container">
-    <div class ="row"> 
-        {% for poke in data %}
-        <div class ="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{{poke.image}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{poke.name}}</h5>
-                <a href="https://pokemon.fandom.com/wiki/{{poke.name}}" class="btn btn-primary">Find Out More About Me!</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Team {{pokemon.type}} Type</h2>
+<div class="cards fade-in">
+  {% for pokemon in team %}
+  {% include 'card.html' %}
+  {% endfor %}
 </div>
-</div>
+{% endblock %}

@@ -15,13 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
-
-def root(response):
-    return HttpResponse('<a href="./pokemonapp"><button type="button" class="btn btn-success btn-lg">Pokemon App</button></a>')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', root),
-    path('pokemonapp/', include('pokemonapp.urls'))
+    path('', include('pokemonapp.urls'))
 ]
