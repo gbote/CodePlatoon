@@ -21,17 +21,14 @@
 2. Change into that directory: `cd mysite_project`
 3. Create your Python Virtual Environment: `python -m venv venv`
 4. Activate your `venv`:
+  On Mac/Linux 
+  > `source ./venv/bin/activate`
 
-   On Mac/Linux/Docker Devtools
-   > `source ./venv/bin/activate`
+  On Windows 
+  > `.\venv\Scripts\activate`
 
-   On Windows 
-   > `.\venv\Scripts\activate`
 5. Install `django` into your environment: `pip install django`
-   
-   On Cloud9
-   > `pip install django==2.1.15`
-6. Create a Django project called `mysite`: `django-admin startproject mysite .`
+6. Create a Django project called `mysite`: `python -m django startproject mysite .`
 
 > We've got the beginnings of our Django app. This creates a bunch of files in our project directory, but we didn't talk about most of them yesterday. Let's take a moment to check them out and try to understand them better.  Here's the breakdown of each file with explanations from the Django documentation and our explanation from us on how we interpret the Django documentation:
 
@@ -360,7 +357,7 @@ There are a few things to note with this form:
 2. We are explicitly declaring that the method for our form is `POST` because we are _sending_ information
 3. We're creating a bunch of radio button options in one loop to account for each `choice` for our `question`. Each radio button has an unique `id` using `forloop.counter` (comes for free with Python)
 
-If you refresh your page (`/polls/1`), you'll see your choices come on the screen. Submit it and you'll be direceted to a page that simply says "You are voting on question 1". That's because we haven't accounted for the `POST` request in our code yet. If you look in your `urls.py`, you'll see that we defined the route but the action in `views.py` isn't really doing anything yet. We need to fix that up!
+If you refresh your page (`/polls/1`), you'll see your choices come on the screen. Submit it and you'll be directed to a page that simply says "You are voting on question 1". That's because we haven't accounted for the `POST` request in our code yet. If you look in your `urls.py`, you'll see that we defined the route but the action in `views.py` isn't really doing anything yet. We need to fix that up!
 
 ```python
 ## polls/views.py
@@ -512,5 +509,4 @@ If you take a step back, we've created a small app where you can vote on a poll 
 ## Assignments
 - Before doing anything, make sure that you can complete today's tutorial first
 - [Django School Roster](https://github.com/romeoplatoon/django-school-roster)
-
 

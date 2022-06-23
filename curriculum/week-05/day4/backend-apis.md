@@ -1,4 +1,4 @@
-# Backend APIss
+# Backend APIs
 
 ## Topics Covered / Goals
 - Using APIs from the backend
