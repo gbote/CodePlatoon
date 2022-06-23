@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <!-- this block has default content -->
+        {% block whatever-i-want %}
+        <title>Welcome to the polls!</title>
+        {% endblock %}
+
+        <link rel="stylesheet" href="/gimme-some-static-files/css/main.css">
+
+    </head>
+    <body>
+        <h1>Polls!</h1>
+
+        <!-- this block has no default content -->
+        {% block content %}{% endblock %}
+    </body>
+</html>
