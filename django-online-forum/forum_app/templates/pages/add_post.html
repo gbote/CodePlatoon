@@ -1,0 +1,30 @@
+{% extends 'pages/layout.html' %}
+
+{% block title %}
+Post Details
+{% endblock %}
+
+{% block main_content %}
+
+{% include 'pages/header.html' %}
+
+  <div class="form--container">
+    <form class="form--new" method="POST">
+      {% csrf_token %}
+      <div class="input-container">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="author" name="author" placeholder="Name" />
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-lightbulb"></i>
+        <input type="text" id="title" name="title" placeholder="Topic" />
+      </div>
+      <div class="input-container input-new">
+        <i class="fa-solid fa-comment"></i>
+        <textarea class="input--post" type="text" id="body" name="body" placeholder="New post"></textarea>
+      </div>
+      <button class="button-add" type="submit">Add Post</button>  
+    </form>
+  </div>
+
+{% endblock %}

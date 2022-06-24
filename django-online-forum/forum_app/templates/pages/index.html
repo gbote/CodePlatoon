@@ -1,0 +1,36 @@
+{% extends 'pages/layout.html' %}
+
+{% block title %}
+Online Forum
+{% endblock %}
+
+{% block main_content %}
+
+  {% include 'pages/header.html' %}
+
+  <div class="posts">
+    <div class="posts-header-container">
+      <div class="posts-header-data">
+        <h6>Topic</h6>
+        <h6>Author</h6>  
+      </div>
+    <h6>Date</h6>
+    </div>
+    {% for post in posts %}
+    <div class="post-container">
+      <div class="post-header">
+        <a href="/post_details/{{ post.id }}" class="link">
+          <h3 class="post-h3">{{post.title}}</h3>
+        </a>
+        <h4 class="post-h4">{{post.author}}</h4>
+        <!-- <h6>{{post.creation_time}}</h6> -->
+      </div>
+      <h6>{{post.creation_time}}</h6>
+    </div>
+    {% endfor %}
+  </div>
+  <a href="/add_post/" class="link">
+    <button class="button-new" role="button">New Post</button>
+  </a>
+
+{% endblock %}

@@ -524,12 +524,10 @@ def results(request, question_id):
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 ```
 
-**Wrapping Up**
 
-If you take a step back, we've created a small app where you can vote on a poll question. While you can't create/read/update/destroy any new questions/choices, we've done quite a bit. Over the next two days, we'll be writing CRUD apps in Django but today is meant to give you an understanding its basic file structure and how to hook up everything.
+## External Resources
+[the official django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
 
 ## Assignments
-- Before doing anything, make sure that you can complete todays tutorial first
 - [Cars and Brands](https://github.com/romeoplatoon/django-cars-and-brands)
-
 
