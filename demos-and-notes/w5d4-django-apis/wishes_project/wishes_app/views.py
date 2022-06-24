@@ -6,10 +6,10 @@ import pprint
 from dotenv import load_dotenv
 import os
 
+
 load_dotenv()
 
 pp = pprint.PrettyPrinter(indent=2, depth=2)
-
 
 # Create your views here.
 def index(request):
