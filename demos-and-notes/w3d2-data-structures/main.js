@@ -9,9 +9,13 @@
 // sortedData.addButKeepSorted('n') // this is harder depending on the length of the array
 // a sorted list can be searched more efficiently than an unsorted list
 
+
 class HashTable {
     constructor(){
-        this.table = new Array(64) // an array with 64 empty elements
+        this.table = new Array(64).fill(0)
+        this.table = this.table.map((el)=>{
+            return []
+        })
     }
 
     // given a key, this function should return a numerical index, which we can use to access the table above
@@ -24,19 +28,37 @@ class HashTable {
     }
 
     set(key, value){
+        // console.log('set!')
         const index = this._hash(key)
-        this.table[index] = value
+        this.table[index].push([key,value])
     }
 
     get(key){
         const index = this._hash(key)
-        return this.table[index]
+        for ( let data of this.table[index] ) {
+            if ( data[0] == key ) {
+                return data[1]
+            }
+        }
     }
 }
 
 myHash = new HashTable()
+// console.log(myHash.table)
 
-myHash.set('age', 24)
 myHash.set('name', 'alice')
-console.log(myHash.get('age'))
+// myHash.set('age', 24)
+// myHash.set('mane', 'luxurious')
+myHash.set('star', 'bright')
+myHash.set('rats', 23)
+myHash.set('tars', 'sticky')
+myHash.set('arts', 'refined')
+console.log(myHash.table)
 console.log(myHash.get('name'))
+console.log(myHash.get('age'))
+console.log(myHash.get('mane'))
+// console.log(myHash.get('name'))
+
+
+// console.log(myHash.table)
+

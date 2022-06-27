@@ -168,7 +168,7 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 
 ## Assignments
 - [SQL Basics](https://github.com/romeoplatoon/sql-basics)
-- Read [SQL Queries](../page-resources/sql-queries.md)
+- Read [SQL Queries](https://github.com/romeoplatoon/curriculum/blob/main/page-resources/sql-queries.md)
 - [SQL Queries](https://github.com/romeoplatoon/sql-queries)
 
 

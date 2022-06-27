@@ -26,7 +26,7 @@ def clean_data(csv_row):
     cleaned['annual_salary'] = salary
     return cleaned
 
-connection = psycopg.connect("dbname=chicago_salaries")
+connection = psycopg.connect("dbname=chicago user=calig password=@UTgrdyr2024")
 connection.execute("DROP TABLE IF EXISTS employees")
 connection.execute(employees_table_creation_query)
 

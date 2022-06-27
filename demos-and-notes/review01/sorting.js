@@ -28,17 +28,17 @@ const people = [
 
 let numbers = [1,4,11,22,87,9]
 let sortedNumbers = numbers.sort() // sort with no args in js is not very useful
-console.log(sortedNumbers) // alphabetically sorted numbers. probably not what you wanted.
+// console.log(sortedNumbers) // alphabetically sorted numbers. probably not what you wanted.
 
 //use < or > to alphabetically compare things
-console.log('aa' < 'ba')
+// console.log('aa' < 'ba')
 
 
 let sortDirection = 1
 primarySortCol = 'age'
 secondarySortCol = 'job'
 sortedPeople = people.slice().sort(function(a,b){
-    console.log(`person a is ${a.name} and person b is ${b.name}`)
+    // console.log(`person a is ${a.name} and person b is ${b.name}`)
     if ( a[primarySortCol] == b[primarySortCol] ) { 
         if ( a[secondarySortCol] > b[secondarySortCol] ) { return sortDirection }
         if ( a[secondarySortCol] < b[secondarySortCol] ) { return -sortDirection }
@@ -50,13 +50,13 @@ sortedPeople = people.slice().sort(function(a,b){
     if ( a[primarySortCol] <  b[primarySortCol] ) { return -sortDirection } // returning a negative number means 'b' goes after 'a'
 })
 console.log(sortedPeople)
-console.log(people)
+// console.log(people)
 
-let gimmeFive = function(){
-    return 5;
-}
+// let gimmeFive = function(){
+//     return 5
+// }
 
-const five = gimmeFive();
+// const five = gimmeFive()
 
 // two types of array methods:
 // destructive methods will modify the original array that you call it on, like push() and pop()

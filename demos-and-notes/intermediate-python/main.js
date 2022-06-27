@@ -1,5 +1,5 @@
-console.log(typeof function(){});
+// console.log(typeof function(){})
 
 
 let x = 9 > 8 ? 'yes' : 'no'
-console.log(x);
+console.log(x)

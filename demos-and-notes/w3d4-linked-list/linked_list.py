@@ -14,17 +14,17 @@ class Node:
 
 # node_a is the 'head' of our list
 node_a = Node('Hello')
-node_b = Node('World')
-node_c = Node('!')
+#node_b = Node('World')
+#node_c = Node('!')
 
 # Connect nodes 
-node_a.set_next_node(node_b)
-node_b.set_next_node(node_c)
+#node_a.set_next_node(node_b)
+#node_b.set_next_node(node_c)
 
 # Iterate thru list
 pointer = node_a
 while(pointer):
-  print(pointer.value)
+  #print(pointer.value)
   pointer = pointer.next_node
 
 # Pass in the head of a linked list, and a value --
@@ -36,12 +36,13 @@ def add_to_list(head, new_value):
   # Get to the end of the list
   # So I can append (add on) the new node
   pointer = head
-  while pointer:
+  while(pointer):
     # End of list, add new the node & exit loop
-    if pointer.next_node is None:
+    if(pointer.next_node == None):
       pointer.next_node = new_node
       break
 
+    # Otherwise move on to the next node in the list
     else:
       pointer = pointer.next_node
 

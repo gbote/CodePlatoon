@@ -6,12 +6,12 @@ const alice = {
     job: 'Historian',
 }
 
-for ( let key in alice ) {
-    console.log(key)
-    console.log(alice[key])
-    console.log('=-=-=-=-=-=')
+// for ( let key in alice ) {
+//     console.log(key)
+//     console.log(alice[key])
+//     console.log('=-=-=-=-=-=')
 
-}
+// }
 
 
 // for-of loops are a newer addition to javascript for looping through arrays
@@ -22,42 +22,42 @@ for (let i = 0 ; i < letters.length; i++ ) {
     console.log(letters[i])
     // letters[i] = 'z'
 }
-console.log(letters)
-for ( letter of letters ) {
-    console.log(letter)
-}
-for ( letter in letters ) {
-    console.log(letter)
-    console.log(typeof letter)
-    console.log(letters[letter])
-}
+// console.log(letters)
+// for ( letter of letters ) {
+//     console.log(letter)
+// }
+// for ( letter in letters ) {
+//     console.log(letter)
+//     console.log(typeof letter)
+//     // console.log(letters[letter])
+// }
 
 // js arrays are really just objects
-console.log(typeof {})
-console.log(typeof [])
-console.log(Array.isArray([]))
-console.log(typeof function(){})
+// console.log(typeof {})
+// console.log(typeof [])
+// console.log(Array.isArray([]))
+// console.log(typeof function(){})
 
-for (let letter of letters.reverse() ) {
-    console.log(letter)
-    letter = 'z'
-}
-console.log(letters)
+// for (let letter of letters.reverse() ) {
+//     console.log(letter)
+//     letter = 'z'
+// }
+// console.log(letters)
 
 // all numbers in js are 'truthey', except for 0, which is 'falsey'.
 let i = 10;
 // while (--i){
-//     console.log(i)
+    // console.log(i)
 // }
 
-console.log(i--)
-console.log(--i)
+// console.log(i--)
+// console.log(--i)
 // when a primitive value is passed into a function, it is passed by value. modifying the function argument won't modify the original value
-letters.forEach(function(letter){
-    console.log(letter)
-    letter = 'z' // this does nothing
-})
-console.log(letters)
+// letters.forEach(function(letter){
+//     console.log(letter)
+//     letter = 'z' // this does nothing
+// })
+// console.log(letters)
 
 const people = [
     {
