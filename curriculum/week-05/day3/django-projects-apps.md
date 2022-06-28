@@ -422,6 +422,7 @@ STATICFILES_DIRS = [
 ```
 
 ```html
+{% extends "layout.html" %}
 
 {% block title %}
 <title>Polls</title>
