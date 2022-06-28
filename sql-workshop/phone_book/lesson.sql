@@ -22,7 +22,10 @@ where phone='579-804-9800';
 
 -- Exercise 1:
 --   1.1 Find phone number for Lauri Abshire.
+select phone from contacts where name='Lauri Abshire';
+
 --   1.2 Find who has the phone number 363-350-4983.
+select name from contacts where phone='363-350-4983';
 
 -- Now what happens if we only know someone's first name? The % is the
 -- wildcard character for a LIKE pattern. It matches any number of any character.
@@ -33,6 +36,9 @@ where name like 'Tammi%';
 
 -- Exercise 2:
 --   2.1 Find phone number for the last name of Hermann.
+select name, phone
+from contacts
+where name like '%Hermann';
 
 -- ILIKE is used to search case-insensitively.
 select name, phone
@@ -59,6 +65,9 @@ where name='Simonne Bayer';
 
 -- Exercise 3:
 --   3.1 Change John Smith's phone number to 212-987-2342
+update contacts
+set phone='212-987-2342'
+where name='John Smith';
 
 -- Lastly, let's delete a record.
 -- https://www.postgresql.org/docs/13/sql-delete.html

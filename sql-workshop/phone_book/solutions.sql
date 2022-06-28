@@ -9,7 +9,7 @@ select name, phone
 from contacts
 where name like '%Hermann';
 
--- 3.1 Change John Smith's name to Jon Smith
+-- 3.1 Change John Smith's phone number to 212-987-2342
 update contacts
-set name='Jon Smith'
+set phone='212-987-2342'
 where name='John Smith';

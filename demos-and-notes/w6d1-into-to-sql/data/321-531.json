@@ -1,0 +1,18 @@
+{
+    "first_name": "Meghan",
+    "last_name": "Remy",
+    "birthdate": "09/13/87",
+    "address": {
+      "line_1": "234 Maple St.",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60657"
+    },
+    "classes": [
+      "CS 101",
+      "HIST 107",
+      "SPAN 210",
+      "PHYS 218",
+      "ART 118"
+    ]
+  }

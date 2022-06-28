@@ -1,0 +1,18 @@
+{
+    "first_name": "Danny",
+    "last_name": "De",
+    "birthdate": "05/03/88",
+    "address": {
+      "line_1": "234 Clark St.",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60607"
+    },
+    "classes": [
+      "CS 101",
+      "ART 107",
+      "SPAN 210",
+      "PHYS 218",
+      "CS 118"
+    ]
+  }
