@@ -26,8 +26,7 @@ create TABLE offices (
     floor INTEGER NOT NULL,
     office_number INTEGER NOT NULL,
 
-    -- Each professor has their own private office
-    -- A professor can have more than one office
+    -- This approach would allow a professor to have more than one office
     --professor_id INTEGER REFERENCES professors (id)
 
     -- A professor can only have 1 office
