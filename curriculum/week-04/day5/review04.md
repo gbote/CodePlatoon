@@ -6,4 +6,4 @@
 
 
 ## Assignments
-- [DOM Manipulation](https://github.com/romeoplatoon/html-dom-manipulation)  
+- [Simple To-do](https://github.com/romeoplatoon/html-simple-to-do)  

@@ -396,15 +396,13 @@ Forms are generally used to send data to another location on the web (usually an
   
   
 ## Assignments
-- [LinkedIn JS](https://github.com/romeoplatoon/html-js-linkedin)
+- Read the [MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) and work through it's [Simple Example DOM Events tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#a_simple_example).
+- [DOM Manipulation](https://github.com/romeoplatoon/html-dom-manipulation)  
 - [Guess A Number](https://github.com/romeoplatoon/html-number-guessing-game)
 - Stretch Challenge: [Create a Static Webpage](https://github.com/romeoplatoon/html-static-webpage)
 
-## **Highly Recommended** Reading
-- [MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
-
 ## Additional Resources
-- [Eloquent Javascript - The DOM]( https://eloquentjavascript.net/14_dom.html)
+- [Eloquent Javascript: The DOM](https://eloquentjavascript.net/14_dom.html)
 - [Excellent guide to DOM Event Bubbling & Capturing, Good Diagrams](https://javascript.info/bubbling-and-capturing)
 - [MDN Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
 

@@ -22,62 +22,35 @@ First things first for any new Django project, we need a new virtual environment
 
 > **NOTE**: This will become a repetive workflow for setting up a new project.
 
-1. Create a new folder: `mkdir mysite_project`
-2. Change into that directory: `cd mysite_project`
-3. Create your Python Virtual Environment: `python -m venv venv`
-4. Activate your `venv`:
+1. Create a Python Virtual Environment: `python -m venv ~/venvs/polls_env`
+2. Activate your `venv`:
+  On Mac/Linux 
+  > `source ~/venvs/polls_env/bin/activate`
 
-   On Mac/Linux/Docker Devtools
-   > `source ./venv/bin/activate`
+  On Windows 
+  > `~\venvs\polls_venv\Scripts\activate`
 
-   On Windows 
-   > `.\venv\Scripts\activate`
-5. Install `django` into your environment: `pip install django`
-   
-   On Cloud9
-   > `pip install django==2.1.15`
-6. Create a Django project called `mysite`: `django-admin startproject mysite .`
+3. Install `django` into your environment: `pip install django`
+4. Create a Django project called `polls_project`: `python -m django startproject polls_project`
 
-We've got the beginnings of our Django app. Here's the breakdown of each file with explanations from the Django documentation and our explanation from us on how we interpret the Django documentation:
 
-- `manage.py`
-  - *Docs say*: A command-line utility that lets you interact with this Django project in various ways
-  - *In our words*: It's code that allows you to use your terminal to interact with your app. This includes running migrations, interacting with the console, and starting the server. Don't worry about this file - it's given to us for free
-- `mysite/__init__.py`
-  - *Docs say*: An empty file that tells Python that this directory should be considered a Python package
-  - *In our words*: It's a file with dunder (double underscores) in the filename that Python needs in order to run this properly
-- `mysite/settings.py`
-  - *Docs say*: Settings/configuration for this Django project
-  - *In our words*: This is the file that will tell Django things like which database to use, what apps are installed, etc.
-- `mysite/urls.py`
-  - *Docs say*: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
-  - *In our words*: This is the file where you declare (write) all your routes. Think of this as the phone operator of an organization. You call the operator and tell them what you want. Then, the operator directs to you to where you need to go
-- `mysite/wsgi.py`
-  - *Docs say*: An entry-point for WSGI-compatible web servers to serve your project
-  - *In our words*: A file that you need that you don't need know too much about. It's what we need to fire the app up on different types of servers
-
-*Let's fire up the server:* `python manage.py runserver 0.0.0.0:8000` (or just `python manage.py runserver` if you aren't using docker). Next, visit http://localhost:8000 and see what you get!
+*Let's fire up the server:* `python manage.py runserver`. Next, visit http://localhost:8000 and see what you get!
 
 *Don't worry about any unapplied migrations yet. We're not using our database just yet.*
 
-On Cloud9, your server link will be dynamically generated. But, you will need to add `ALLOWED_HOSTS = ['*']` to your `settings.py` first, then:
-> *python manage.py runserver 8080*
-
-You'll see a popup with a link to your server in the bottom right.</br>
-![server popup](../page-resources/c9_server.png)
 
 **Poll App / Views**
 
-Now the server will continue running until you stop it with Cmd-C/Ctrl-C, but that means you can't use the command line. So to continue running commands, open a second terminal window. In the same directory / level as `manage.py`, run:
+Now the server will continue running until you stop it with Ctrl-C, but that means you can't use the command line. So to continue running commands, open a second terminal window. In the same directory / level as `manage.py`, run:
 
 ```bash
-$ source venv/bin/activate
-$ python manage.py startapp polls
+source ~/venvs/polls_env/bin/activate
+python manage.py startapp polls
 ```
 
-A quick sidebar - we ran `startproject` earlier and we are now running `startapp`. The difference between these two is that a `project` consists of many `apps`. An `app` can belong to many `projects`.
+A quick sidebar - we ran `startproject` earlier and we are now running `startapp`. The difference between these two is that a `project` consists of many `apps`.
 
-In `polls/views.py`, let's put the following code inside:
+In `polls_app/views.py`, let's put the following code inside:
 ```python
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -86,7 +59,7 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 ```
 
-We created a request method called `index` inside the `views` file. Next, we need to register this page in `polls/urls.py` *(you need to create this file)*. Create that file and paste the following code in there:
+We created a request method called `index` inside the `views` file. Next, we need to register this page in `polls_app/urls.py` *(you need to create this file)*. Create that file and paste the following code in there:
 
 ```python
 from django.urls import path
@@ -94,11 +67,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index),
 ]
 ```
 
-Finally, we will connect our recently created `urls.py` to `mysite/urls.py`. *Delete the code that is already in the `urls.py` file and replace it with the code below*:
+Finally, we will connect our recently created `urls.py` to `polls_project/urls.py`. *Delete the code that is already in the `urls.py` file and replace it with the code below*:
 
 ```python
 from django.urls import include, path
@@ -108,21 +81,21 @@ urlpatterns = [
 ]
 ```
 
-Whoa, a lot of code just now - let's break it down. We started off earlier with creating a project called `mysite`. Projects can consist of many apps. We then created a `polls` app which is at the same level as `mysite`. Whenever anyone hits any route (aka endpoint) with `/polls`, the `mysite/urls.py` file will direct them to the `polls` app, specifically the `urls` file. From there, it'll send the user to `index` method in `views.py`.
+Whoa, a lot of code just now - let's break it down. We started off earlier with creating a project called `polls_project`. Projects can consist of many apps. We then created a `polls_app` app which is at the same level as `polls_project`. Whenever anyone hits any route (aka endpoint) with `/polls`, the `polls_project/urls.py` file will direct them to the `polls` app, specifically the `urls` file. From there, it'll send the user to `index` method in `views.py`.
 
-In `polls/urls.py`, let's break down the `path` method that we imported. `path` takes in 4 arguments. 2 of them are required and 2 of them are optional. In order, they are `route`, `view`, and `kwargs` / `name`. `route` is the path that you enter in the URL. `view` is the file that handles the logic behind what shows up on your screen. `views.index` means "Look at the index method in the `views.py` file." Finally, we passed in `name=index` to give us a `named route` to use later on.
+In `polls_app/urls.py`, let's break down the `path` method that we imported. `path` takes in 4 arguments. 2 of them are required and 2 of them are optional. In order, they are `route`, `view`, and `kwargs` / `name`. `route` is the path that you enter in the URL. `view` is the file that handles the logic behind what shows up on your screen. `views.index` means "Look at the index method in the `views.py` file." 
 
 Visit http://localhost:8000/polls to see what you get!
 
 **Setting up our Database**
 
-Most companies use PostgreSQL as their production database. For the sake of simplicity today, we are going to use SQLite. SQLite is extraordinarily lightweight - it's essentially a file that you interact with using SQL.
+Many companies use PostgreSQL as their production database, but for the sake of simplicity today, we are going to use SQLite. SQLite is extraordinarily simple and lightweight - whereas most SQL databases are actual servers that require a client to connect to them, a SQLite database is essentially a single file that you interact with using SQL.
 
 Let's ensure that the `ENGINE` reads `'ENGINE': 'django.db.backends.sqlite3'` in `mysite/settings.py` before moving on.
 
 **Models & Migrations**
 
-Django's architecture is based off the MVC framework - Model, View, Controller. The Controller layer (`views.py`) can be seen as the brains of the app - it handles the logic . The View layer (`templates/`) is responsible for everything that a user sees, and the Model layer (`models.py`) is what connects your Python objects to the database. As you're starting to see, everything that we have been teaching has led to us writing this framework code.
+Django's architecture is based off the MVC pattern - Model, View, Controller. The Controller layer (`views.py`) can be seen as the brains of the app - it handles the logic . The View layer (`templates/`) is responsible for everything that a user sees, and the Model layer (`models.py`) is what connects your Python objects to the database. As you're starting to see, everything that we have been teaching has led to us writing this framework code.
 
 | MVC Framework | Django  |
 |---|---|
@@ -130,9 +103,11 @@ Django's architecture is based off the MVC framework - Model, View, Controller. 
 | View  |  Template folder (`templates/{app_name}/example.html`) |
 | Controller  | `views.py`  |
 
-![django architecture](../page-resources/django-architecture.png)
+This might seem a little confusing at first because Django has something called 'views', which are used to represent the Controller in MVC, not the View.
 
-In Django, we declare all of our models in one file: `models.py`. In polls/models.py, let's write:
+![django architecture](../../page-resources/django-architecture.png)
+
+In Django, we declare all of our models in one file: `models.py`. In polls_app/models.py, let's write:
 
 ```python
 from django.db import models
@@ -142,17 +117,17 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published')
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 ```
 
-We've got two tables in our polls app: question and choice. A question has `question_text` and a `published_date`, and has many choices. A choice belongs to a question through the `ForeignKey(Question`, has `choice_text` and `votes`.
+We've got two tables in our polls app: question and choice. A question has `question_text` and a `pub_date`, and has many choices. A choice belongs to a question through the `question = models.ForeignKey(Question, on_delete=models.CASCADE)`, has `choice_text` and `votes`.
 
-Next, we have to hook up our polls app to `mysite`'s configuration in `mysite/settings.py`:
+Next, we have to hook up our polls app to `polls_project`'s configuration in `polls_project/settings.py`:
 ```python
 INSTALLED_APPS = [
-    'polls',
+    'polls_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -162,26 +137,27 @@ INSTALLED_APPS = [
 ]
 ```
 
-Now we're ready to migrate the code we wrote into `models.py`:
+Now we're ready to migrate our database schema to reflect our models in `models.py`:
 ```bash
-$ python manage.py makemigrations polls
+python manage.py makemigrations
 ```
 
-A new file was created for us: `polls/migrations/0001_initial.py`. Every time that you run `python manage.py makemigrations`, it will detect differences and save it was a numbered migration under your `migrations` folder. This allows you to store changes to your models and ultimately your database schema over time.
+A new file was created for us: `polls_app/migrations/0001_initial.py`. Every time that you run `python manage.py makemigrations`, it will detect differences and save it as a numbered migration under your `migrations` folder. This allows you to store changes to your models and ultimately your database schema over time.
 
 Finally, to get our code into the database:
 ```bash
-$ python manage.py migrate
+python manage.py migrate
 ```
 
 **Playing with the Django shell**
 
 ```
-$ python manage.py shell
+python manage.py shell
 ```
 This gives us access to the Python shell, but with our entire app loaded into it! We can interact with the database using Python code:
 
 ```python
+from polls_app.models import Question
 Question.objects.all() # should return an empty collection, which makes sense since we have nothing in the database yet. Let's create a question record.
 
 from django.utils import timezone
@@ -199,7 +175,7 @@ question.save()
 Question.objects.all()
 ```
 
-You'll notice that the result we get back (`<Question: Question object (1)>`) is not descriptive and sucks. In `polls/models.py`, we are going to add a `__str__` method in for Question and Choice. All dunder methods are built in to Django; the dunder `str` method is a method we're going to overwrite so that we get a better description of each object.
+You'll notice that the result we get back (`<Question: Question object (1)>`) is not descriptive. In `polls_app/models.py`, we are going to add a `__str__` method in for Question and Choice. All dunder methods are built in to Django; the dunder `str` method is a method we're going to overwrite so that we get a better description of each object.
 
 ```python
 ## polls/models.py
@@ -213,7 +189,7 @@ class Question(models.Model):
         return f"ID: {self.id} Question Text: {self.question_text}"
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
     
@@ -227,10 +203,10 @@ Fire up a new console and run some commands. A bunch of commands can be found [h
 Question.objects.all() # note how you get a much more descriptive representation than what you got before
 
 question = Question.objects.get(id=1)
-question.choices.all() # verifying that we have no choices for our questions
+question.choice_set.all() # verifying that we have no choices for our questions
 ```
 
-What the heck is `choices`? Remember `related_name` from the Associations challenge? This is where it comes into play. If you don't have a `related_name`, you need to type `<tablename>_set` in order to get from one Python object to another.
+What is `choice_set`? This is how django lets you access one model from another, related model. Django creates this name automatically based on the name of the model (e.g. f"{model_name}_set"). Like many default settings in Django, it's possible to configure the name of this property by setting a "related_name" in the model, if you want to call it something else, like `choices`. 
 
 ```python
 question.choices.all() # verifying that we have no choices for our questions
@@ -289,7 +265,7 @@ Visit those routes with `question_id` as 1 and see what you get!
 
 **Templating**
 
-Of course, having plain text is not terribly useful. We want to create templates in HTML (the View layer of MVC) where we can pass in Python objects of data. Under your `polls` directory, create a `templates` folder, and under that directory, create another `polls` folder, and under that directory create an `index.html` file:
+Of course, having plain text is not terribly useful. We want to create templates in HTML (the View layer of MVC) where we can pass in Python objects of data. Under your `polls_app` directory, create a `templates` folder, and under that directory, create another `polls_app` folder, and under that directory create an `index.html` file:
 
 ```html
 <!-- polls/templates/polls/index.html -->
@@ -383,31 +359,11 @@ Helper methods are methods that help you write code faster / better. Let's stop 
   <p>No polls are available.</p>
 {% endif %}
 ```
-Right in the middle of the page we see that we've hardcoded the URL. Anytime you hardcode (force the code to operate a certain way), you have written brittle/unscaleable code. Instead let's use Django's helpers to improve our code. First, let's add a "namespace" (app_name) to our `polls/urls.py`.
-```python
-## polls/urls.py
-from django.urls import path
-from . import views
 
-app_name = 'polls'
-urlpatterns = [
-    path('', views.index, name='index'),
-    path('<int:question_id>/', views.detail, name='detail'),
-    path('<int:question_id>/results/', views.results, name='results'),
-    path('<int:question_id>/vote/', views.vote, name='vote'),
-]
-```
-And now let's change the view code in `polls/templates/polls/index.html`
-```
-<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-```
-This markup says the url uses the `detail` page in `polls` and appends our `question.id`. So, it will yield links like `"/polls/1"`, `"polls/2"` and so on.
-
-Let's break down what we just did. In our `urls.py`, we namespaced our app with `app_name` so that when we say `polls:detail`, there is no doubt about which app is using the named route `detail`. Remember that a Django project can have many apps and that one of those other apps could have `detail`. With `polls:detail`, there is no doubt of which route we're using. For `detail` specifically, the route is `/polls/<int:question_id>`. We are passing that id number into the named route so that it automatically populates the URL.
 
 **Forms in Django**
 
-Let's create a form so that people can vote on a question. In `polls/templates/polls/detail.html`, put the following code:
+Let's create a form so that people can vote on a question. In `polls_app/templates/polls_app/detail.html`, put the following code:
 
 ```html
 <h1> Details about Question {{ question.id }} </h1>
@@ -415,9 +371,9 @@ Let's create a form so that people can vote on a question. In `polls/templates/p
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
+<form action="/polls/{{ question.id }}/vote" method="POST">
   {% csrf_token %}
-  {% for choice in question.choices.all %}
+  {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
   {% endfor %}
@@ -446,11 +402,11 @@ def get_question(question_id):
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')
     data = { 'latest_question_list': latest_question_list }
-    return render(request, 'polls/index.html', data)
+    return render(request, 'polls_app/index.html', data)
 
 def detail(request, question_id):
     question = get_question(question_id)
-    return render(request, 'polls/detail.html', {'question': question})
+    return render(request, 'polls_app/detail.html', {'question': question})
 
 def results(request, question_id):
     return HttpResponse(f"You're looking at the results of question {question_id}.")
@@ -460,17 +416,18 @@ def vote(request, question_id):
     try:
         selected_choice = question.choices.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'polls/detail.html', {
+        return render(request, 'polls_app/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+        return HttpResponseRedirect(f'/polls/{question_id}/results')
 ```
 
 We've rewritten a lot of code. Let's break down the differences:
+
 ```python
 from django.http import HttpResponse, HttpResponseRedirect # brings in the ability to redirect the user
 from django.shortcuts import render
@@ -483,7 +440,7 @@ def vote(request, question_id):
     try: # try to do this
         selected_choice = question.choices.get(pk=request.POST['choice']) # find the choice that the user submitted in the form
     except (KeyError, Choice.DoesNotExist): # couldn't find the selected_choice above will raise an error. using "except" will catch that error from blowing up the app
-        return render(request, 'polls/detail.html', { # re-display the question voting form
+        return render(request, 'polls_app/detail.html', { # re-display the question voting form
             'question': question,
             'error_message': "You didn't select a choice.", # these two are local variables that the view needs. this "error_message" is specifically for that
             # {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} line of code
@@ -491,10 +448,10 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1 # add 1 to the number of votes for that selected choice
         selected_choice.save() # save it to the database
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+        return HttpResponseRedirect(f'/polls/{question_id}/results')
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
+        # user refreshes the page.
 ```
 
 When we vote, we get redirected to the results page which just has some text in it. Let's alter that:
@@ -502,9 +459,9 @@ When we vote, we get redirected to the results page which just has some text in 
 ## polls/views.py
 def results(request, question_id):
     question = get_question(question_id)
-    return render(request, 'polls/results.html', {'question': question})
+    return render(request, 'polls_app/results.html', {'question': question})
 ```
-`results` is telling us to create a `results.html` file in our `polls/templates/polls` directory:
+`results` is telling us to create a `results.html` file in our `polls_app/templates/polls_app` directory:
 ```html
 <h1> Details about Question {{ question.id }} </h1>
 <h2> {{ question.question_text }} </h2>
@@ -514,8 +471,7 @@ def results(request, question_id):
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
   {% endfor %}
 </ul>
-
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<a href="/polls/{{ question.id }}/detail">Vote again?</a>
 ```
 
 
@@ -524,4 +480,5 @@ def results(request, question_id):
 
 ## Assignments
 - [Cars and Brands](https://github.com/romeoplatoon/django-cars-and-brands)
+
 

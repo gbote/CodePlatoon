@@ -81,7 +81,6 @@ const myPromise = new Promise((resolve, reject) => {
 - [Postman docs](https://learning.postman.com/docs/getting-started/sending-the-first-request/)
 
 ## Assignments
-- [Simple To-do](https://github.com/romeoplatoon/html-simple-to-do)  
 - [Pokemon Theme Team](https://github.com/romeoplatoon/pokemon-theme-team)
 
 

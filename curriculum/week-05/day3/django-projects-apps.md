@@ -18,10 +18,10 @@
 > **NOTE**: This will become a repetive workflow for setting up a new project.
 
 
-1. Create a Python Virtual Environment: `python -m venv ~/venvs/polls_venv`
+1. Create a Python Virtual Environment: `python -m venv ~/venvs/polls_env`
 2. Activate your `venv`:
   On Mac/Linux 
-  > `source ~/venvs/polls_venv/bin/activate`
+  > `source ~/venvs/polls_env/bin/activate`
 
   On Windows 
   > `~\venvs\polls_venv\Scripts\activate`
@@ -445,4 +445,5 @@ STATICFILES_DIRS = [
 
 ## Assignments
 - [Django School Roster](https://github.com/romeoplatoon/django-school-roster)
+
 
