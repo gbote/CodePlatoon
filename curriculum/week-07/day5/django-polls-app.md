@@ -304,7 +304,7 @@ Of course, having plain text is not terribly useful. We want to create templates
   <p>No polls are available.</p>
 {% endif %}
 ```
-This markup is called [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#high-level-api), and it lets us insert Python into our HTML. Here are three of the basic uses:
+
 ```html
 {% code blocks %}
 {{ print statements }}
@@ -331,13 +331,7 @@ def vote(request, question_id):
     return HttpResponse(f"You're voting on question {question_id}.")
 ```
 
-We also need to update our `settings.py` with the location of the new templates.
-```python
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['polls/templates'],
-```
+
 If you were to visit http://localhost:8000/polls, you'd see all of the questions we've written thus far. Let's move onto the detail function in our `polls/views.py` file which will be `/polls/1` page:
 
 ```python

@@ -8,22 +8,22 @@
 
 ## Lesson
 
-- [Django ORM Slides](../page-resources/Intro_Django_ORM.pdf)
 
 **Connecting Django to Postgresql using Django ORM**
 
-Soon, we are going to begin using Django, a Python framework, to develop our web applications. You don't need to know the in's and out's of Django right now; we're just going to be using the *Django ORM*. *ORM* stands for *Object Relational Mapping* and it's a way for us to use Python code to talk to a database. Instead of writing raw SQL statements, we write Python code using Django ORM syntax to perform SQL queries. It's very important to note that there is no magic here - you type Django ORM code, the interpreter will translate it to SQL, and it'll pass that SQL to the database. Once a result comes back from the database (in raw SQL), the interpreter will translate it back to Django ORM code and pass it back to you.
+> Recently, we learned how to query postgreSQL, which stores data in relational tables. Before that, we learned about Django servers, which store much of their data in python objects. It can be tricky to write a python application that queries a SQL database, since these are different ways of storing data. To help us translate between these formats, developers often use an Object-Relational Mapping library (ORM). Fortunately, Django includes a very useful ORM, creatively called Django-ORM. 
 
+> When using Django-ORM, we won't write raw SQL anymore. Instead, we'll define Classes, called `models`, from which Django-ORM can automatically create tables in postgres. Instances of these classes will be used to represent individual rows of our tables. Django-ORM provides other useful features too, such as helping us manage changes to our database schema, known as `migrations`.
 
 
 **Starting a New Django Project**
 
-Once we have our venv up and running, we can install Django and start a new project. We are going to call our project name `school`, but you can call it whatever you want.
+Once we have our venv up and running, we can install Django and start a new project. We are going to call our project `school_project`, but you can call it whatever you want.
 
 ```bash
 $ pip install django
-$ django-admin startproject <projectname>
-$ cd <projectname>
+$ python -m django startproject school_project
+$ cd school_project
 ```
 
 **Create a database**
@@ -36,13 +36,13 @@ $ createdb school
 
 **Pyscopg2**
 
-Now we install the Python library that will help Django talk to Postgres.
+Now we install psycopg2, the Python library that will help Django talk to Postgres. We won't actually be calling this library directly, it's just a depency of Django-ORM that we need to install.
 
 ```bash
 $ pip install psycopg2
 ```
 
-And then tell Django we want to use Postgres as our database instead of the default SQL adapter, SQLite3. We also tell it what database to attach to
+And then tell Django we want to use Postgres as our database instead of the default, SQLite3. We also tell it what database to attach to
 
 ```python
 ## school/settings.py
@@ -58,13 +58,13 @@ DATABASES = {
 
 **Create our App**
 
-Django projects are split into many apps (i.e., a project has many apps). Imagine a new _project_ at Amazon where they are selling lots of space on the Moon. That _project_ requires a bunch of different _apps_ in order to run. For example, there might be a billing _app_ to collect money from individuals, a searching _app_ for people to look up lots, a VIP _app_ where they target VIPs, etc. Today, our `school` project will just start with a `students` app.
+Django projects are split into many apps (i.e., a project has many apps). Imagine a new _project_ at Amazon where they are selling lots of space on the Moon. That _project_ requires a bunch of different _apps_ in order to run. For example, there might be a billing _app_ to collect money from individuals, a searching _app_ for people to look up lots, a VIP _app_ where they target VIPs, etc. Today, our `school` project will just start with an `attendance_app` app.
 
 ```bash
-$ python manage.py startapp attendance
+$ python manage.py startapp attendance_app
 ```
 
-Next, we need to add the `attendance` app to our `settings.py` file in our school folder.
+Next, we need to add the `attendance_app` app to our `settings.py` file in our school folder.
 ```python
 ## school/settings.py
 
@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'attendance',
+    'attendance_app',
 ]
 ```
 
@@ -92,19 +92,19 @@ class Student(models.Model):
     email = models.CharField(max_length=200)
 ```
 
-We've created a Python class that directly correlates to a database table (i.e., a model). Next, let's tell Django to create the necessary code for us to get this table into the database:
+We've created a Python class that directly maps to a database table (i.e., a model). Next, let's tell Django to create the necessary code for us to get this table into the database:
 
 ```bash
 $ python manage.py makemigrations attendance
 ```
 
-A folder was just generated called `migrations`. Look inside there and take a look at the Django code that was generated for us to put our tables into the database. Next, let's `migrate` our data from the app into the database itself:
+A folder was just generated called `migrations`. Look inside there and take a look at the Django code that was generated for us to put our tables into the database. If we were not using an ORM, we would have to write these migrations ourselves, by hand, so let's take a moment to appreciate all the time and effort that Django-ORM is saving us. Next, let's `migrate` our database, so that it reflects the current state of our models.  
 
 ```bash
 $ python manage.py migrate
 ```
 
-We should have a `attendance_student` students table in our db. Check it out with `psql school`
+We should have a `attendance_app_student` students table in our db. Check it out with `psql school`
 
 **Django Console**
 
@@ -115,14 +115,14 @@ $ python manage.py shell
 from school.models import Student
 ```
 
-The shell will load in all of our models and libraries from Django. Once in the shell, we can create a new student.
+The shell will allow us to load in our models from Django. Once in the shell, we can create a new student.
 
 ```bash
 In [1]: student = Student(name="Jon", email="jon@jon.com")
 In [2]: student.save()
 ```
 
-We're starting to see things come together - the object oriented lessons from weeks 2 and 3 were in preparation for this. Just by writing those two lines of code, we are able to instantiate a Student object for us and save it into the database. Under the hood, it's just running:
+This should look familiar - the object oriented lessons from weeks 2 and 3 were in preparation for this. Just by writing those two lines of code, we are able to instantiate a Student object for us and save it into the database. Under the hood, it's just running:
 
 ```sql
 INSERT into students (name, email) VALUES ('Jon', 'jon@jon.com')
@@ -144,16 +144,16 @@ school= \d
                           List of relations
  Schema |               Name                |   Type   |     Owner
 --------+-----------------------------------+----------+---------------
- public | attendance_student                | table    | joshuaalletto
- public | attendance_student_id_seq         | sequence | joshuaalletto
+ public | attendance_app_student            | table    | joshuaalletto
+ public | attendance_app_student_id_seq     | sequence | joshuaalletto
  public | auth_group                        | table    | joshuaalletto
  ...
 
 ```
-Django creates our database tables with the project name first, followed by the app name. So `attendance_student` is what we are looking for. Let's query for the records in that table and see what we get.
+Django creates our database tables with the app name first, followed by the app name. Before we even wrote our own models, there were many built-in tables here, named after the built-in apps in Django, such as `admin`, `auth`, and `sessions`. Also, take note of the `django-migrations` table, which django manages automatically in order to keep track of which migrations have already been run. Our app's table is `attendance_app_student`. Let's query for the records in that table and see what we get.
 
 ```bash
-## select * from attendance_student;
+## select * from attendance_app_student;
 school=
  id | name | email
 ----+------+-----+
@@ -174,5 +174,5 @@ Next, we created a record (row) in our database using just Python and verified t
 - [Database Diagramer](https://www.quickdatabasediagrams.com/)
 
 ## Assignments
-- [Assessment #3](https://github.com/quebecplatoon/assessment-3)
+- [Assessment #3](https://github.com/romeoplatoon/assessment-3)
 - [Django Queries](https://github.com/romeoplatoon/django-queries)
