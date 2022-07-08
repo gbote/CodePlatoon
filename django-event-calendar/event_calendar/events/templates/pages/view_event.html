@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<h1>{{event.name}}</h1>
+<ul>
+  <li>Event Details: {{event.description}}</li>
+  <li>Start: {{event.starts_at}}</li>
+  <li>Ends: {{event.ends_at}}</li>
+  <li>Event created: {{event.created_at}}</li>
+</ul>
+<a href="{% url 'events:view_all_events' %}" >Go home</a>
+
+<a href="{% url 'events:delete_event' event.id %}">Delete Event</a>
+
+{% endblock %}
