@@ -45,7 +45,7 @@ Now the server will continue running until you stop it with Ctrl-C, but that mea
 
 ```bash
 source ~/venvs/polls_env/bin/activate
-python manage.py startapp polls
+python manage.py startapp polls_app
 ```
 
 A quick sidebar - we ran `startproject` earlier and we are now running `startapp`. The difference between these two is that a `project` consists of many `apps`.
@@ -77,7 +77,7 @@ Finally, we will connect our recently created `urls.py` to `polls_project/urls.p
 from django.urls import include, path
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
+    path('polls/', include('polls_app.urls')),
 ]
 ```
 
@@ -89,9 +89,10 @@ Visit http://localhost:8000/polls to see what you get!
 
 **Setting up our Database**
 
-Many companies use PostgreSQL as their production database, but for the sake of simplicity today, we are going to use SQLite. SQLite is extraordinarily simple and lightweight - whereas most SQL databases are actual servers that require a client to connect to them, a SQLite database is essentially a single file that you interact with using SQL.
 
-Let's ensure that the `ENGINE` reads `'ENGINE': 'django.db.backends.sqlite3'` in `mysite/settings.py` before moving on.
+We are going to use Postgres for our database.
+
+Let's ensure that the `ENGINE` reads `'ENGINE': 'django.db.backends.postgresql'` in `polls_project/settings.py` before moving on.
 
 **Models & Migrations**
 
@@ -295,7 +296,7 @@ from .models import Question
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')
     data = { 'latest_question_list': latest_question_list }
-    return render(request, 'polls/index.html', data)
+    return render(request, 'polls_app/index.html', data)
 
 def detail(request, question_id):
     return HttpResponse(f"You're looking at question {question_id}.")
@@ -342,22 +343,6 @@ In our **`polls/templates/polls`** directory create a file called `detail.html`:
     <li>{{ choice.choice_text }}</li>
   {% endfor %}
 </ul>
-```
-
-**Django Helper Methods**
-
-Helper methods are methods that help you write code faster / better. Let's stop for a second and look at our `/index` HTML and see what we can refactor:
-```html
-<h1> All Polls </h1>
-{% if latest_question_list %}
-  <ul>
-    {% for question in latest_question_list %}
-      <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No polls are available.</p>
-{% endif %}
 ```
 
 

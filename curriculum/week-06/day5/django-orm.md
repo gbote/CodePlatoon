@@ -111,7 +111,7 @@ We should have a `attendance_app_student` students table in our db. Check it out
 While we can interact with our data using Postgres, more often we want to interact with our data using Python. We're going to use a console for our project that will pull in all our Python classes and allow us to query the database directly using Django's ORM.
 
 ```bash
-$ python manage.py shell
+python manage.py shell
 from school.models import Student
 ```
 
