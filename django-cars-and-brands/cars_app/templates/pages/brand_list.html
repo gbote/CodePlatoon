@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List of Brand Cars
+{% endblock %}
+
+{% block main-content %}
+<h2>Cars by {{brand}}</h2>
+<div class="form__container">
+  <ol>
+    {% for car in brand.models.all|dictsort:"id" %}
+    <li>
+      <a href="{% url 'display-car' brand.id car.id %}">
+      {{ car }}
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  </div>
+
+<div class="btn__container">
+  <a href="{% url 'add-car' brand.id %}">
+    <button class="btn">Add car model to {{brand}}</button>
+  </a>   
+  <br>
+  <a href="{% url 'brand-edit' brand.id %}">
+    <button class="btn secondary">Edit {{brand}}</button>
+  </a>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="delete_brand" value="{{ brand.id }}" />
+    <button class="btn tertiary" type="submit">
+      Delete {{brand}}
+    </button>
+  </form>
+
+
+</div>
+
+
+{% endblock %}

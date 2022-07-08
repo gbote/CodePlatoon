@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Car to Brand
+{% endblock %}
+
+{% block main-content %}
+<h2>Add Car to Brand
+</h2>
+<div class="form__container">
+  <form class="form" method="POST">
+    {% csrf_token %}
+    <label for="car">New Car: </label>
+    <input name="car" type="text" placeholder="Enter new car model">
+    <input type="hidden" value="add_car" />
+  </div> 
+  <input class="btn" type="submit" value="Add Car to {{brand.make_name}}" />
+
+  {% if error %}
+  <p id="error">ERROR: {{ error }}</p>
+  {% endif %}
+</div>
+{% endblock %}
