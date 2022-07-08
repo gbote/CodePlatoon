@@ -1,0 +1,34 @@
+[
+    {
+      "model": "shopping_cart_app.Item",
+      "pk": 1,
+      "fields": {
+        "name": "Pen",
+        "price": 2.00
+      }
+    },
+    {
+        "model": "shopping_cart_app.Item",
+        "pk": 2,
+        "fields": {
+            "name": "Notebook",
+            "price": 20.00
+        }
+    },
+    {
+        "model": "shopping_cart_app.Item",
+        "pk": 3,
+        "fields": {
+            "name": "Eraser",
+            "price": 1.00
+        }
+    },
+    {
+        "model": "shopping_cart_app.Item",
+        "pk": 4,
+        "fields": {
+            "name": "Laptop",
+            "price": 30
+        }
+    }
+]

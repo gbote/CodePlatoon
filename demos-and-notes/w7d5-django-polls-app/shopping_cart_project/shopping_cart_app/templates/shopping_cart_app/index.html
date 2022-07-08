@@ -1,0 +1,27 @@
+<html>
+    <head> 
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="static/index.js"> </script>
+    </head>
+    <body>
+        
+        <h1> Items Available </h1>
+        
+        <ul>
+            {% for data_item in data %}
+                
+                <li> 
+                    <button onclick="add_item({{data_item.item.id}})"> Add Item</button>
+                    {{data_item.item.name}}  --  {{data_item.item.price}}
+                    <span> |  Quantity:  </span>
+                    <span id="{{data_item.item.id}}">{{data_item.quantity}}</span>
+                </li> 
+                
+
+            {% endfor %}
+
+        </ul>
+
+        <button onclick=""> See Cart </button>
+    </body>
+</html>
