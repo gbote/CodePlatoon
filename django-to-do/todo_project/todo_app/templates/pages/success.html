@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block script %}
+{% load static %}
+<script src="{% static 'js/todos.js' %}" type="text/javascript" defer></script>
+{% endblock %}
+
+{% block title %}
+My To-Do List
+{% endblock %}
+
+{% block main-content %}
+<div class="todos-header-container">
+  <h1 class="welcome">
+    {% if user.id == None %}
+      Welcome, Stranger!
+    {% else %}
+      Welcome, <span>{{ user }}</span>!
+    {% endif %}
+  </h1>
+  {% if user.id != None %}
+  <a href="{% url 'logout_user' %}"><button class="logout" role="button">logout</button></a>
+  {% endif %}
+  {% if user.id == None %}
+  <div class="anon-btn-container">
+    <a href="{% url 'login' %}"><button class="btn secondary anon-btn" role="button">login</button></a>
+    <a href="{% url 'signup' %}"><button class="btn tertiary anon-btn" role="button">sign up</button></a>  
+  </div>
+  {% endif %}
+</div>
+{% if error %}
+<p>{{error}}</p>
+{% endif %}</p>
+<div class="content-container">
+  <form id="todos-form" method="POST">
+    <label for="todo">New to-do item:</label>
+    <input name="todo" id="todo">
+    <input id="hidden" type="hidden" name="user" value={{user.id}} />
+    <button class="btn primary" type="submit">Submit</button>
+    <div id="feedback"></div>
+  </form>
+  <div class="todos-container">
+    <h3>Current To-Dos:</h3>
+    <ul class="todos-list">
+      {% if user_todos|length > 0 %}
+      {% for item in user_todos %}
+      <li>
+        <p class="list-item-text">
+            {{item}}
+        </p>
+        <div class="item-buttons">
+          <button class="btn delete" onclick="deleteItem(event)" value="{{item}}">
+            x
+          </button>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>  
+</div>
+
+{% endblock %}

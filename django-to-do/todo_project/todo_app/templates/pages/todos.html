@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My To-Dos
+{% endblock %}
+
+{% block main-content %}
+<h1>My To-Dos</h1>
+{% if error %}
+<p>{{error}}</p>
+{% endif %}</p>
+<form id="todos-form">
+  <label for="todo">New to-do item:</label>
+  <input name="todo" id="todo">
+  <hr>
+  <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

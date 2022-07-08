@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to To-Do List
+{% endblock %}
+
+{% block main-content %}
+<h2>Welcome!</h2>
+<a href="{% url 'signup' %}"><button class="btn primary" role="button">sign up </button></a>
+<a href="{% url 'login' %}"><button class="btn secondary" role="button">login</button></a>
+<a href="{% url 'success' %}"><button class="btn tertiary" role="button">see list</button></a>
+
+{% endblock %} 

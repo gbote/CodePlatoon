@@ -1,0 +1,10 @@
+{% extends 'poketeam/layout.html' %}
+
+{% block content %}
+<h2>Team {{pokemon.type}} Type</h2>
+<div class="cards fade-in">
+  {% for pokemon in team %}
+  {% include 'poketeam/card.html' %}
+  {% endfor %}
+</div>
+{% endblock %}
