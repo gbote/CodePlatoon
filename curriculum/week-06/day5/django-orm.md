@@ -161,11 +161,70 @@ school=
 (1 row)
 ```
 
-**Conclusion**
 
-We've created a database using Postgres and connected it to a Django project within a virtual environment. Then, we created an app within that project, created a model that links directly to a table in our database, and migrated over its columns from Django to Postgres.
+**Communicating with the Front-end**
 
-Next, we created a record (row) in our database using just Python and verified that it entered our Postgres database. Today, we're going to be learning just how powerful Django ORM is and the types of complicated SQL queries we can write in just a few lines of Python.
+So far, we've interacted with our database using PSQL or the django shell. For a real application, queries to the database will be handled in our views, initiated by user requests. There are many ways that this might work, but for our first project using Django-ORM, let's simply display all of our students on the home page, and then create a form that allows the user to add more students. 
+
+```python
+def index(request):
+
+    students = Student.objects.all() # get list of all students
+
+    # the home page should show a roster of all the students, so we pass the whole list into the template
+    return render(request, 'attendance_app/index.html', {'students': students} )
+```
+
+Then we'll need a template that can render this data.
+
+```html
+<h1>Class Roster</h1>
+
+<ul>
+    {% for student in students %}
+    <li>{{student.name}} - {{student.email}}</li> 
+    {% endfor %}
+</ul>
+```
+
+We'll also need a route that allows us to add new students.
+
+```python
+@csrf_exempt
+# this function creates a cartItem / updates a cartItem quantity
+def add_student(request):
+    body = json.loads(request.body) 
+
+    new_student = Student(name = body['name'], email = body['email'])
+    new_student.save()
+
+    return  JsonResponse({'success':True})
+```
+
+Finally, we'll build a form that users can use to specify a new student's name and email.
+
+```js
+function add_student(event)  {
+    event.preventDefault() 
+    // 'name' is already globally defined in js, so I'm using 'username' here just to be extra safe.
+    const username = document.getElementById('username').value
+    const email    = document.getElementById('email').value
+
+    axios({
+        method: 'POST',
+        url: '/student/',
+        data: {
+            // when our django server receives this data, it will be called 'name' instead of 'username'
+            name: username,
+            email: email,
+        }
+    }).then(function (response){
+        console.log(response.data)
+    })
+}
+```
+
+
 
 ## External Resources
 - [Django Docs](https://docs.djangoproject.com/en/2.2/)
