@@ -1,0 +1,23 @@
+[
+  {
+    "model": "cars_and_brands.brand",
+    "pk": 1,
+    "fields": {
+      "name": "Toyota"
+    }
+  },
+  {
+    "model": "cars_and_brands.brand",
+    "pk": 2,
+    "fields": {
+      "name": "Tesla"
+    }
+  },
+  {
+    "model": "cars_and_brands.brand",
+    "pk": 3,
+    "fields": {
+      "name": "Honda"
+    }
+  }
+]
