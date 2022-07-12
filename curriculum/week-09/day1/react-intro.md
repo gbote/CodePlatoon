@@ -39,9 +39,9 @@
 
 > Let's get started creating our first React app! Let's run the following commands in our terminal:
 ```sh
-$> npx create-react-app your-app-name
-$> cd your-app-name
-$> npm start
+npx create-react-app your-app-name
+cd your-app-name
+npm start
 ```
 
 It's that simple! If everything was set up correctly, you should now have a React server running on port 3000 (default) and a browser should have popped open to a page (http://localhost:3000/) that should look something like this:
@@ -153,7 +153,7 @@ That's not a lot of code we had to write above, but it's a fair amount just to g
 
 So this is a good time to introduce JSX. JSX is essentially an intermediary language syntax that allows us to write JavaScript code inside of HTML syntax. This is the same sort of functionality that Django templating syntax offered us when we were working in Django, allowing us to insert Python code into HTML templates. JSX code boils down to become JavaScript code behind the scenes. To insert JS logic in JSX code blocks, we use curly braces `{` `}`, and write JS expressions inside of those blocks. There is some limitation to what JS code we can write with in these blocks, but we'll explore this more later on.
 
-JSX makes is MUCH easier to implement DOM changes dynamically, because we essentially will be writing the HTML that we want to create, inside of our JavaScript file. Let's take a look at the equivalent JSX we would need to re-create our JavaScript example from above:
+JSX makes it MUCH easier to implement DOM changes dynamically, because we essentially will be writing the HTML that we want to create, inside of our JavaScript file. Let's take a look at the equivalent JSX we would need to re-create our JavaScript example from above:
 
 ```javascript
 // App.js
