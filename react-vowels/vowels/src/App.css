@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.highlight {
+  color:rgb(49, 6, 193);
+  text-decoration: underline;
+  background-color: rgb(217, 244, 13);
+}
