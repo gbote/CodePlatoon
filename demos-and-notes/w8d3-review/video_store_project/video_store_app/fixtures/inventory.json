@@ -1,0 +1,102 @@
+[
+  {
+    "model": "video_store_app.video",
+    "pk": 1,
+    "fields": {
+      "title": "Toy Story",
+      "rating": "G",
+      "release_year": "1995",
+      "copies_available": "0"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 2,
+    "fields": {
+      "title": "WALL-E",
+      "rating": "G",
+      "release_year": "2008",
+      "copies_available": "2"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 3,
+    "fields": {
+      "title": "Up",
+      "rating": "G",
+      "release_year": "2009",
+      "copies_available": "5"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 4,
+    "fields": {
+      "title": "Inside Out",
+      "rating": "PG",
+      "release_year": "2015",
+      "copies_available": "1"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 5,
+    "fields": {
+      "title": "The Prestige",
+      "rating": "PG-13",
+      "release_year": "2006",
+      "copies_available": "2"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 6,
+    "fields": {
+      "title": "The Dark Knight",
+      "rating": "PG-13",
+      "release_year": "2008",
+      "copies_available": "3"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 7,
+    "fields": {
+      "title": "Inception",
+      "rating": "PG-13",
+      "release_year": "2010",
+      "copies_available": "4"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 8,
+    "fields": {
+      "title": "Intersteller",
+      "rating": "PG-13",
+      "release_year": "2014",
+      "copies_available": "2"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 9,
+    "fields": {
+      "title": "Deadpool",
+      "rating": "R",
+      "release_year": "2016",
+      "copies_available": "3"
+    }
+  },
+  {
+    "model": "video_store_app.video",
+    "pk": 10,
+    "fields": {
+      "title": "The Godfather",
+      "rating": "R",
+      "release_year": "1972",
+      "copies_available": "0"
+    }
+  }
+]

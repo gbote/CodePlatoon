@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Toy Story",
+    "rating": "G",
+    "release_year": "1995",
+    "copies_available": "0"
+  },
+  {
+    "title": "WALL-E",
+    "rating": "G",
+    "release_year": "2008",
+    "copies_available": "2"
+  },
+  {
+    "title": "Up",
+    "rating": "G",
+    "release_year": "2009",
+    "copies_available": "5"
+  },
+  {
+    "title": "Inside Out",
+    "rating": "PG",
+    "release_year": "2015",
+    "copies_available": "1"
+  },
+  {
+    "title": "The Prestige",
+    "rating": "PG-13",
+    "release_year": "2006",
+    "copies_available": "2"
+  },
+  {
+    "title": "The Dark Knight",
+    "rating": "PG-13",
+    "release_year": "2008",
+    "copies_available": "3"
+  },
+  {
+    "title": "Inception",
+    "rating": "PG-13",
+    "release_year": "2010",
+    "copies_available": "4"
+  },
+  {
+    "title": "Intersteller",
+    "rating": "PG-13",
+    "release_year": "2014",
+    "copies_available": "2"
+  },
+  {
+    "title": "Deadpool",
+    "rating": "R",
+    "release_year": "2016",
+    "copies_available": "3"
+  },
+  {
+    "title": "The Godfather",
+    "rating": "R",
+    "release_year": "1972",
+    "copies_available": "0"
+  }
+]

@@ -1,0 +1,9 @@
+[{
+    "model": "video_store_app.rental",
+    "pk": 1,
+    "fields": {
+      "customer": 1,
+      "video": 1
+    }
+  }
+]

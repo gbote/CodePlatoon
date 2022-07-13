@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/static/main.js"> </script>
+    </head>
+    <body> 
+        <h1> All customers</h1>
+
+
+        <ul id='list'>
+            {% for customer in customers%}
+
+            <li> Customer: {{customer.first_name}} {{customer.last_name}}</li>
+
+            {%endfor%}
+
+        </ul>
+
+        <form onsubmit="add_customer(event)" >
+            
+            <input name="first_name" placeholder = "first name"> 
+            <input name="last_name" placeholder = "last name"> 
+            <input name="account_type" placeholder = "account type"> 
+
+            <input type="submit" value="Add Customer">
+
+        </form>
+
+    </body>
+</html>

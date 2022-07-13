@@ -1,0 +1,12 @@
+<h1> All videos</h1>
+
+
+<ul>
+    {% for video in videos%}
+
+    <li> {{video.title}} -- {{video.release_year}}  -- Rating: {{video.rating}} -- Copies available: {{video.copies_available}}</li>
+
+
+    {%endfor%}
+
+</ul>

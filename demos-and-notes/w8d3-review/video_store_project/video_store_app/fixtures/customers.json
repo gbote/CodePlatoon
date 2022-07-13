@@ -1,0 +1,56 @@
+[
+  {
+    "model": "video_store_app.customer",
+    "pk": 1,
+    "fields": {
+      "account_type": "sx",
+      "first_name": "Monica",
+      "last_name": "Gellar"
+    }
+  },
+  {
+    "model": "video_store_app.customer",
+    "pk": 2,
+    "fields": {
+      "account_type": "px",
+      "first_name": "Chandler",
+      "last_name": "Bing"
+    }
+  },
+  {
+    "model": "video_store_app.customer",
+    "pk": 3,
+    "fields": {
+      "account_type": "pf",
+      "first_name": "Rachel",
+      "last_name": "Green"
+    }
+  },
+  {
+    "model": "video_store_app.customer",
+    "pk": 4,
+    "fields": {
+      "account_type": "sx",
+      "first_name": "Ross",
+      "last_name": "Gellar"
+    }
+  },
+  {
+    "model": "video_store_app.customer",
+    "pk": 5,
+    "fields": {
+      "account_type": "sf",
+      "first_name": "Phoebe",
+      "last_name": "Buffay"
+    }
+  },
+  {
+    "model": "video_store_app.customer",
+    "pk": 6,
+    "fields": {
+      "account_type": "px",
+      "first_name": "Joey",
+      "last_name": "Tribbiani"
+    }
+  }
+]
