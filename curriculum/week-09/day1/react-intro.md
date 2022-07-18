@@ -8,7 +8,7 @@
 
 ## Lesson
 
-- [Intro React Slides](https://docs.google.com/presentation/d/1CzH_Lw9vfKq3MCpOkzOEMdguhxTqeeWB_yZPvjzu3Uk/edit?usp=sharing)
+- [Intro React Slides](https://docs.google.com/presentation/d/1vPNtA6cim4NO9hN0EhRS9Fk4JgGRsMdstUUpcWh9kE8/edit?usp=sharing)
 
 ### React Introduction
 > React is a front-end framework that was developed by Facebook in 2012 and open-sourced in 2013. React is based on the idea of building reusable components -- this leads to mixing markup with functional logic. This is accomplished through React's hybrid syntax, JSX, which we will dive deeper into later. Up to this point, our views have been relatively simple, and most of the heavy lifting has been done on the back-end with django. With React, it'll be easier to do complex logic and state management on the front-end. 
@@ -31,6 +31,9 @@
 ##### create-react-app (CRA)
 > Both webpack and babel are fairly complex to configure, but fortunately there are other tools that can abstract away this complexity for us. Create-react-app is a popular npm library that will help us scaffold a react project, similarly to using `django-admin startproject mysite`.
 
+##### Vite
+> For this class we will be using a tool called Vite (which means 'fast' in french). This tool will take care of building and managing our app in a quicker and more efficient manner. Similar to create-rect-app it will scaffold a react project for us and give us a dev server to use. 
+
 ##### Components
 > A defining feature of react applications is the use of component-based architecture. We'll use JSX to write components, and we'll use our components to compose complex applications. The JSX in our components looks like snippets of HTML, but it's actually a syntax extension of javascript. 
 
@@ -39,33 +42,38 @@
 
 > Let's get started creating our first React app! Let's run the following commands in our terminal:
 ```sh
-npx create-react-app your-app-name
-cd your-app-name
-npm start
+npm create vite
 ```
+> You will then be prompted to enter a project name then select a framework. 
+> We will be selecting react.
+Once that's done, run:
+```
+cd vite-project
+npm install
+npm run dev
+```
+It's that simple! If everything was set up correctly, you should now have a React server running on port 5173 (default) and a browser should have popped open to a page (http://localhost:5173/) that should look something like this:
 
-It's that simple! If everything was set up correctly, you should now have a React server running on port 3000 (default) and a browser should have popped open to a page (http://localhost:3000/) that should look something like this:
-
-<img src="../page-resources/react_welcome.png" width=640>
+<img src="../../page-resources/react_welcome.png" width=640>
 
 This is the default React application rendered view. Now let's go look at the file structure that was created when we created our React app.  
 
-<img src="../page-resources/react_files.png" width=120>
+<img src="../../page-resources/react_files2.png" width=120>
 
 There are a few folders and files we should know about:
 - ```node_modules/``` = this folder contains all of the downloaded React libraries
-- ```public/```
-  - ```index.html``` = the main html file for our application
 - ```src/``` = this folder contains all of the files for our React logic
-  - ```index.js``` = the main entry point into our application logic
-  - ```App.js``` = the root component in our React application
+  - ```main.jsx``` = the main entry point into our application logic
+  - ```index.css``` = the main styling for our app's general compnents (fonts, )
+  - ```App.jsx``` = the root component in our React application
   - ```App.css``` = the main styling for our React application
+- ```index.html``` = the main html file for our application
 - ```package.json``` = the additional libraries that we're using for our React application (which is similiar to our Django project's "requirements.txt" file)
 
-You should never have to modify anything in the ```node_modules/``` or ```public/``` folders. We generally start our modifications in ```src/App.js```. Let's modify our ```App.js``` to look like this:
+You should never have to modify anything in the ```node_modules/``` folder. We generally start our modifications in ```src/App.js```. Let's modify our ```App.jsx``` to look like this:
 
 ```javascript
-// App.js
+// App.jsx
 
 import './App.css';
 
@@ -82,7 +90,7 @@ export default App;
 
 The nice thing about the React server is that it'll automatically refresh when changes are detected. Our page should how display "Hello World!". 
 
-**NOTE:** Windows users will have to enter this command to get hot reloading (updating as files change) to work: `export CHOKIDAR_USEPOLLING=true`. I'd uncomment/add this in your `.bashrc` so that you don't have to do it every time you start a container.
+**NOTE:** Windows users might have to enter this command to get hot reloading (updating as files change) to work: `export CHOKIDAR_USEPOLLING=true`. I'd uncomment/add this in your `.bashrc` so that you don't have to do it every time you start a container.
 
 ### The "old" JavaScript way
 
@@ -156,7 +164,7 @@ So this is a good time to introduce JSX. JSX is essentially an intermediary lang
 JSX makes it MUCH easier to implement DOM changes dynamically, because we essentially will be writing the HTML that we want to create, inside of our JavaScript file. Let's take a look at the equivalent JSX we would need to re-create our JavaScript example from above:
 
 ```javascript
-// App.js
+// App.jsx
 
 // styling
 import './App.css';
@@ -206,9 +214,9 @@ export default App;
 
 A full React application will generally contain multiple nested components, each of which should be given their own individual files. To use a component in JSX, we simply use HTML syntax to have it be rendered. Suppose we've created a new component called `MyCustomComponent` in a .js file. We can render it in this manner:
 
-- **components/MyCustomComponent.js**
+- **components/MyCustomComponent.jsx**
 ```javascript
-// MyCustomComponent.js
+// MyCustomComponent.jsx
 
 function MyCustomComponent() {
   return (
@@ -219,12 +227,12 @@ function MyCustomComponent() {
 export default MyCustomComponent;
 ```
 
-- **App.js**
+- **App.jsx**
 ```javascript
-// App.js
+// App.jsx
 
 // components
-import MyCustomComponent from "./components/MyCustomComponent.js"
+import MyCustomComponent from "./components/MyCustomComponent.jsx"
 
 function App() {
   return (
@@ -240,7 +248,7 @@ Components allow for easy reusability of logic in React. To see this in action, 
 - components/ButtonCounter.js
 
 ```javascript
-// ButtonCounter.js
+// ButtonCounter.jsx
 
 // react
 import { useState } from "react"
@@ -266,16 +274,16 @@ function ButtonCounter() {
 export default ButtonCounter;
 ```
 
-- App.js
+- App.jsx
 
 ```javascript
-// App.js
+// App.jsx
 
 // styling
 import './App.css';
 
 // components
-import ButtonCounter from "./components/ButtonCounter.js"
+import ButtonCounter from "./components/ButtonCounter.jsx"
 
 function App() {
   // render
@@ -322,7 +330,7 @@ For our example, we should **always** use the ```setCounter()``` function if we 
 
 While we *can* update values directly without getting an error, we should NEVER update state values directly, as highlighted by the example above. Instead of updating values directly, we should use the state updating function that is returned from ```useState()``` (e.g. ```setCounter``` from our example) 
 
-One last important thing to mention is that state updates in React are applied **asynchronously**. In other words, our React app will **eventually** apply the new state value that we specify via the state updating function. We can see this if we add in a ```console.log(counter)``` line in our ```incrementCounter()``` function:
+> One last important thing to mention is that state updates in React are applied **asynchronously**. In other words, our React app will **eventually** apply the new state value that we specify via the state updating function. We can see this if we add in a ```console.log(counter)``` line in our ```incrementCounter()``` function:
 
 ```javascript
   const incrementCounter = () => {
@@ -373,14 +381,14 @@ Now that we've learned about component state values, let's learn about prop valu
 
 - **components/ButtonCounter.js**
 ```javascript
-// ButtonCounter.js
+// ButtonCounter.jsx
 
 // react
 import { useState } from "react"
 
 // components
-import MyButton from "./MyButton.js"
-import MyOutputLabel from "./MyOutputLabel.js"
+import MyButton from "./MyButton.jsx"
+import MyOutputLabel from "./MyOutputLabel.jsx"
 
 function ButtonCounter() {
   // states
@@ -403,9 +411,9 @@ function ButtonCounter() {
 export default ButtonCounter;
 ```
 
-- **components/MyButton.js**
+- **components/MyButton.jsx**
 ```javascript
-// components/MyButton.js
+// components/MyButton.jsx
 
 function MyButton(props) { // notice that we take in a parameter for our functional component, which is an object that captures ALL props that are passed down
   // render
@@ -419,9 +427,9 @@ function MyButton(props) { // notice that we take in a parameter for our functio
 export default MyButton;
 ```
 
-- **components/MyOutputLabel.js**
+- **components/MyOutputLabel.jsx**
 ```javascript
-// components/MyOutputLabel.js
+// components/MyOutputLabel.jsx
 
 function MyOutputLabel(props) { // accept "props" object as the first parameter
   // render
@@ -447,9 +455,9 @@ Much like state values, we should never updated prop values directly or bad thin
 
 Our component JSX code can get quite complicated sometimes. We should often opt to create new functions that are called from our component's render logic, to keep things organized. Take a look at the example below:
 
-- **components/MyOutputLabel.js**
+- **components/MyOutputLabel.jsx**
 ```javascript
-// components/MyOutputLabel.js
+// components/MyOutputLabel.jsx
 
 function MyOutputLabel(props) { // accept "props" object as the first parameter
   // render
@@ -543,5 +551,4 @@ Let's get some practice with creating a simple React app that uses state (and ma
 - [Vowels](https://github.com/romeoplatoon/react-vowels) ...from lecture
 - [Detention](https://github.com/romeoplatoon/react-detention)
 - [State Abbreviator](https://github.com/romeoplatoon/react-state-abbreviator)
-
 
