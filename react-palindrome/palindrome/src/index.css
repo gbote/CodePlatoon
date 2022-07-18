@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --accent1: #c800ff;
+  --accent2: #ff004e;
+  --highlight: #ffc2ac;
+  --neutral: #e4e4e4;
+  --generic: #282c34;
+  --light: #ffc1d3;
+}

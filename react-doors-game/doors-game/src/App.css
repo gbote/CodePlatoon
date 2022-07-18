@@ -1,0 +1,80 @@
+.center-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#door-container {
+  display: flex;
+  flex-flow: row;
+}
+
+.door {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 128px;
+  width: 128px;
+  font-size: 24px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.door-opened {
+  color: black;
+  background-color: #eeeeee;
+  border: #aaaaaa 4px solid;
+  justify-content: flex-start;
+}
+
+.door-closed {
+  color: white;
+  background-color: #553377;
+  border: black 4px solid;
+  justify-content: center;
+}
+
+.locked {
+  pointer-events: none;
+}
+
+.door-closed:hover {
+  background-color: #775599;
+}
+
+#image-prize {
+  height: 84px;
+  width: 80px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.result-win {
+  color: #00aa00;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.result-lose {
+  color: #cc0000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #553377;
+  color: white;
+  font-weight: 700;
+  border: solid #331177 2px;
+  border-radius: 2px;
+}
+
+.btn:active {
+  border: solid #553377 2px;
+}
+
+.btn:hover {
+  background-color: #775599;
+}
