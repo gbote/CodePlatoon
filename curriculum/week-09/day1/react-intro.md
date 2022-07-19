@@ -70,7 +70,14 @@ There are a few folders and files we should know about:
 - ```index.html``` = the main html file for our application
 - ```package.json``` = the additional libraries that we're using for our React application (which is similiar to our Django project's "requirements.txt" file)
 
-You should never have to modify anything in the ```node_modules/``` folder. We generally start our modifications in ```src/App.js```. Let's modify our ```App.jsx``` to look like this:
+You should never have to modify anything in the ```node_modules/``` folder. 
+
+### The "new" React/JSX way
+
+JSX is essentially an intermediary language syntax that allows us to write JavaScript code inside of HTML syntax. This is the same sort of functionality that Django templating syntax offered us when we were working in Django, allowing us to insert Python code into HTML templates. JSX code boils down to become JavaScript code behind the scenes. To insert JS logic in JSX code blocks, we use curly braces `{` `}`, and write JS expressions inside of those blocks. There is some limitation to what JS code we can write with in these blocks, but we'll explore this more later on.
+
+
+We generally start our modifications in ```src/App.js```. Let's modify our ```App.jsx``` to look like this:
 
 ```javascript
 // App.jsx
@@ -92,76 +99,7 @@ The nice thing about the React server is that it'll automatically refresh when c
 
 **NOTE:** Windows users might have to enter this command to get hot reloading (updating as files change) to work: `export CHOKIDAR_USEPOLLING=true`. I'd uncomment/add this in your `.bashrc` so that you don't have to do it every time you start a container.
 
-### The "old" JavaScript way
-
-To begin, let's take a step back and revisit using JavaScript with our html front end. Let's say we *dynamically* want to create a button and track & display the number of times it's clicked by the user. Our html page and JS logic would look something like this: 
-
-- **index.html**
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My HTML Page</title>
-  <script src="index.js" async defer></script>
-</head>
-<body id="body">
-  <!-- insert new dynamic content here -->
-</body>
-</html>
-```
-
-- **index.js**
-```javascript
-// index.js
-let counter = 0
-
-window.onload = () => {
-  // create new header element
-  let newHeader = document.createElement("h2")
-  newHeader.id = "my-header"
-  newHeader.innerText = "My Button Click Counter App"
-
-  // create new button element
-  let newBtn = document.createElement("button")
-  newBtn.id = "my-button"
-  newBtn.setAttribute("count", counter.toString())
-  newBtn.addEventListener("click", incrementCounter)
-  newBtn.innerText = "Click Me!"
-
-  // create new paragraph element
-  let newLabel = document.createElement("p")
-  newLabel.id = "my-output"
-  newLabel.innerText = getOutputLabelText()
-
-  // obtain the parent body element and append our new child nodes (i.e add nodes to the DOM)
-  let bodyElem = document.getElementById("body")
-  bodyElem.appendChild(newHeader)
-  bodyElem.appendChild(newBtn)
-  bodyElem.appendChild(newLabel)
-}
-
-const incrementCounter = () => {
-  // increment click counter
-  counter++
-  
-  // update output label
-  let outputLabel = document.getElementById("my-output")
-  outputLabel.innerHTML = getOutputLabelText()
-}
-
-const getOutputLabelText = () => {
-  return `You've clicked the button ${counter} times.`
-}
-```
-
-### The "new" React/JSX way
-
-That's not a lot of code we had to write above, but it's a fair amount just to get a few elements onto our page. Additionally, it's not as easy to picture what's actually being added to the DOM. Imagine if we needed to added dozens of elements dynamically... our JS code would definitely get longer and more complicated! 
-
-So this is a good time to introduce JSX. JSX is essentially an intermediary language syntax that allows us to write JavaScript code inside of HTML syntax. This is the same sort of functionality that Django templating syntax offered us when we were working in Django, allowing us to insert Python code into HTML templates. JSX code boils down to become JavaScript code behind the scenes. To insert JS logic in JSX code blocks, we use curly braces `{` `}`, and write JS expressions inside of those blocks. There is some limitation to what JS code we can write with in these blocks, but we'll explore this more later on.
-
-JSX makes it MUCH easier to implement DOM changes dynamically, because we essentially will be writing the HTML that we want to create, inside of our JavaScript file. Let's take a look at the equivalent JSX we would need to re-create our JavaScript example from above:
+> JSX makes it MUCH easier to implement DOM changes dynamically, because we essentially will be writing the HTML that we want to create, inside of our JavaScript file. Let's take a look at creating a simple counter example:
 
 ```javascript
 // App.jsx
@@ -196,7 +134,81 @@ export default App;
 
 **IMPORTANT:** A component must always return at most ONE parent element. If you try to return multiple top-level elements, you'll get an error! That's why we've wrapped our button and paragraph elements with a parent div element. 
 
-This works just like before, and is a bit easier to implement and read. However, we've introduced a lot of new items here, so let's unpack it all so that we understand React a little better...
+We've introduced a lot of new items here, so let's unpack it all so that we understand React a little better...
+
+
+### State Values
+
+React has some magic going on behind the scenes to manage the rendering for our application. As we noted above, the React server will automatically refresh our view when it detects any relevant changes. However, we need to use the appropriate logic so that React will know when something changes. This is the purpose behind using state values. State values are values that are internal to a component, managed by React. In the code snippet above, we created a state value using the ```useState()``` hook. We need to import this hook (i.e. function that hooks into React logic) from the React library:
+
+```javascript
+  import { useState } from "react"
+```
+
+The ```useState()``` hook function takes in one value, and returns two values:
+- INPUT: Initial value for your state value... ```0```
+- OUTPUT: The state value, and a function to update the state value... variables: ```counter, setCounter```
+
+```javascript
+  const [counter, setCounter] = useState(0) // sets initial value of counter to 0, and returns an updating function for that value
+```
+
+**IMPORTANT:** DO NOT MANUALLY UPDATE STATE VALUES DIRECTLY!!!
+
+For our example, we should **always** use the ```setCounter()``` function if we ever need to update the value of ```counter```. This is because React needs to know when our state value is updated, and the ```setCounter()``` function will accomplish this. If we were to update ```counter``` directly ourselves, the value would still change, however React would not know that it's changed, and therefore React will not update our rendered view automatically. If we want to see what problems can occur by updating state values directly, we can try the following modified example:
+
+```javascript
+  const incrementCounter = () => {
+    counter = counter + 1 // updating a state value directly == BAD!!!
+    console.log(counter) // prints out the correct updated value, but our rendered output never updates!
+  }
+```
+
+While we *can* update values directly without getting an error, we should NEVER update state values directly, as highlighted by the example above. Instead of updating values directly, we should use the state updating function that is returned from ```useState()``` (e.g. ```setCounter``` from our example) 
+
+> One last important thing to mention is that state updates in React are applied **asynchronously**. In other words, our React app will **eventually** apply the new state value that we specify via the state updating function. We can see this if we add in a ```console.log(counter)``` line in our ```incrementCounter()``` function:
+
+```javascript
+  const incrementCounter = () => {
+    setCounter(counter + 1)
+    console.log(counter) // this is still the previous value!
+  }
+```
+
+Notice how the printed value lags the correct value of ```counter``` by one. Again, this is because the update doesn't take effect immediately! This is something you need to keep in mind, because it can often trip up developers. To answer the question of "When can I know once a state value has been updated (in case I need to respond to it)?", we'll need to learn about the React Component Lifecycle. We'll cover this in a future lecture. 
+
+
+#### Multiple State Updates
+
+The new code for `incrementCounter` above works for updating our rendering, but it can be improved. To highlight the "problem" that can arise, let's change our code to be this:
+
+```javascript
+  const incrementCounter = () => {
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+
+    // counter will only increment once!
+  }
+```
+
+What do you think the value of counter will be onces React updates our render? Again, keep in mind that state value updating is asynchronous in React, so this might not do what you expect. We're using the *old* value of `counter` for each update. This means that all 5 lines of code in our function will be setting the same state value... the current "old" value of `counter` plus one. If we want to do this correctly (short of just adding 5 to the counter) with multiple `setCounter` calls, the correct way would be to use a function that will accept the previous "new" value and use that to set the next "new" value for `counter`:
+
+```javascript
+  const incrementCounter = () => {
+    setCounter(prevCounter => prevCounter + 1) // gets passed the previous NEW value from any previous update (or the current value), and returns the updated NEW value
+    setCounter(prevCounter => prevCounter + 1) // ditto
+    setCounter(prevCounter => prevCounter + 1) // ditto
+    setCounter(prevCounter => prevCounter + 1) // ditto
+    setCounter(prevCounter => prevCounter + 1) // ditto
+
+    // counter will increment 5 times (once for each call)
+  }
+```
+
+As we've seen, the `setCounter` updating function can take in a new state value, *or* a function that accepts a previous state value and returns a new state value! 
 
 ### Components
 
@@ -299,80 +311,6 @@ function App() {
 
 export default App;
 ```
-
-
-### State Values
-
-React has some magic going on behind the scenes to manage the rendering for our application. As we noted above, the React server will automatically refresh our view when it detects any relevant changes. However, we need to use the appropriate logic so that React will know when something changes. This is the purpose behind using state values. State values are values that are internal to a component, managed by React. In the code snippet above, we created a state value using the ```useState()``` hook. We need to import this hook (i.e. function that hooks into React logic) from the React library:
-
-```javascript
-  import { useState } from "react"
-```
-
-The ```useState()``` hook function takes in one value, and returns two values:
-- INPUT: Initial value for your state value... ```0```
-- OUTPUT: The state value, and a function to update the state value... variables: ```counter, setCounter```
-
-```javascript
-  const [counter, setCounter] = useState(0) // sets initial value of counter to 0, and returns an updating function for that value
-```
-
-**IMPORTANT:** DO NOT MANUALLY UPDATE STATE VALUES DIRECTLY!!!
-
-For our example, we should **always** use the ```setCounter()``` function if we ever need to update the value of ```counter```. This is because React needs to know when our state value is updated, and the ```setCounter()``` function will accomplish this. If we were to update ```counter``` directly ourselves, the value would still change, however React would not know that it's changed, and therefore React will not update our rendered view automatically. If we want to see what problems can occur by updating state values directly, we can try the following modified example:
-
-```javascript
-  const incrementCounter = () => {
-    counter = counter + 1 // updating a state value directly == BAD!!!
-    console.log(counter) // prints out the correct updated value, but our rendered output never updates!
-  }
-```
-
-While we *can* update values directly without getting an error, we should NEVER update state values directly, as highlighted by the example above. Instead of updating values directly, we should use the state updating function that is returned from ```useState()``` (e.g. ```setCounter``` from our example) 
-
-> One last important thing to mention is that state updates in React are applied **asynchronously**. In other words, our React app will **eventually** apply the new state value that we specify via the state updating function. We can see this if we add in a ```console.log(counter)``` line in our ```incrementCounter()``` function:
-
-```javascript
-  const incrementCounter = () => {
-    setCounter(counter + 1)
-    console.log(counter) // this is still the previous value!
-  }
-```
-
-Notice how the printed value lags the correct value of ```counter``` by one. Again, this is because the update doesn't take effect immediately! This is something you need to keep in mind, because it can often trip up developers. To answer the question of "When can I know once a state value has been updated (in case I need to respond to it)?", we'll need to learn about the React Component Lifecycle. We'll cover this in a future lecture. 
-
-
-#### Multiple State Updates
-
-The new code for `incrementCounter` above works for updating our rendering, but it can be improved. To highlight the "problem" that can arise, let's change our code to be this:
-
-```javascript
-  const incrementCounter = () => {
-    setCounter(counter + 1)
-    setCounter(counter + 1)
-    setCounter(counter + 1)
-    setCounter(counter + 1)
-    setCounter(counter + 1)
-
-    // counter will only increment once!
-  }
-```
-
-What do you think the value of counter will be onces React updates our render? Again, keep in mind that state value updating is asynchronous in React, so this might not do what you expect. We're using the *old* value of `counter` for each update. This means that all 5 lines of code in our function will be setting the same state value... the current "old" value of `counter` plus one. If we want to do this correctly (short of just adding 5 to the counter) with multiple `setCounter` calls, the correct way would be to use a function that will accept the previous "new" value and use that to set the next "new" value for `counter`:
-
-```javascript
-  const incrementCounter = () => {
-    setCounter(prevCounter => prevCounter + 1) // gets passed the previous NEW value from any previous update (or the current value), and returns the updated NEW value
-    setCounter(prevCounter => prevCounter + 1) // ditto
-    setCounter(prevCounter => prevCounter + 1) // ditto
-    setCounter(prevCounter => prevCounter + 1) // ditto
-    setCounter(prevCounter => prevCounter + 1) // ditto
-
-    // counter will increment 5 times (once for each call)
-  }
-```
-
-As we've seen, the `setCounter` updating function can take in a new state value, *or* a function that accepts a previous state value and returns a new state value! 
 
 
 ### Prop Values

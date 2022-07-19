@@ -39,4 +39,4 @@ It is important for you to have a place to talk about how you are feeling and ho
 5. [Interview Cake](https://www.interviewcake.com/)
 
 ## Video Links
-Classroom videos/lectures will be recorded and posted to YouTube. If you need lecture videos immediately, please bring a USB drive to Tom, Ankur, or Chad and we'll get you the video.
+Classroom videos/lectures will be recorded and posted to YouTube. It can take up to a few hours to process the video after recording, so please be patient if you don't see the video available online immediately after a lecture. If you want to refer back to the lecture content before the video is uploaded, you can look at the demo code in github, which is uploaded immediately after lectures finish. 

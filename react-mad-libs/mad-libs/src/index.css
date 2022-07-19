@@ -1,0 +1,10 @@
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  --dark: #0e2d85;
+  --light: #d9e9e9;
+  --accent--warm: #ff6a5f;
+  --accent--cool: #6baff3;
+  --generic: #282c34;
+}

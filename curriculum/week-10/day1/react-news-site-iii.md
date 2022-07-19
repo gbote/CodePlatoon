@@ -6,7 +6,7 @@
   - Each React component has a lifecycle and understanding the component lifecycle will help you understand the data flow in your app.
   - Lifecycle methods determine what is executed at what time in the component's lifecycle.
   - React hooks (useEffect) are the new way to implement lifecycle methods into functional components.
-- Assessment-4 (Django)
+
 
 
 ## Lesson
@@ -226,15 +226,12 @@ export default App;
 ```
 
 
-## Assessment-4
-Put your React mindset on pause for a bit, as you tackle [Assessment-4](https://github.com/quebecplatoon/assessment-4) this weekend. This is a Django-only assessment (to cover material from the past couple of weeks). We want to make sure you have mastered Django, before we move on from here!
 
 ## External Resources
 - [State & Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 - [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
 
 ## Assignments
-- [Assessment-4](https://github.com/romeoplatoon/assessment-4)
 - [News Site III](https://github.com/romeoplatoon/react-news-site-iii)
 - [Temperature Conversion](https://github.com/romeoplatoon/react-temperature-conversion)
 
