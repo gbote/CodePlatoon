@@ -1,0 +1,18 @@
+[
+  {
+    "label": "OPINION",
+    "value": "Opinion"
+  },
+  {
+    "label": "WORLD",
+    "value": "World"
+  },
+  {
+    "label": "NATIONAL",
+    "value": "National"
+  },
+  {
+    "label": "BUSINESS",
+    "value": "Business"
+  }
+]
