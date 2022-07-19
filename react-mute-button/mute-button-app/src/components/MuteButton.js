@@ -4,7 +4,8 @@ import OffSvg from '../icons/off'
 function MuteButton(props) {
   return (
     <button onClick={ props.toggleMute }>
-      { props.isMuted ? <OffSvg /> : <OnSvg />}</button>
+      { props.isMuted ? <OffSvg /> : <OnSvg />}
+    </button>
   )
 };
 
