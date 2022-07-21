@@ -31,7 +31,7 @@ function Input(props) {
 
   return (
     <div className="input__container">
-      <input id="userInput" type="text" placeholder="Enter a letter" required onKeyDown={keyPress} />
+      <input id="userInput" type="text" placeholder="Enter a letter here" required onKeyDown={keyPress} />
       <button className="btn primary" onClick={onSubmit}>Guess</button>
     </div>
   )
