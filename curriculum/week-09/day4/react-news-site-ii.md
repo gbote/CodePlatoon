@@ -2,7 +2,7 @@
 
 ## Topics Covered / Goals
 - Use client side routing / React router
-- Understand the Component lifecycle
+- Use Bootsrap components
 
 
 ## Lesson
