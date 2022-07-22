@@ -1,0 +1,32 @@
+{
+  "name": "news-site-v",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "lodash": "^4.17.21",
+    "mocha": "^10.0.0",
+    "puppeteer": "^15.5.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "jest": "^28.1.3",
+    "mocha-junit-reporter": "^2.0.2",
+    "vite": "^3.0.0",
+    "vitest": "^0.18.1"
+  }
+}
