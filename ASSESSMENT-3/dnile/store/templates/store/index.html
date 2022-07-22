@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="info">WELCOME to dNile!</h1>
+<p class="product-greet">What are you shopping for?</p>
+
+<div class="container">
+    <div class="row justify-content-around align-items-end">
+    {% for department in categories %}
+
+        <div class="col-4 info" style="font-size:1.5rem">
+            <a href="/store/{{department.url_name}}">
+                <img src="{% static department.products.0.image_loc %}" alt="{{department.products.0.name}}" width="95%">
+                {{department.name.title}}
+            </a>
+        </div>
+        
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

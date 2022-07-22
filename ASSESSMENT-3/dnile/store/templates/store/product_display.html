@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="container">
+    <div class="row justify-content-around align-items-end department-layout">
+    {% for product in products %}
+    <div class="col-4">
+        <ul style="list-style: none">
+            <li>
+                <img src="{% static product.image_loc %}" alt="{{product.name}}" width="95%"></li>
+            <li class="info">{{product.name}}</li>
+            <li class="info">{{product.pretty_price}}</li>
+            <li>
+                <div class="info">
+                  <button onclick="addToCart({{product.id}})" class="btn btn-primary" type="button">Add to cart</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+    </div>
+</div>

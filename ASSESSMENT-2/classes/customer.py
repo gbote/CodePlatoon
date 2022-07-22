@@ -31,10 +31,7 @@ class Customer:
 #region regular methods
     def set_max_rentals(self):
         """Used on instance initialization or when changing customer account types"""
-        if self.account_type == 'px' or self.account_type == 'pf':
-            return 3
-        else:
-            return 1
+        return 3 if self.account_type in ['px', 'pf'] else 1
 
     def can_rent_more(self):
         return (self.max_rentals-self.num_rentals) > 0
@@ -43,14 +40,11 @@ class Customer:
         return self.num_rentals == 0
 
     def allowed_rating(self, rating):
-        if rating == 'R':
-            if self.account_type == 'sf' or self.account_type == 'pf':
-                return False
-        return True
+        return rating != 'R' or self.account_type not in ['sf', 'pf']
 
     def has_video(self, title):
         movies = self.current_video_rentals.split('/')
-        return True if title in movies else False
+        return title in movies
     
     def has_ratedR(self, inventory):
         customer_movies = self.current_video_rentals.split('/')
@@ -60,13 +54,13 @@ class Customer:
                     return True
         return False
     
-    def rent_movie(self, title):
+    def rent_movie(self, title):  # sourcery skip: raise-specific-error
         if self.num_rentals + 1 > self.max_rentals: raise Exception('Customer cant rent more than max allowed')
         self.num_rentals += 1
         if self.num_rentals > 1: self.current_video_rentals += '/'
         self.current_video_rentals += title
     
-    def return_video(self, title):
+    def return_video(self, title):  # sourcery skip: raise-specific-error
         if self.num_rentals == 0: raise Exception('Customer has no videos to return')
         self.num_rentals -= 1
         movies = self.current_video_rentals.split('/')
@@ -101,8 +95,7 @@ class Customer:
 
     @staticmethod
     def get_customer_data():
-        customer_data = {}
-        customer_data['first_name'] = input('Enter customer first name:\n')
+        customer_data = {'first_name': input('Enter customer first name:\n')}
         customer_data['last_name']  = input('Enter customer last name: \n')
         customer_data['account_type'] = Customer.get_account_type()
         return customer_data

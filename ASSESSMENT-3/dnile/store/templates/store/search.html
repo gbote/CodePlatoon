@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<p class="product-greet">RESULTS FOR: {{ search_term }}</p>
+
+{% if products %}
+    <div>
+        {% include 'store/product_display.html' %}
+    </div>
+{% else %}
+    <img src="{{ icon }}" alt="{{search_term}}" width="25%">
+    <h3>{{search_term.title}} not available. Perhaps it's too passé.</h3>
+
+{% endif %}
+
+{% endblock content %}

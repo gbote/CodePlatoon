@@ -22,7 +22,7 @@ class Video:
 
         return f'{self.id}\t{title}\t{self.rating}\t  {self.release_year}\t\t{self.copies_available}'
 
-    def rented(self):
+    def rented(self):  # sourcery skip: raise-specific-error
         if self.copies_available == 0: raise Exception('No copies available')
         self.copies_available -= 1
 
@@ -50,8 +50,7 @@ class Video:
     
     @staticmethod
     def get_video_data():
-        video_data = {}
-        video_data['title'] = input('Enter movie title:\n')
+        video_data = {'title': input('Enter movie title:\n')}
         video_data['rating']  = input('Enter movie rating:\n')
         video_data['release_year'] = input('Enter movie release year:\n')
         video_data['copies_available'] = input('Enter # copies on hand:\n')

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if products %}
+    <div>
+        <div class="container">
+            <div class="row justify-content-around align-items-end department-layout">
+            <h1>YOUR CART: {{product_id}}</h1>
+            <div class="col-12">
+                <ul style="list-style: none">
+                    <li class="product-greet">Subtotal ({{total_items}} items): {{pretty_total}}</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row justify-content-around align-items-end department-layout">
+            {% for product in products %}
+            <div class="col-4">
+                <ul style="list-style: none">
+                    <li>
+                        <img src="{% static product.image_loc %}" alt="{{product.name}}" width="95%"></li>
+                    <li class="info">{{product.name}}</li>
+                    <li class="info">QTY: {{product.quantity}} at {{product.pretty_price}}</li>
+                    <li class="info"></li>
+                    <li class="info">Product Subtotal: {{product.pretty_subtotal}}</li>
+                </ul>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <h3>Your cart is empty. Why don't you fill it with some of our luxury items? You only live once!</h3>
+
+{% endif %}
+
+{% endblock content %}

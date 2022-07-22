@@ -15,9 +15,7 @@ class Helper:
 
         with open(Helper.get_full_path(filename), "r") as csv_file:
             reader = csv.DictReader(csv_file)
-            for data_dict in reader:
-                data.append(ClassName(**data_dict))
-
+            data.extend(ClassName(**data_dict) for data_dict in reader)
         return data
 
     @staticmethod
@@ -51,7 +49,7 @@ class Helper:
     @staticmethod
     def main_menu(name):
         Helper.clear_console()
-        menu = f'''== Welcome to {name} Video! ==
+        return f'''== Welcome to {name} Video! ==
   1. View store video inventory
   2. Display all customers
   3. View customer rented videos
@@ -65,19 +63,17 @@ class Helper:
   11. Exit
 
   >>> '''
-        return menu
 
     @staticmethod
-    def get_id(id, ClassName):
+    def get_id(id, ClassName):  # sourcery skip: avoid-builtin-shadow, raise-specific-error
         """Class method to maintain stack of next id available. Allows for multiple store usage of shared video database without duplicate IDs. Note: csv/lists must stay sorted"""
         if id != None: id = int(id)
         #if no ID passed in, pop/replace the last id
-        if id == None:
+        if id is None:
             new_id = ClassName.NEXT_ID.pop(0)
             if ClassName.NEXT_ID == []:
                 ClassName.NEXT_ID.append(new_id+1)
             return new_id
-        #if id passed in, move NEXT_ID to next value
         elif id >= ClassName.NEXT_ID[-1]:
             while id > ClassName.NEXT_ID[-1]:
                 ClassName.NEXT_ID.append(ClassName.NEXT_ID[-1] + 1)

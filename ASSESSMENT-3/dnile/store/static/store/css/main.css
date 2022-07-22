@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(231, 197, 143);
+}
+
+img{
+    display: inline-flexbox;
+    border: 10px solid rgb(105, 112, 13)
+}
+
+.product-greet{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+}
+
+.info{
+    text-align: center;
+}
+
+.announce{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+}
