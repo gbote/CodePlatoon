@@ -1,0 +1,58 @@
+[
+    {
+        "model": "library_app.author",
+        "pk": 1,
+        "fields": {
+            "name": "Roald Dahl"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 2,
+        "fields": {
+            "name": "JRR Tolkien"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 3,
+        "fields": {
+            "name": "William Gibson"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 4,
+        "fields": {
+            "name": "Justin Peterson"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 5,
+        "fields": {
+            "name": "Bruce Sterling"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 6,
+        "fields": {
+            "name": "JK Rowling"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 7,
+        "fields": {
+            "name": "Louis Lamoure"
+        }
+    },
+    {
+        "model": "library_app.author",
+        "pk": 8,
+        "fields": {
+            "name": "Zack Fair"
+        }
+    }
+]

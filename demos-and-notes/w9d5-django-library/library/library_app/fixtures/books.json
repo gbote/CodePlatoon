@@ -1,0 +1,10 @@
+[
+    {
+        "model": "library_app.book",
+        "pk": 1,
+        "fields": {
+            "title": "Neuromancer",
+            "genre": 4
+        }
+    }
+]

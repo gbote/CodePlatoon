@@ -1,0 +1,66 @@
+[
+    {
+        "model": "library_app.book",
+        "pk": 1,
+        "fields": {
+            "title": "Neuromancer",
+            "authors": 3
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 2,
+        "fields": {
+            "title": "Lord of the Rings",
+            "authors": 4
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 3,
+        "fields": {
+            "title": "Losing Your Mind Gracefully With Python",
+            "authors": 8
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 4,
+        "fields": {
+            "title": "James and the Giant Peach",
+            "authors": 1
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 5,
+        "fields": {
+            "title": "Harry Potter and The Sorcerers Stone",
+            "authors": 6
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 5,
+        "fields": {
+            "title": "Harry Potter and The Prizoner of Azkaban",
+            "authors": 6
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 6,
+        "fields": {
+            "title": "198Q",
+            "authors": 7
+        }
+    },
+    {
+        "model": "library_app.book",
+        "pk": 7,
+        "fields": {
+            "title": "The Difference Engine",
+            "authors": 3
+        }
+    }
+]

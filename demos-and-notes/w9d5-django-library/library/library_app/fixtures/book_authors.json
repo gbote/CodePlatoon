@@ -1,0 +1,10 @@
+[
+    {
+        "model": "library_app.book_authors",
+        "pk": 1,
+        "fields": {
+            "book_id": 1,
+            "author_id": 4
+        }
+    }
+]
