@@ -110,7 +110,7 @@ let myPromise = new Promise(
 let handleSuccess = (msg) => { console.log("SUCCESS:", msg); };
 let handleFailure = (msg) => { console.log("FAILURE:", msg); };
 
-myPromise().then(handleSuccess, handleFailure);
+myPromise.then(handleSuccess, handleFailure);
 ```
 
 Asynchronous code can make your code much faster, when you have tasks that are independent of one another and can run in parallel. However, sometimes, you need to complete some tasks in order.
