@@ -6,158 +6,24 @@
 - Using axios
 
 ## Lesson
-Today, we are going to continue on with our news site project.
-
-First, let's review some terms to get us all on the same page...
-
-**React Component**: A piece of reusable code that returns markup. Each React Component has its own own state and behaviors. A page can consist of one or more React Components. For us, we have a news site that has many components. Our home page has an ArticleList Component that renders a number of ArticleTeaser Components that render Article Components.
-
-**State**: State is a global Javascript Object (or Python Dictionary if you still think in that way) on a particular React Component. It basically keeps track of how things are in that particular Component (e.g., On vs. Off, Selected vs. Not Selected, number of times clicked, etc.). State is private, meaning that it's scoped within a component.
-
-**Props**: Parameters that you pass from a parent Component to a child Components. When you instantiate a new Component on the page, it may or may not take `props`. `props` and `state` are very different!
-
-Now that we've gotten on the same page, let's move forward!
+Today, we are going to add an API integration to our news website. 
 
 ## Getting Data from an API
 Up to this point, we've been building our website using static data that exists within our app. Let's first grab our completed `news-site-iii` and keep it nearby. We'll need it soon. We have been importing our News from `/data/news.json` and passing it into our ArticleList component. That's okay for right now, but we want to have dynamic data being fetched from an API. 
 
 Today's challenge isn't going to be a ton of React. Instead it's mostly using JavaScript to connect with an API and use the returned data in our app, presenting in a React Component. Once we get our news data from the external data source (our API), we will put it in our HomePage and ArticleList components.
 
-
 ## Asynchronous Code
+When you are writing pieces code that are independent from one another, writing them asynchronously allows them to run in parallel which could make your code run much faster.
 
-Let's take a step back and first talk about what asynchronous code is, why we use it, and how it operates in JavaScript. Let's take a look a the code below:
-
-```javascript
-function wait(time_in_ms) {
-    let startTime = new Date().getTime();
-    while (new Date().getTime() < startTime + time_in_ms);
-}
-
-console.log("quebec");
-
-wait(5000); // wait 5 seconds ("doing some work")
-console.log("hello");
-
-wait(6000); // wait 6 seconds ("doing some work")
-console.log("world");
-```
-
-How long will this code take to execute? Answer: 11 seconds. 
-
-But what if we could do some work in parallel (i.e. asynchronously)? Let's take a look at our updated asynchronous code below:
-
-```javascript
-function wait(time_in_ms) {
-    let startTime = new Date().getTime();
-    while (new Date().getTime() < startTime + time_in_ms);
-}
-
-console.log("quebec");
-
-let myCallback = () => { console.log("world"); }
-setTimeout(myCallback, 6000); // wait 6 seconds ("doing some work"), asynchronously
-
-wait(5000); // wait 5 seconds ("doing some work")
-console.log("hello");
-```
-
-How long will this code take to execute? Answer: 6 seconds. 
-
-This is because while we're doing some work on the side for 6 seconds, we are able to do some other work in our main execution thread for 5 seconds. 
+Some examples of asynchronous functions:
+- setTimeout(()=>{}, 10000)  <=== call function after 10 seconds have passed
+- setInterval(()=>{}, 10000) <=== call function every 10 seconds
 
 ## Promises
-Next, let's talk about Promises. A [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) in JavaScript is a construct that specifies a future returned value. We are guaranteed to get a value back from a Promise, but we don't know when we'll get that value... this is asynchronous behavior! 
-
-Let's take a look at the basic structure of **creating a Promise**:
-
-```javascript
-function doSomething() {
-    return Math.random() > 0.25; // success rate: 75% 
-}
-
-// an example of a Promise that resolves to a string (NOTE: we can return any data type as needed)
-let myPromise = new Promise(
-    function(onSuccess, onFailure) { 
-        let success = doSomething();
-        if (success)
-            onSuccess("We did our thing!");
-        else
-            onFailure("There was an error!!!");
-    }
-)
-```
-
-And next, let's take a look at the basic structure of **consuming a Promise**:
-
-```javascript
-function doSomething() {
-    return Math.random() > 0.25; // success rate: 75% 
-}
-
-// creating a Promise
-let myPromise = new Promise(
-    function(onSuccess, onFailure) { 
-        let success = doSomething();
-        if (success)
-            onSuccess("We did our thing!");
-        else
-            onFailure("There was an error!!!");
-    }
-)
-
-// consuming a Promise
-let handleSuccess = (msg) => { console.log("SUCCESS:", msg); };
-let handleFailure = (msg) => { console.log("FAILURE:", msg); };
-
-myPromise.then(handleSuccess, handleFailure);
-```
-
-Asynchronous code can make your code much faster, when you have tasks that are independent of one another and can run in parallel. However, sometimes, you need to complete some tasks in order.
+Now, let's talk about Promises. A [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) in JavaScript is a construct that specifies a future returned value. 
 
 Let's consider a program that simulates some real world action. I think it's a great time to grab some cereal, so let's do it:
-
-```javascript
-let pourCereal = () => { 
-    console.log("We poured some cereal!");
-
-    let pourMilk = () => { 
-        console.log("We poured some milk!");
-        console.log("Now we can eat!"); 
-    }
-
-    setTimeout(pourMilk, 3000);
-}
-
-setTimeout(pourCereal, 3000);
-```
-
-Humans tend to not be great at multitasking, so first we must pour some cereal into a bowl, and then we need to pour some milk on top of the cereal. (We can't realisically do both at once.) 
-
-But what if we don't have a clean bowl to use right now? There's another task we have to take care of now:
-
-```javascript
-let washDishes = () => { 
-    console.log("We washed a bowl and spoon!");
-    
-    let pourCereal = () => { 
-        console.log("We poured some cereal!");
-        
-        let pourMilk = () => { 
-            console.log("We poured some milk!");
-            console.log("Now we can eat!"); 
-        }
-    
-        setTimeout(pourMilk, 3000);
-    }
-
-    setTimeout(pourCereal, 3000);
-}
-
-setTimeout(washDishes, 15000);
-```
-
-This works just fine, however notice how our code design is being affected. The more tasks we add here, the mode nested callbacks that we need to add. This is a design that's commonly referred to as [Callback Hell](https://www.geeksforgeeks.org/what-is-callback-hell-in-node-js/). To resolve this callback hell, we can use Promises in JavaScript to update our code:
 
 ```javascript
 let washDishes = () => { 
@@ -212,7 +78,9 @@ washDishes()
 
 ### Using async-await instead of .then() construct
 
-Instead of using chained then()'s, there's an alternative design that you can employ, using the `async` and `await` keywords in JavaScript. The one caveat is that you need to create a parent async function. Let's take a look:
+Instead of using chained then()s, there's an alternative design that you can employ, using the `async` and `await` keywords in JavaScript. The one caveat is that you need to create a parent async function. 
+The keyword async before a function makes the function return a promise
+Let's take a look:
 
 ```javascript
 async function prepBreakfast() {
@@ -270,10 +138,134 @@ Now let's talk about axios, which can be used to retrieve things from web resour
 npm install axios
 ```
 
-Next, let's test out axios using the hackernews API. Once we've figured out how to query the API for news stories, let's integrate it into our news site project.
+Next, let's create 3 functions:
+- `fetchArticleByID(id)` - given an article ID, returns an Article object with the given ID.
+- `fetchArticlesBySection(section)` - returns a list of articles whose `section` attribute matches the section argument.
+- `fetchArticles(filters)` - returns a list of articles. The filters argument is optional - if no filters are provided, an array of all the articles are returned. If filters are provided, an array of Articles that meet the criteria are returned.
 
+
+
+
+> create `src/api/ArticlesAPI.js`
+
+`ArticlesAPI.js`
+```js
+const fetchArticleByID = (articleID) => {
+};
+
+const fetchArticlesBySection = (section) => {
+};
+
+const fetchArticles = (filters = null) => {
+};
+
+export default {
+  fetchArticleByID,
+  fetchArticles,
+  fetchArticlesBySection
+};
+```
+
+## Integrating ArticlesAPI.js into your App
+At the moment, there is one component that is importing the json data and that is App.jsx
+We might want to have each page consume its own data instead of keeping it in the `App.jsx` component but we can do that later. We can start in our main app file first.
+
+For this, we want you to use async/await.
+- To make API calls to outside resources within your React app, you have to use axios to make `get` requests
+- axios is asynchronous (i.e., not synchronous / happening out of order)
+- `axios.get` returns a Javascript `Promise` object. These `Promise` objects are basically Javascript's immediate response to you, saying "Hey I have received your request. I `Promise` to respond when I can."
+- `Promise` objects must be resolved in order to get to the data using the`async/await` functionality built into Javascript
+- Error-handling: whenever calling out to an API, there is always a possibility of an error occuring. To handle this error on the client-side and give our user proper feedback, we'll tack on a [.catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) at the end of our promise chain or you can put the api call in a `try{}` and catch errors with `catch(error){}`
+
+[HackerNews API docs](https://hn.algolia.com/api)
+
+> Example of calling the api
+
+```js
+const [someDataFromAnAPI, setSomeDataFromAnAPI] = useState(null)
+
+  const CallAPI = () => {
+    return axios.get('http://hn.algolia.com/api/v1/search_by_date?tags=story') //gets latest stories
+  }
+  async function getData() {
+      try {
+        const jsonResponse = await CallAPI()
+        setSomeDataFromAnAPI(jsonResponse)
+        console.log(jsonResponse)
+      } catch (error) {
+        console.error('Error occurred fetching data: ', error);
+      }
+    }
+    
+  useEffect(() => {
+    getData()
+  }, [])
+  ```
+
+  > The call could also be written like 
+  ```js
+  const CallAPI = () => {
+    return axios.get('http://hn.algolia.com/api/v1/search_by_date', {
+          params:{
+            tags: ('story'),
+            hitsPerPage:50,
+            create_at_i: '<07/02/2020'
+          }
+    } )
+  }
+
+let date = Math.floor(Date.now() / 1000) - 86400 //24hrs ago
+axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+          params:{
+            tags: ('story'),
+            hitsPerPage:50,
+            numericFilters: `created_at_i<${date}` //news before 24hs ago
+          }
+    } )
+```
+#### API Calls
+
+- fetchArticleByID: 
+```js 
+axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+          params:{
+            tags: (`story_$storyID`),
+            hitsPerPage:50,
+          }
+    } )
+```
+    
+- fetchArticles(filters):
+```js
+axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+          params:{
+            tags: ('story'),
+            hitsPerPage:50,
+            query: ('power', 'phone')
+          }
+    } )
+```
+
+- fetchArticlesBySection: 
+```js
+axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+          params:{
+            tags: (`${section}`),
+            hitsPerPage:50,
+            query: ('power', 'phone')
+          }
+    } )
+```
+
+The final goal is to recreate the [hackernews website](https://news.ycombinator.com/)
+
+- Complete the three api functions: `fetchArticleByID`,`fetchArticles`, and `fetchArticlesBySection`
+- Update the `data/sections.json` file to have sections that match the HN site
+- Integrate the above api consumption pattern fully into your page files `src/pages/HomePage.js` , `src/pages/ArticlePage.js` and `src/pages/SectionPage.js` so that they are functional and each fetch the data related to them
+   - this will probably mean refactoring the child components as well to work with our new pattern
+
+- Styling
 
 
 ## Assignments
 - [News Site IV](https://github.com/romeoplatoon/react-news-site-iv)
-
