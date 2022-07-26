@@ -36,13 +36,12 @@ def add_to_list(head, new_value):
   # Get to the end of the list
   # So I can append (add on) the new node
   pointer = head
-  while(pointer):
+  while pointer:
     # End of list, add new the node & exit loop
-    if(pointer.next_node == None):
+    if pointer.next_node is None:
       pointer.next_node = new_node
       break
 
-    # Otherwise move on to the next node in the list
     else:
       pointer = pointer.next_node
 

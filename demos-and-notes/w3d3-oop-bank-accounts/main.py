@@ -12,6 +12,7 @@ class Account:
   accounts = []
 
   def __init__(self, id, balance, open_date):
+    # sourcery skip: raise-specific-error
     if balance < 0:
       raise Exception('Negative Balance Unallowed')
 
@@ -60,12 +61,10 @@ with open('support/accounts.csv', newline='') as csvfile:
 
 class Savings(Account):
   def __init__(self, id, balance, open_date):
-    # balance must be at least $10
     if balance < 1000:
       raise ArgumentError('Initial balance must be at least $10')
-    else:
-      parent = super()
-      parent.__init__(id, balance, open_date)
+    parent = super()
+    parent.__init__(id, balance, open_date)
 
   def withdraw(self, amount):
     # $2 transaction fee

@@ -26,7 +26,7 @@ class BookCopy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     # A copy of a book does not have to be checked out
-    checked_out_by = models.ForeignKey(Patron, null=True)
+    checked_out_by = models.ForeignKey(Patron, null=True, on_delete=models.CASCADE)
 
     # TODO: Write a validator.
     # Valid types: 'paperback', 'hardcover', 'audiobook', 'ebook'
