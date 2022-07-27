@@ -1,8 +1,8 @@
 # Cars and Brands
 
-We are going to create a nested CRUD app that focuses on creating cars and their corresponding brands. Make it look nice and make sure your code is clean! Best of luck!
+I created a nested CRUD app that focuses on creating cars and their corresponding brands. I tried my best to make it look nice and make sure the code is clean!
 
-Here are our recommended steps for creating CRUD apps:
+Recommended steps for creating CRUD apps:
 1. Schema
 2. Migrations
 3. Models
@@ -13,7 +13,7 @@ Here are our recommended steps for creating CRUD apps:
 8. Create your routes
 9. Visit each page and create the views/forms for each
 
-In the end, you should be able to visit the following routes:
+In the end, I was able to visit the following routes:
 
 ```
 /brands # a list of all the car brands
@@ -27,11 +27,11 @@ In the end, you should be able to visit the following routes:
 /brands/<:brand_id>/cars/<:car_id>/edit # edit page for a specific car under a specific car brand
 ```
 
-Remember to start by creating a new virtual environment.
+I always remember to start Django projects by creating a new virtual environment.
 
 `python -m venv venv source venv/bin/activate`
 `source venv/bin/activate`
 
-Once you have your virtual environment up and running you can tell pip to download all the requirements for this app by running `pip install -r requirements.txt`. Make sure you are in the main directory of the repo (the one with the readme in it).
+Once I had my virtual environment up and running, I "told" pip to download all the requirements for this app by running `pip install -r requirements.txt`. I also had to make sure I was in the main directory of the repo (the one with the readme in it) when runnng this command.
 
-Next set up the database `car_app` by running `createdb car_app`.
+Next, I set up the database `car_app` by running `createdb car_app`.
