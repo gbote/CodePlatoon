@@ -1,33 +1,29 @@
 # React: Temperature Conversion
 
-For this challenge, we're going to ask you to convert our existing React project from class-based components to functional components, to gain a better understanding about the React Component Lifecycle as well as understanding how to work with the `useEffect()` hook. This will also give you some more practice with understanding class-based component syntax.
+For this challenge, I convert an existing React project from class-based components to functional components to gain a better understanding about the React Component Lifecycle as well as understanding how to work with the `useEffect()` hook. This will also gave me some more practice with understanding class-based component syntax.
 
 # Initial Set-up
 
-This project utilizes the OpenWeather API. To complete this challenge, you'll first need to obtain your own personal API key. To do so, sign up for a free account here: [OpenWeather API](https://home.openweathermap.org/users/sign_up) 
+This project utilizes the OpenWeather API. To complete this challenge, I first obtained ny own personal API key through [OpenWeather API](https://home.openweathermap.org/users/sign_up) 
 
-Once you've signed up, you should be able to find your API key here: [API key](https://home.openweathermap.org/api_keys)
+Once I signed up, I was able to find my API key here: [API key](https://home.openweathermap.org/api_keys)
 
-NOTE: It will take a few minutes for this key to become active!
+NOTE: This took a few minutes for this key to become active!
 
-Copy your API key value and replace the value of `myOpenWeatherApiKey` at the top of App.js, with your key value.
+Then, I copied my API key value and replace the value of `myOpenWeatherApiKey` at the top of App.jsx with my key value.
 
-Go through your usual set-up commands (`npm install` and `npm start`) to get the project running.
-
-# Initial Challenge
-
-Your first task is to look through the provided code and fully understand how the application is working. If you don't understand something, make sure you ask questions! You should ultimately understand what the lifecycle methods are doing with-in this app.
+Last, I went through the usual set-up commands (`npm install` and `npm run dev`) to get the project running.
 
 # Main Challenge
 
-Now that you understand how the application works with the lifecycle methods, it's time for you to covert what we have from class-based components to function based components. The main thing you'll have to work with is the [`useEffect()`](https://reactjs.org/docs/hooks-effect.html) hook, to replace the class component life-cycle methods that we've implemented.
+The main thing I have to work with is the [`useEffect()`](https://reactjs.org/docs/hooks-effect.html) hook to replace the class component life-cycle methods that were implemented previously.
 
-The four components that need to be refactored are:
-- App.js
-- components/ErrorDisplay.js
-- components/InputZipCode.js
-- components/TemperatureDisplay.js
+The four components that needed to be refactored are:
+- App.jsx
+- components/ErrorDisplay.jsx
+- components/InputZipCode.jsx
+- components/TemperatureDisplay.jsx
 
-IMPORTANT: You should strongly consider refactoring the code WITHOUT the api call in place initially. It's possible to accidentally get into an infinite loop when using life-cycle methods / useEffect(), so we recommend adding in dummy data and console.log() calls initially to verify the refactor is successful, before using the api call. The OpenWeather API has limits on the number of requests you can make per minute and per day, so if you get into an infinite loop with your api call in place, you'll likely be banned from using the service temporarily for exceeding your limit!!
+IMPORTANT: It was suggested to me that I should strongly consider refactoring the code WITHOUT the api call in place initially. It's possible to accidentally get into an infinite loop when using life-cycle methods / useEffect(), so I added in dummy data and console.log() calls initially to verify the refactor is successful, before using the API call. The OpenWeather API has limits on the number of requests you can make per minute and per day, so if I was to get into an infinite loop with my API call in place, I will likely be banned from using the service temporarily for exceeding the limit!!
 
-Once your refactor is complete, make sure everything works correctly as it did before!
+Once the refactor is complete, I made sure everything works correctly as it did before!
