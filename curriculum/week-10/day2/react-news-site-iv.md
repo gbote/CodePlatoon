@@ -208,11 +208,14 @@ const [someDataFromAnAPI, setSomeDataFromAnAPI] = useState(null)
     return axios.get('http://hn.algolia.com/api/v1/search_by_date', {
           params:{
             tags: ('story'),
-            hitsPerPage:50,
-            create_at_i: '<07/02/2020'
+            hitsPerPage:50
           }
     } )
   }
+  
+```
+> get stories before a certain date
+```js
 
 let date = Math.floor(Date.now() / 1000) - 86400 //24hrs ago
 axios.get('http://hn.algolia.com/api/v1/search_by_date?', {

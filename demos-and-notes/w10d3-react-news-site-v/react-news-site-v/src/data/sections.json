@@ -1,0 +1,19 @@
+[
+  {
+    "label": "Ask",
+    "value": "ask",
+    "api_val": "ask_hn"
+  },
+  {
+    "label": "WORLD",
+    "value": "world"
+  },
+  {
+    "label": "NATIONAL",
+    "value": "national"
+  },
+  {
+    "label": "BUSINESS",
+    "value": "business"
+  }
+]
