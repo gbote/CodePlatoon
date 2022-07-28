@@ -11,3 +11,19 @@ type `npm run <script_name>` to run a script from your package.json
 
 
 for js projects, the package.json is like requirements.txt and manage.py in one file.
+
+
+two types of data:
+serial data: "hello world". just a series of letters, one after another
+
+
+non-serial data: 
+alice = {
+    name: 'alice',
+    address: {
+        street: 12,
+        roommates: ['bob', 'dan']
+    }
+}
+
+headers that start with X- are custom headers, not necessarily official/standardized
