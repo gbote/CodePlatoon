@@ -1,12 +1,12 @@
 # Hangman!
-In this exercise, I recreatef the word game Hangman.
+In this exercise, I recreated the word game Hangman.
 
 In addition to building the app end-to-end independently, I learned about the power of chaining array transformations (like map and filter) - a pillar of functional programming.
 
 ## Release 0:
 The interface should contain the following components:
 - A component that displays the puzzle word (letters should be separated by spaces).  Letters that haven't been guessed should be displayed as an underscore - letters that have been guessed should be displayed.
-- A component that contains a text input and a button to submit the guessed letter.  If the letter submitted has already been guessed, display an `alert()`.
+- A component that contains a text input and a button to submit the guessed letter.  If the letter submitted has already been guessed, show some way that the letter cannot be inputted anymore.
 - A component that displays letters that are not part of the puzzle word.
 
 One last requirement: there should only be two properties within `App.jsx`'s state:
