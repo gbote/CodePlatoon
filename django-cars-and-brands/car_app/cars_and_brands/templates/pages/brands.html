@@ -1,0 +1,20 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}Brands{% endblock %} {% block content %}
+<h1>Brands</h1>
+<ul>
+    {% for brand in all_brands %}
+    <li><a href="{% url 'brand_detail' brand.id%}">{{ brand.name }}</a></li>
+    {% endfor %}
+</ul>
+<hr />
+<form method="POST">
+    {% csrf_token %}
+    <label for="brand">New Brand:</label>
+    <input name="brand" placeholder="Enter Brand Name" />
+    <input type="hidden" name="add" value="" />
+    <input type="Submit" value="Add New Brand" />
+    {% if error %}
+    <p id="error">{{ error.name }}</p>
+    {% endif %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}{{brand.name}}{% endblock %} {% block content %}
+<h2>{{brand.name}}</h2>
+<form method="POST">
+    {% csrf_token %}
+    <ul>
+        {% for c in brand.cars.all|dictsort:"id" %}
+        <li><a href="{% url 'car_detail' c.id %}">Model: {{ c.model }}</a> Year: {{c.year}}</li>
+        {% endfor %}
+    </ul>
+</form>
+<a href="{% url 'brand_edit' brand.id%}"><button>Edit</button></a>
+<a href="{% url 'car_new' brand.id%}"><button>Add New Car</button></a>
+
+<hr />
+<form action="{% url 'brands' %}"><input type="Submit" value="Go to Brands" /></form>
+{% endblock %}

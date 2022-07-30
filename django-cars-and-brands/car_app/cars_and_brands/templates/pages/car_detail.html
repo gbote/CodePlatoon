@@ -1,0 +1,14 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}{{brand.name}}{% endblock %} {% block content %}
+<h2>{{car.brand}} {{car.model}}</h2>
+<form method="POST">
+    {% csrf_token %}
+    <ul>
+        <li>{{ car.year }}</li>
+        <li>{{ car.color }}</li>
+    </ul>
+</form>
+<a href="{% url 'car_edit' car.id%}"><button>Edit</button></a>
+
+<hr />
+<form action="{% url 'brands' %}"><input type="Submit" value="Go to Brands" /></form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}{{brand.name}}{% endblock %} {% block content %}
+<h2>{{brand.name}}</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label for="brand">Brand:</label>
+    <input type="text" name="brand" value="{{ brand.name }}" />
+    <br />
+    <ul>
+        {% for c in brand.cars.all %}
+        <label for="car-{{c.id}}"> Car Model: </label>
+        <input type="text" name="car-{{c.id}}" value="{{ c.model }}" />
+        <br />
+        {% endfor %}
+    </ul>
+    <input type="hidden" value="brand_edit" />
+    <input type="Submit" value="Update Brand" />
+</form>
+{% if error %}
+<p id="error">ERROR: {{ error }}</p>
+{% endif %}
+<hr />
+<form action="{% url 'brands' %}"><input type="Submit" value="Go to Brands" /></form>
+{% endblock %}

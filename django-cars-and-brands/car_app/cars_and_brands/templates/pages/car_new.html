@@ -1,0 +1,22 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}New Car{% endblock %} {% block content %}
+<h1>Add New Car to {{car.name}}'s Inventory</h1>
+<hr />
+<form method="POST">
+    {% csrf_token %}
+    <label for="model">Model:</label>
+    <input name="model" placeholder="Enter Model Name" />
+
+    <label for="year">Year:</label>
+    <input name="year" placeholder="Enter Year" />
+
+    <label for="color">Color:</label>
+    <input name="color" placeholder="Enter Color" />
+
+    <input type="hidden" name="add_new" value="" />
+    <input type="Submit" value="Add New Car" />
+    {% if error %}
+    <p id="error">{{ error.name }}</p>
+    {% endif %}
+</form>
+
+{% endblock %}

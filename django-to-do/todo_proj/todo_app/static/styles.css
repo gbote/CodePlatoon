@@ -1,0 +1,45 @@
+.slide-down {
+  animation-name: slidedown;
+  animation-duration: 2s;  
+  animation-timing-function: ease-out;
+  animation-fill-mode:  none;
+  animation-direction: normal;
+  animation-delay: 0ms;
+}
+
+@keyframes slidedown {
+  from {
+    visibility: hidden;
+    transform: translateY(-100%);
+  }
+  to {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.x-button {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+input[type="text"]:disabled {
+  opacity: 0.75;
+}
+
+input:invalid {
+  background-color: #ffe6e6;
+}
+
+input:invalid:focus {
+  border: 2px dashed red;
+}
+
+.btn-success {
+  background-color: darkgreen;
+}

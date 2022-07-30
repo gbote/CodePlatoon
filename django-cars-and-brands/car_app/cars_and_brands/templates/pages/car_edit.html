@@ -1,0 +1,23 @@
+{% extends 'pages/main.html' %} {% load static %} {% block title %}{{brand.name}}{% endblock %} {% block content %}
+<h2>{{ car.brand }} {{ car.model }}</h2>
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="model">Model:</label>
+    <input type="text" name="model" value="{{ car.model }}" />
+    <br />
+    <label for="year">Year:</label>
+    <input type="text" name="year" value="{{ car.year }}" />
+    <br />
+    <label for="color">color:</label>
+    <input type="text" name="color" value="{{ car.color }}" />
+    <br />
+    <input type="hidden" value="car_edit" />
+    <input type="Submit" value="Update Brand" />
+</form>
+{% if error %}
+<p id="error">ERROR: {{ error }}</p>
+{% endif %}
+<hr />
+<form action="{% url 'brands' %}"><input type="Submit" value="Go to Brands" /></form>
+{% endblock %}
