@@ -1,4 +1,4 @@
-# Wednesday, May 11, 2022
+# Wednesday, August 31, 2022
 
 ## Mock Interviews Day!
 
