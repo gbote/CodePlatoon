@@ -58,6 +58,6 @@ print(re.sub(regex, r"\2 of \1", "June 24, August 9, Dec 12")) # 24 of June, 9 o
 - [Google's writeup on Python Regex](https://developers.google.com/edu/python/regular-expressions)
 
 ## Assignments
-- [RegexOne](https://regexone.com/python)
-- [Phone Numbers](https://github.com/quebecplatoon/algo-validate-phone) in Python Regular Expressions
+- [RegexOne](https://regexone.com/python) - highly recommended
+- [Phone Numbers](https://github.com/romeoplatoon/algo-validate-phone) in Python Regular Expressions
 
