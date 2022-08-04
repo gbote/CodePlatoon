@@ -7,7 +7,7 @@ is_match = re.match(r"abc", r"abc")
 
 # Example of a validator-type function using a regex
 def is_abc_match(input):
-    match = re.match("abc", input)
+    match = re.match(r"abc", input)
     return bool(match)
 
 print(is_abc_match("abc"))
