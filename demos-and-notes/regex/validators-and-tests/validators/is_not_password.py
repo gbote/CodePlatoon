@@ -4,4 +4,4 @@ import re
 
 def is_not_password(input):
     match = re.match(r"password", input.lower())
-    return False if match else True
+    return not match

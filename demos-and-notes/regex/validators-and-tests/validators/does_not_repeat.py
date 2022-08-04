@@ -5,4 +5,4 @@ import re
 # .* zero or more characters
 def does_not_repeat(input):
     match = re.match(r"(....).*\1", input)
-    return False if match else True
+    return not match
