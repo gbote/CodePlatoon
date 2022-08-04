@@ -1,0 +1,14 @@
+{% extends 'clj_app/index.html' %}
+
+{%block content%}
+<h1>Category: {{category}}</h1>
+{% for post in posts%}
+
+<a href = "{% url 'post_info' category.id post.id %}">{{post.title}}</a>
+<br>
+
+{% endfor %}
+<br>
+<a href = "{% url 'add_post' category.id %}">Add a New Post</a>
+<a href = "{% url 'edit_category' category.id %}">Edit Category</a>
+{% endblock %}

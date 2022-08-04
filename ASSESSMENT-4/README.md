@@ -17,10 +17,7 @@
 ## Requirements
 - This assessment must be completed using Django. 
 - You must use a PostgreSQL for your database.
-  - **You MUST name your database the following: assessment_four**. This enables us to streamline our grading process. **You may fail the assessment** if you do not correctly name your database.
   - Make sure you provide some seed data using Django fixtures 
-- You **must** include a requirements.txt file with all Python dependencies for your project so instructors can successfully build & run your application.
-- If your assessment does anything extra, you **must** include instructions on how to build & run your project so that instructors can successfully build & run your application.
 
 ## Challenge
 Everyone loves going on Craigslist to find interesting people and interesting items. 

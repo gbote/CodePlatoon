@@ -1,0 +1,20 @@
+{% extends 'clj_app/index.html' %}
+
+{%block content%}
+
+<h1>Add New Post</h1>
+<label>Title:</label>
+<input id = "newTitle"></input>
+<br>
+<label>Description:</label>
+<input id = "newDescription"></input>
+<br>
+<label>Price:</label>
+<input id = "newPrice"></input>
+<br>
+<label>Seller:</label>
+<input id = "newSeller"></input>
+<br>
+
+<button onClick = "{savePost();}">Submit New Post</button>
+{% endblock %}

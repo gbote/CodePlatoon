@@ -1,0 +1,21 @@
+{% extends 'clj_app/index.html' %}
+
+{%block content%}
+
+<h1>Edit Post</h1>
+<label>Title:</label>
+<input id = "newTitle" value = "{{post.title}}"></input>
+<br>
+<label>Description:</label>
+<input id = "newDescription" value = "{{post.description}}"></input>
+<br>
+<label>Price:</label>
+<input id = "newPrice" value = "{{post.price}}"></input>
+<br>
+<label>Seller:</label>
+<input id = "newSeller" value = "{{post.seller}}"></input>
+<br>
+
+<button onClick = "{editPost();}">Submit Edited Post</button>
+<button onClick = "{deletePost();}">Delete Post</button>
+{% endblock %}

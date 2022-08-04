@@ -1,0 +1,11 @@
+{% extends 'clj_app/index.html' %}
+
+{%block content%}
+
+<h1>Add New Category</h1>
+<label>Name:</label>
+<input id = "newCategory"></input>
+<br>
+
+<button onClick = "{saveCategory();}">Submit New Category</button>
+{% endblock %}

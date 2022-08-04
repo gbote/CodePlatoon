@@ -1,0 +1,12 @@
+{% extends 'clj_app/index.html' %}
+
+{%block content%}
+
+<h1>Edit Category</h1>
+<label>Name:</label>
+<input id = "newName" value = "{{category.category_name}}"></input>
+<br>
+
+<button onClick = "{editCategory();}">Submit Edited Category</button>
+<button onClick = "{deleteCategory();}">Delete Category</button>
+{% endblock %}
