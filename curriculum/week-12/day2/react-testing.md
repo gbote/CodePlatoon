@@ -3,8 +3,7 @@
 ## Topics Covered
 
 ## Goals
-- Continue to build upon News Site React Challenge
-- Learn how to test a javascript application
+- Learn how to test a web application
 
 ## Lesson
 
@@ -52,7 +51,64 @@ Testing your code helps you build confidence in your logic, assuring you that yo
 3. Execute units tests
 4. Verify assertions satisfy expectations
 
-> Let's write a couple unit tests using jest. Jest is already configured in create-react-app, we just need to create test files that are named like `.test.js`. We can put them all in one folder, or put unit tests next to the files they are testing. 
+
+
+> Let's write a couple unit tests using vitest. First, we'll need to install it with `npm install vitest`. Then, we'll want to add a script to our `package.json` that invokes vitest: `"test": "vitest run"`. This will cause vitest to search through our project for any file that ends with `.test.js`, and test that file.
+
+
+> Let's create a basic test suite, containing a single test. We'll make a folder called `tests`, and create a file inside called `random.test.js`. 
+```javascript
+import { expect, it, describe} from 'vitest'
+
+describe('Math.max', ()=>{
+	it('should return the largest number', ()=>{
+		const biggerNumber = Math.max(1,5)
+    	expect(biggerNumber).toBe(5) 
+	})
+})
+```
+> Even though this test is about as simple can be, there are probably a few unfamiliar concepts here. First, notice that our entire test suite is contained inside of the `describe()` call. `describe` is simply used for grouping and labeling tests. The first argument is a string that describes the contents of that `describe` block, and the second argument is a callback function that contains all the tests that are grouped under that `describe` block.
+
+> Inside of describe, we have an `it` block. `it` is similar to `describe` in that its first argument is a string describing the test, and then the second argument is a callback function that contains a specific test. Unlike `describe`, `it` is more specific. Whereas `describe` is for describing/grouping multiple tests, `it` is supposed to contain a single test. 
+
+> Inside of the test in the `it` block, there may be multiple expectations, but the example above has only one. `expect` is a function that takes an expression, and lets us make an assertion about its value. The above example has a simple assertion, testing that it is equal to some specific value, `5`. If that's not true, `expect` will throw an error. After running your tests, the test runner will show you all the tests that failed, with their labels printed out. For a failed test, we might see output like this: 
+
+```
+ FAIL  tests/unit/math.test.js > Math.max > should return the largest number
+AssertionError: expected 5 to be 1
+```
+
+> Notice how the strings from our `describe` and `it` blocks were concatenated together in the error message. If you are thoughtful about how you write these strings, then the error output from your tests will be a grammatical english sentence that describes exactly what went wrong. Like we mentioned before, a good test suite should contain both optimistic and pessimistic tests. Let's add some more tests to our suite.
+
+```javascript
+import { expect, it, describe} from 'vitest'
+
+describe('Math.max', ()=>{
+    describe('with valid inputs', ()=>{
+        it('should return the largest number', ()=>{
+            const biggerNumber = Math.max(1,5)
+            expect(biggerNumber).toBe(5) 
+        })
+        it('should handle negative numbers', ()=>{
+            const biggerNumber = Math.max(1,-5)
+            expect(biggerNumber).toBe(1) 
+        })
+        it('should handle any number of inputs', ()=>{
+            const biggerNumber = Math.max(1,2,3,4,5,6)
+            expect(biggerNumber).toBe(6) 
+        })
+    })
+    describe('with invalid inputs', ()=>{
+        it('cannot return the largest value from an array', ()=>{
+            expect(Math.max([1,2])).toBe(NaN)
+        })
+        it('cannot return the largest value from a list of strings', ()=>{
+            expect(Math.max('a', 'b')).toBe(NaN)
+        })
+    })
+})
+```
+
 
 > In order to unit test our code, we might need to refactor it to make it testable. You want as much of your application as possible to consist of small, pure functions, that only take input and return output, without causing side effects. These functions should be exported from the files they're written in, so that they can be imported into the test file. 
 
@@ -128,5 +184,4 @@ Make sure you get more value from your tests than they cost you to create. Only 
 - [Puppeteer](https://github.com/puppeteer/puppeteer)
 
 ## Assignments
-
 
