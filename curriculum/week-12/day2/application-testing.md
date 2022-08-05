@@ -78,7 +78,9 @@ describe('Math.max', ()=>{
 AssertionError: expected 5 to be 1
 ```
 
-> Notice how the strings from our `describe` and `it` blocks were concatenated together in the error message. If you are thoughtful about how you write these strings, then the error output from your tests will be a grammatical english sentence that describes exactly what went wrong. Like we mentioned before, a good test suite should contain both optimistic and pessimistic tests. Let's add some more tests to our suite.
+> Notice how the strings from our `describe` and `it` blocks were concatenated together in the error message. If you are thoughtful about how you write these strings, then the error output from your tests will be a grammatical english sentence that describes exactly what went wrong. 
+
+> Like we mentioned before, a good test suite should contain both optimistic and pessimistic tests. Let's add some more tests to our suite.
 
 ```javascript
 import { expect, it, describe} from 'vitest'
@@ -112,6 +114,29 @@ describe('Math.max', ()=>{
 
 > In order to unit test our code, we might need to refactor it to make it testable. You want as much of your application as possible to consist of small, pure functions, that only take input and return output, without causing side effects. These functions should be exported from the files they're written in, so that they can be imported into the test file. 
 
+```javascript
+const getCSRFToken = (cookieString)=>{
+    let csrfToken
+  
+    // the browser's cookies for this page are all in one string, separated by semi-colons
+    const cookies = cookieString.split(';')
+    for ( let cookie of cookies ) {
+        // individual cookies have their key and value separated by an equal sign
+        const crumbs = cookie.split('=')
+        if ( crumbs[0].trim() === 'csrftoken') {
+            csrfToken = crumbs[1]
+        }
+    }
+    return csrfToken
+  }
+
+export {
+    getCSRFToken,
+}
+```
+
+> The code above is the function we use for getting the CSRF token from the cookie string, but we've made some changes to it to make it testable. First, instead of letting this function directly access the cookie string from the document, it is passed in as an argument. Also, we defined this function in its own file and exported it, instead of defining it directly in a component's file. 
+
 ##### Mocking
 > It's very important that our unit tests are fast, but sometimes we want to test functions that perform slow or expensive operations. We can use a mock function that simply returns some hardcoded value instead of actually performing the slow operation. For example, you might create a mock to generate API responses, or database query sets, because sending API requests and querying the database are both slower than a unit test should be. 
 
@@ -139,10 +164,35 @@ describe('Math.max', ()=>{
 - Can be `automated` or driven `manually`
 - Use tools such as Selenium or puppeteer. 
 
-> Traditionally, Selenium was by far the most popular choice for browser automation. More recently, many other similar tools have been created that are simpler and more convenient. Today, we'll be using Puppeteer in Jest. 
+> Traditionally, Selenium was by far the most popular choice for browser automation. More recently, many other similar tools have been created that are simpler and more convenient. Today, we'll be using Puppeteer.
 
 ```bash
 npm install puppeteer --save-dev
+```
+
+```javascript
+describe('the application', ()=>{
+    let browser
+    let page
+    beforeAll( async ()=>{
+        browser = await puppeteer.launch({headless:false, slowMo: 100})
+        page = await browser.newPage()
+    })
+    afterAll( async ()=>{
+        await browser.close()
+    })
+    describe('homepage', ()=>{
+        it('should welcome the user', async ()=>{
+            await page.goto('http://localhost:8000')
+            await page.waitForSelector('#welcome')
+            const welcomeEl = await page.$('#welcome')
+            const welcomeText = await welcomeEl.evaluate((el)=> el.innerText)
+            console.log(welcomeText)
+            expect(welcomeText.includes('Welcome')).toBe(true)
+        })
+	})
+})
+      
 ```
 
 ##### Steps
@@ -160,7 +210,7 @@ npm install puppeteer --save-dev
 - Each test raises the possibility of false-positive, which waste time
 - Each test increases the length of your test results, making them harder to read
 
-Make sure you get more value from your tests than they cost you to create. Only test `important` (mission critical) features of your application.
+Make sure you get more value from your tests than they cost you to create. Only test 'important' features of your application.
 
 - The CSS on the admin dashboard of your app will probably never break, and if it does, barely anyone will notice. If they do, they might not even care. Don't Go crazy testing that every CSS rule in your app applies correctly on every page.
 - Signup/Login is probably critical to your application. Many applications are worthless if users can't log in. Do test the signup and login features of your app. Test all of the common failure cases (wrong username, wrong password, etc.) to be sure that your login/signup functionality behaves correctly in all cases.

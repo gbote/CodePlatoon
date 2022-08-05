@@ -18,18 +18,20 @@
 
 ## STARTING IN NORMAL MODE
 > When you open Vim initially, you'll be in NORMAL mode. You might think that NORMAL is a strange name for this mode, because it doesn't work like a normal editor! In NORMAL mode, none of they keys you press will insert text into the document, instead they will perform different commands, similar to what you'd find in the `Edit` menu of a normal text editor, like VSCode. The first commands we should learn about are the ones that enter INSERT mode from NORMAL mode. There are 6 of them, but it's really not as much as it sounds like. In Vim, there are many commands that do similar things. Also, most commands in Vim can be slightly modified by holding SHIFT when you press the command. Sometimes, holding SHIFT will perform an action before the cursor, instead of after the cursor. Sometimes, holding SHIFT will perform an action on an entire line, instead of a single character. 
-`i` - insert. Enter insert mode before the cursor
-`I` - insert. Enter insert mode at the start of the current line
-`a` - append. Enter insert mode after the cursor
-`A` - append. Enter insert mode at the end of the current line
-`o` - open.   Enter insert mode on a new, blank line below the cursor
-`O` - open.   Enter insert mode on a new, blank line above the cursor
+- `i` - insert. enter insert mode before the cursor
+- `i` - insert. enter insert mode at the start of the current line
+- `a` - append. enter insert mode after the cursor
+- `a` - append. enter insert mode at the end of the current line
+- `o` - open.   enter insert mode on a new, blank line below the cursor
+- `O` - open.   Enter insert mode on a new, blank line above the cursor
 
 > All of the above commands are useful, but for now, let's just use `i` to enter INSERT mode.
 
 ## INSERT MODE
 > INSERT mode is pretty simple. It works like a normal text editor, where you can type letters on your keyboard to insert them into the document. By default, there is only one command in INSERT mode. Press `esc` in INSERT mode to return to NORMAL mode. 
+
 > You might find that this is not a convenient shortcut, since `esc` is pretty far from the home row. When Vim was originally designed, keyboards looked different!
 
 ![keys](../page-resources/vim-keyboard.webp)
 
+> In the picture above, you can see an example of a keyboard that was common when Vim was designed. Notice how the `esc` and `ctrl` keys are right next to the `q` and `a` keys, unlike a modern keyboard. Fortunately, almost everything in Vim can be configured. Let's create a config file for Vim, and then add a keybinding to it that gives us another way to switch to NORMAL mode from INSERT mode. By default, Vim looks for its config file 
