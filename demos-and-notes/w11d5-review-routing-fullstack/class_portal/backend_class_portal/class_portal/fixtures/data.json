@@ -1,0 +1,40 @@
+[
+    {
+        "model": "class_portal.Assignment",
+        "pk": 1,
+        "fields": {
+          "title": "Assessment 1",
+          "description": "build a python app that does things, we should allow this field to be very large",
+          "rubric": "https://docs.google.com/spreadsheets/d/1CjVoEPvswccsGTU5xc0WLaQ87Ql_mqGSeCEoZhSFyCM/edit#gid=0",
+          "course": 1
+        }
+      },
+      {
+        "model": "class_portal.Assignment",
+        "pk": 2,
+        "fields": {
+          "title": "Assessment 2",
+          "description": "build a python app that does things, we should allow this field to be very large",
+          "rubric": "",
+          "course": 1
+        }
+      },
+  {
+    "model": "class_portal.Grade",
+    "pk": 1,
+    "fields": {
+        "student": 1,
+        "assignment": 1,
+        "grade": 99.5
+      }
+  },
+  {
+    "model": "class_portal.Grade",
+    "pk": 2,
+    "fields": {
+        "student": 1,
+        "assignment": 2,
+        "grade": 79.39
+      }
+  }
+]
