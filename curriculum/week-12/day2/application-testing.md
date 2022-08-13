@@ -1,4 +1,4 @@
-# Frontend Testing
+# Application Testing
 
 ## Topics Covered
 
